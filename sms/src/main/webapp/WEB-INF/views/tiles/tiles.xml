@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<!-- Base Definition -->
+	<definition name="base-definition"
+		template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />
+		<put-attribute name="pageCSS" value=""></put-attribute>
+		<put-attribute name="body" value="" />
+
+
+		<put-attribute name="footer"
+			value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+		</put-list-attribute>
+
+
+		<put-list-attribute name="requiredJSFiles">
+		</put-list-attribute>
+
+
+	</definition>
+
+	<!-- Admin page -->
+	<definition name="adminRoot" extends="base-definition">
+		<put-attribute name="title" value="Admin Page" />
+		<put-attribute name="pageCSS" value="admin"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/root.jsp" />
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/students.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="admin" />
+			<add-attribute value="app" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Admin Students page -->
+	<definition name="adminStudents" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/students.jsp" cascade="true" />
+		<put-attribute name="title" value="Admin Students" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminStudents" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="adminStudents" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Admin Teachers page -->
+	<definition name="adminTeachers" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/teachers.jsp" cascade="true" />
+
+		<put-attribute name="title" value="Admin Teachers" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminStudents" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="adminTeachers" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Admin ClassLevels page -->
+	<definition name="adminClassLevels" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/classLevels.jsp" cascade="true" />
+
+		<put-attribute name="title" value="Admin ClassLevels" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminClassLevels" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="adminClassLevels" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Admin SchoolWeekDays page -->
+	<definition name="adminSchoolWeekDays" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/schoolWeekDays.jsp" cascade="true" />
+
+		<put-attribute name="title" value="Admin ClassLevels" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminSchoolWeekDays" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="adminSchoolWeekDays" />
+		</put-list-attribute>
+
+	</definition>
+
+	<!-- Admin ClasGroupTables page -->
+	<definition name="adminClassGroups" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/classGroups.jsp" cascade="true" />
+
+		<put-attribute name="title" value="Admin ClassGroups" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Admin ClasGroupTables page -->
+	<definition name="adminClassGroupTables" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/classGroupTables.jsp" cascade="true" />
+
+		<put-attribute name="title"
+			value="Admin ClassGroupTables" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Admin Enrollents page -->
+	<definition name="adminEnrollments" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/enrollments.jsp" cascade="true" />
+
+		<put-attribute name="title"
+			value="Admin ClassGroupTables" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminEnrollments" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="adminEnrollments" />
+		</put-list-attribute>
+
+	</definition>
+
+
+
+	<!-- Admin StudentPresents page -->
+	<definition name="adminStudentPresents" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/studentPresents.jsp" cascade="true" />
+
+		<put-attribute name="title"
+			value="Admin StudentPresents" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminStudentPresents" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="adminStudentPresents" />
+		</put-list-attribute>
+
+	</definition>
+
+
+
+	<!-- ClassLevelSubjects -->
+	<definition name="classLevelSubjects"
+		extends="base-definition">
+		<put-attribute name="title" value="ClassLevelSubjects" />
+		<put-attribute name="pageCSS" value="admin"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/classSubject/classLevelSubjects.jsp" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="classLevelSubjects" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="classLevelSubjects" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- ClassLevelMarks -->
+	<definition name="classLevelMarks" extends="base-definition">
+		<put-attribute name="title" value="ClassLevelMarks" />
+		<put-attribute name="pageCSS" value="admin"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/classMark/classLevelMarks.jsp" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="classLevelMarks" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="classLevelMarks" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- ClassLevelGroups -->
+	<definition name="classLevelGroups"
+		extends="base-definition">
+		<put-attribute name="title" value="ClassLevelGroups" />
+		<put-attribute name="pageCSS" value="admin"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/classGroup/classLevelGroups.jsp" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="classLevelGroups" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="classLevelGroups" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- ClassLevelLessonTimes -->
+	<definition name="classLevelLessonTimes"
+		extends="base-definition">
+		<put-attribute name="title"
+			value="ClassLevelLessonTimes" />
+		<put-attribute name="pageCSS" value="admin"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/lessonTime/classLevelLessonTimes.jsp" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="classLevelLessonTimes" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="classLevelLessonTimes" />
+		</put-list-attribute>
+	</definition>
+
+
+
+	<!-- EnrollmentPayments -->
+	<definition name="enrollmentPayments"
+		extends="base-definition">
+		<put-attribute name="title" value="Enrollment Payments" />
+		<put-attribute name="pageCSS" value="admin"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/enrollmentPayment/enrollmentPayments.jsp" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="enrollmentPayments" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="enrollmentPayments" />
+		</put-list-attribute>
+	</definition>
+
+
+
+	<!-- AddClassGroupStudentPresent -->
+	<definition name="addClassGroupStudentPresent"
+		extends="base-definition">
+		<put-attribute name="title"
+			value="addClassGroupStudentPresent" />
+		<put-attribute name="pageCSS" value="admin"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/studentPresent/addClassGroupStudentPresent.jsp" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="enrollmentPayments" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="addClassGroupStudentPresent" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Admin StudentStudentSubjectMarks -->
+	<definition name="adminStudentStudentSubjectMarks"
+		extends="base-definition">
+		<put-attribute name="title"
+			value="studentStudentSubjectMarks" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/adminStudentSubjectMarks.jsp" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="studentStudentSubjectMarks" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="studentStudentSubjectMarks" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Student Page -->
+	<!-- Student Page -->
+	<!-- Student Page -->
+	<definition name="studentRoot" extends="base-definition">
+		<put-attribute name="title" value="Student Page" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/student/root.jsp" />
+		<put-attribute name="studentBody"
+			value="/WEB-INF/views/student/notification.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+		</put-list-attribute>
+	</definition>
+
+
+	<definition name="studentClassGroupTable"
+		extends="studentRoot">
+		<put-attribute name="studentBody"
+			value="/WEB-INF/views/student/classGroupTable.jsp" cascade="true" />
+
+		<put-attribute name="title"
+			value="Student ClassGroup Table" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<definition name="studentStudentSubjectMarks"
+		extends="studentRoot">
+		<put-attribute name="studentBody"
+			value="/WEB-INF/views/student/studentStudentSubjectMarks.jsp"
+			cascade="true" />
+
+		<put-attribute name="title"
+			value="Student StudentSubject Marks" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+	</definition>
+
+
+
+	<definition name="studentSubjectNotifications"
+		extends="studentRoot">
+		<put-attribute name="studentBody"
+			value="/WEB-INF/views/student/studentSubjectNotifications.jsp"
+			cascade="true" />
+
+		<put-attribute name="title"
+			value="studentSubjectNotifications" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<definition name="studentNotifications"
+		extends="studentRoot">
+		<put-attribute name="studentBody"
+			value="/WEB-INF/views/student/studentNotifications.jsp"
+			cascade="true" />
+
+		<put-attribute name="title" value="studentNotifications" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+			<add-attribute value="adminClassGroupTables" />
+		</put-list-attribute>
+
+	</definition>
+
+
+
+	<!-- Teacher Page -->
+	<!-- Teacher Page -->
+	<!-- Teacher Page -->
+	<!-- Teacher Page -->
+	<definition name="teacherRoot" extends="base-definition">
+		<put-attribute name="title" value="Teacher Root" />
+		<put-attribute name="body"
+			value="/WEB-INF/views/teacher/root.jsp" />
+		<put-attribute name="teacherBody"
+			value="/WEB-INF/views/teacher/notification.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+		</put-list-attribute>
+	</definition>
+
+
+
+	<definition name="teacherClassSubject" extends="teacherRoot">
+		<put-attribute name="title" value="teacherClassSubject" />
+		<put-attribute name="teacherBody"
+			value="/WEB-INF/views/teacher/classSubject.jsp" cascade="true" />
+	</definition>
+
+
+
+	<definition name="teacherClassSubjectMarks"
+		extends="teacherClassSubject">
+		<put-attribute name="title"
+			value="teacherClassSubjectMarks" />
+		<put-attribute name="classSubjectBody"
+			value="/WEB-INF/views/teacher/classSubjectMarks.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="teacherClassSubjectMarks" />
+		</put-list-attribute>
+	</definition>
+
+
+
+	<definition name="teacherSubjectNotifications"
+		extends="teacherClassSubject">
+		<put-attribute name="title"
+			value="teacherClassSubjectMarks" />
+		<put-attribute name="classSubjectBody"
+			value="/WEB-INF/views/teacher/teacherSubjectNotifications.jsp"
+			cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="teacherSubjectNotifications" />
+		</put-list-attribute>
+	</definition>
+
+
+
+
+
+
+
+
+</tiles-definitions>
