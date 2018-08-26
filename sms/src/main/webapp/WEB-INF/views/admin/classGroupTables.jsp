@@ -1,4 +1,4 @@
-<%@page import="com.joh.phms.domain.model.ClassGroupTableD"%>
+<%@page import="com.joh.sms.domain.model.ClassGroupTableD"%>
 <%@ page import="java.util.List"%>
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
