@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,10 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.joh.sms.commons.TestEnv;
 import com.joh.sms.model.ClassLevel;
 import com.joh.sms.model.ClassSubject;
-import com.joh.sms.service.AcademicYearService;
 import com.joh.sms.service.ClassLevelService;
 import com.joh.sms.service.ClassSubjectService;
 
@@ -30,8 +27,6 @@ public class ClassLevelController {
 
 	@Autowired
 	private ClassLevelService classLevelService;
-	@Autowired
-	private AcademicYearService academicYearService;
 
 	@Autowired
 	private ClassSubjectService classSubjectServices;
@@ -61,11 +56,6 @@ public class ClassLevelController {
 
 	@PostMapping(path = "/add")
 	public String addClassLevel(@RequestBody @Valid ClassLevel classLevel, BindingResult result) {
-		// Test
-		academicYearService.save(TestEnv.acadimicYear());
-		classLevel.setAcademicYear(TestEnv.acadimicYear());
-		//
-		classLevel.setAcademicYear(TestEnv.acadimicYear());
 		logger.info("addClassLevel->fired");
 		logger.info("classLevel=" + classLevel);
 		logger.info("error=" + result.getAllErrors());
@@ -97,9 +87,6 @@ public class ClassLevelController {
 	public String updateClassLevel(@RequestBody @Valid ClassLevel classLevel, BindingResult result, Model model) {
 		logger.info("updateClassLevel->fired");
 		logger.info("classLevel=" + classLevel);
-
-		// Prevent update AcademicYear
-		classLevel.setAcademicYear(classLevelService.findOne(classLevel.getId()).getAcademicYear());
 
 		logger.info("error=" + result.getAllErrors());
 		if (result.hasErrors()) {

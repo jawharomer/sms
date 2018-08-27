@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.joh.sms.model.SchoolWeekDay;
-import com.joh.sms.service.AcademicYearService;
 import com.joh.sms.service.SchoolWeekDayService;
 
 @Controller()
@@ -27,8 +26,6 @@ public class SchoolWeekDayController {
 
 	@Autowired
 	private SchoolWeekDayService schoolWeekDayService;
-	@Autowired
-	private AcademicYearService academicYearService;
 
 	@GetMapping()
 	public String getAllSchoolWeekDay(Model model) {

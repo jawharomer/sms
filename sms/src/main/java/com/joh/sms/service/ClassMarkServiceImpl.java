@@ -6,12 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.joh.sms.dao.ClassMarkDAO;
-import com.joh.sms.dao.ClassSubjectDAO;
-import com.joh.sms.model.AcademicYear;
-import com.joh.sms.model.ClassLevel;
 import com.joh.sms.model.ClassMark;
-import com.joh.sms.model.ClassSubject;
-import com.joh.sms.model.Student;
 
 @Service
 public class ClassMarkServiceImpl implements ClassMarkService {

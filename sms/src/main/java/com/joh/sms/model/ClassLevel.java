@@ -27,10 +27,6 @@ public class ClassLevel {
 	@Column(name = "LEVEL_NAME")
 	private String name;
 
-	@JsonIgnore
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "I_ACADEMIC_YEAR", nullable = false)
-	private AcademicYear academicYear;
 
 	public ClassLevel() {
 
@@ -52,13 +48,7 @@ public class ClassLevel {
 		this.name = name;
 	}
 
-	public AcademicYear getAcademicYear() {
-		return academicYear;
-	}
 
-	public void setAcademicYear(AcademicYear academicYear) {
-		this.academicYear = academicYear;
-	}
 
 	@Override
 	public String toString() {

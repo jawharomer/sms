@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.joh.sms.domain.model.StudentPresentD;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentPresent;
-import com.joh.sms.service.AcademicYearService;
 import com.joh.sms.service.ClassSubjectService;
 import com.joh.sms.service.StudentPresentService;
 
@@ -31,8 +30,6 @@ public class StudentPresentController {
 
 	@Autowired
 	private StudentPresentService studentPresentService;
-	@Autowired
-	private AcademicYearService academicYearService;
 
 	@Autowired
 	private ClassSubjectService classSubjectServices;

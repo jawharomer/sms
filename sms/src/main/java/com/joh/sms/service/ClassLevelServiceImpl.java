@@ -34,6 +34,7 @@ public class ClassLevelServiceImpl implements ClassLevelService {
 	@Override
 	@Transactional
 	public void delete(int id) {
+		
 		classLevelDAO.delete(id);
 	}
 
