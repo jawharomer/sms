@@ -3,15 +3,26 @@
 	text-align: right;
 }
 
+body {
+	font-size: 14px;
+}
+
 /*bootstrap*/
 .modal-backdrop {
 	z-index: -1;
 }
 
-body {
-	color: black;
+/*S-JQuery UI*/
+.ui-widget {
+	font-family: "Noto Kufi Arabic", Verdana, Arial, sans-serif;
 }
 
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button
+	{
+	font-family: "Noto Kufi Arabic", Verdana, Arial, sans-serif;
+}
+
+/*E-JQuery UI*/
 #view-port {
 	position: fixed;
 	top: 0px;
@@ -19,25 +30,27 @@ body {
 	left: 0px;
 	bottom: 0px;
 	overflow: auto;
-	background: blue;
 	display: flex;
 	flex-direction: column;
 }
 
 #header {
 	flex-basis: 50px;
-	background: rgba(255, 255, 255, 0.3);
+	line-height: 50px;
+	background: #F4F3F2;
 }
 
 #site-content {
-	background: rgba(255, 255, 255, 0.4);
 	flex: 1 1 auto;
 	display: flex;
 	min-height: 0;
 }
 
 #footer {
-	flex-basis: 20px;
+	min-height: 50px;
+	line-height: 50px;
+	background: #263238;
+	color: white;
 }
 
 a {

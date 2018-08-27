@@ -42,6 +42,22 @@ public class Student {
 	@Column(name = "BIRTH_DATE")
 	private Date birthDate;
 
+	@NotBlank(message = "{student.userName.blank}")
+	@Column(name = "USER_NAME")
+	private String userName;
+
+	@NotBlank(message = "{student.password.blank}")
+	@Column(name = "PASSWORD")
+	private String password;
+
+	@NotBlank(message = "{student.parentUserName.blank}")
+	@Column(name = "PARENT_USER_NAME")
+	private String parentUserName;
+
+	@NotBlank(message = "{student.parentPassword.blank}")
+	@Column(name = "PARENT_PASSWORD")
+	private String parentPassword;
+
 	public Student() {
 	}
 
@@ -85,10 +101,43 @@ public class Student {
 		this.birthDate = birthDate;
 	}
 
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getParentUserName() {
+		return parentUserName;
+	}
+
+	public void setParentUserName(String parentUserName) {
+		this.parentUserName = parentUserName;
+	}
+
+	public String getParentPassword() {
+		return parentPassword;
+	}
+
+	public void setParentPassword(String parentPassword) {
+		this.parentPassword = parentPassword;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", birthDate=" + birthDate + "]";
+				+ lastName + ", birthDate=" + birthDate + ", userName=" + userName + ", password=" + password
+				+ ", parentUserName=" + parentUserName + ", parentPassword=" + parentPassword + "]";
 	}
 
 }

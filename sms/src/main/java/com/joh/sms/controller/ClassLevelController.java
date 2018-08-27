@@ -43,7 +43,7 @@ public class ClassLevelController {
 		return "adminClassLevels";
 	}
 
-	@DeleteMapping(path = "/{id}")
+	@PostMapping(path = "delete/{id}")
 	@ResponseBody
 	public String deleteClassLevel(@PathVariable int id) {
 		logger.info("deleteClassLevel->fired");
@@ -64,9 +64,7 @@ public class ClassLevelController {
 		// Test
 		academicYearService.save(TestEnv.acadimicYear());
 		classLevel.setAcademicYear(TestEnv.acadimicYear());
-
 		//
-
 		classLevel.setAcademicYear(TestEnv.acadimicYear());
 		logger.info("addClassLevel->fired");
 		logger.info("classLevel=" + classLevel);

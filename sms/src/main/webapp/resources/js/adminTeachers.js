@@ -1,7 +1,24 @@
 $(document).ready(function() {
 	console.log("Activate data table");
-	$("#teacherTable").DataTable({
-		responsive : true
+	var table = $('#teachersTable').DataTable({
+		paginate : false,
+		dom : 'Bfrtip',
+		buttons : [ {
+			extend : "excel",
+			charset : 'UTF-8',
+			className : "btn btn-sm  btn-outline-info",
+			exportOptions : {
+				columns : ':not(.cus-not-export)'
+			}
+		}, {
+			extend : "csv",
+			charset : 'UTF-8',
+			className : "btn btn-sm btn-outline-info",
+			exportOptions : {
+				columns : ':not(.cus-not-export)'
+			}
+		}],
+		bInfo : false,
 	});
 });
 
@@ -9,10 +26,9 @@ function getAddTeacher() {
 	console.log("getAddTeacher->fired");
 	$.get("./teachers/add", function(response) {
 		console.log("response=", response);
-		$("#modal").modal("show");
 		$("#modal-body").html(response);
+		$("#modal").modal("show");
 	});
-
 }
 
 function deleteTeacher(_this) {
@@ -20,19 +36,26 @@ function deleteTeacher(_this) {
 	console.log(_this);
 	var id = $(_this).data("teacher-id");
 	console.log("id=", id);
-	$.ajax({
-		url : './teachers/' + id,
-		type : 'DELETE',
-		success : function(result) {
-			console.log(result);
-			if (result == "success") {
-				location.reload();
-			}
-		},
-		failure : function(errMsg) {
-			alert(errMsg);
+
+	$.when(cusConfirm()).done(function(result) {
+		if (result) {
+			$.ajax({
+				url : './teachers/' + id,
+				type : 'POST',
+				success : function(result) {
+					console.log(result);
+					if (result == "success") {
+						location.reload();
+					}
+				},
+				error : function(response) {
+					$("#modal-body").html(response.responseText);
+					$("#modal").modal("show");
+				}
+			});
 		}
 	});
+
 }
 
 function editTeacher(_this) {

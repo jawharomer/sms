@@ -8,35 +8,71 @@
 
 	<sf:form id="addStudentForm" method="POST" commandName="student"
 		onsubmit="addStudent(event)" action="/admin/students/add">
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
-					<td>FirstName</td>
-					<td><sf:input path="firstName" /></td>
+					<td>ناوی قوتابی</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="firstName" /></td>
 					<td><sf:errors path="firstName" /></td>
 				</tr>
 
 				<tr>
-					<td>MiddleName</td>
-					<td><sf:input path="middleName" /></td>
+					<td>ناوی باوک</td>
+					<td><sf:input cssClass="form-control  form-control-sm"
+							path="middleName" /></td>
 					<td><sf:errors path="middleName" /></td>
 				</tr>
 
 				<tr>
-					<td>LastName</td>
-					<td><sf:input path="lastName" /></td>
+					<td>ناوی باپر</td>
+					<td><sf:input cssClass="form-control  form-control-sm"
+							path="lastName" /></td>
 					<td><sf:errors path="lastName" /></td>
 				</tr>
 
 				<tr>
-					<td>Birth Day</td>
-					<td><sf:input path="birthDate" id="birthDate" /></td>
+					<td>بەواری لەدایکبون</td>
+					<td><sf:input cssClass="form-control  form-control-sm"
+							path="birthDate" id="birthDate" /></td>
 					<td><sf:errors path="birthDate" /></td>
 				</tr>
 
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>ناوی بەکاربەر</td>
+					<td><sf:input cssClass="form-control  form-control-sm"
+							path="userName"  /></td>
+					<td><sf:errors path="userName" /></td>
+				</tr>
+
+
+				<tr>
+					<td>وشەی نهێنی</td>
+					<td><sf:input cssClass="form-control  form-control-sm"
+							path="password" /></td>
+					<td><sf:errors path="password" /></td>
+				</tr>
+
+				<tr>
+					<td>ناوی بەرکارەبەری بەخێوکەر</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="parentUserName" /></td>
+					<td><sf:errors path="parentUserName" /></td>
+				</tr>
+
+				<tr>
+					<td>وشوی تێپەری بەخێوکەر</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="parentPassword"  /></td>
+					<td><sf:errors path="parentPassword" /></td>
+				</tr>
+
+				<tr>
+					<td>
+						<button class="btn btn-outline-success btn-sm">
+							<i class="fa fa-plus"></i>
+						</button>
+					</td>
 				</tr>
 
 			</tbody>

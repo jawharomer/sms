@@ -1,5 +1,7 @@
 package com.joh.sms.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -32,7 +34,15 @@ public class Teacher {
 	private String lastName;
 
 	@Column(name = "HIRE_AMOUNT")
-	private double hireAmount;
+	private BigDecimal hireAmount;
+
+	@NotBlank(message = "{teacher.userName.blank}")
+	@Column(name = "USER_NAME")
+	private String userName;
+
+	@NotBlank(message = "{teacher.password.blank}")
+	@Column(name = "PASSWORD")
+	private String password;
 
 	@Column(name = "NOTE")
 	private String note;
@@ -69,12 +79,28 @@ public class Teacher {
 		this.lastName = lastName;
 	}
 
-	public double getHireAmount() {
+	public BigDecimal getHireAmount() {
 		return hireAmount;
 	}
 
-	public void setHireAmount(double hireAmount) {
+	public void setHireAmount(BigDecimal hireAmount) {
 		this.hireAmount = hireAmount;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 	public String getNote() {
@@ -88,7 +114,8 @@ public class Teacher {
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", hireAmount=" + hireAmount + ", note=" + note + "]";
+				+ lastName + ", hireAmount=" + hireAmount + ", userName=" + userName + ", password=" + password
+				+ ", note=" + note + "]";
 	}
 
 }

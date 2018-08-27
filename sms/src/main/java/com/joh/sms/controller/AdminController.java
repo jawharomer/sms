@@ -41,18 +41,14 @@ public class AdminController {
 
 	@GetMapping(path = "/students")
 	public String getStudents(Model model) {
-		Student student = new Student();
-		student.setFirstName("تێست");
-		student.setMiddleName("omar");
-		student.setLastName("yaba");
-		student.setBirthDate(new Date());
-		studentService.save(student);
-		model.addAttribute("students", studentService.findAllStudent());
-		System.out.println("students=" + studentService.findAllStudent());
+		Iterable<Student> students = studentService.findAllStudent();
+		logger.info("students=" + students);
+		model.addAttribute("students", students);
+
 		return "adminStudents";
 	}
 
-	@DeleteMapping(path = "/students/{id}")
+	@PostMapping(path = "/students/{id}")
 	@ResponseBody
 	public String deleteStudent(@PathVariable int id) {
 		logger.info("deleteStudent->fired");
@@ -108,14 +104,10 @@ public class AdminController {
 
 	@GetMapping(path = "/teachers")
 	public String getTeachers(Model model) {
-		Teacher teacher = new Teacher();
-		teacher.setFirstName("ژاو");
-		teacher.setLastName("lastname");
-		teacher.setMiddleName("middle name");
-		teacher.setHireAmount(300);
-		teacherService.save(teacher);
-		model.addAttribute("teachers", teacherService.findAll());
-		logger.info("teachers=" + teacherService.findAll());
+
+		Iterable<Teacher> teachers = teacherService.findAll();
+		logger.info("teachers=" + teachers);
+		model.addAttribute("teachers", teachers);
 		return "adminTeachers";
 	}
 
@@ -140,7 +132,7 @@ public class AdminController {
 
 	}
 
-	@DeleteMapping(path = "/teachers/{id}")
+	@PostMapping(path = "/teachers/{id}")
 	@ResponseBody
 	public String deleteTeacher(@PathVariable int id) {
 		logger.info("fired");

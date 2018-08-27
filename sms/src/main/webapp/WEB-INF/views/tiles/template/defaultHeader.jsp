@@ -1,1 +1,1 @@
-<h1>This is default header JSP</h1>
+<nav>Welcome to K school</nav>

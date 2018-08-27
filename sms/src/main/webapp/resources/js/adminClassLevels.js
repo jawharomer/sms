@@ -14,16 +14,17 @@ function deleteClassLevel(_this) {
 	var id = $(_this).data("classlevel-id");
 	console.log("id=", id);
 	$.ajax({
-		url : $$ContextURL + '/classLevels/' + id,
-		type : 'DELETE',
+		url : $$ContextURL + '/classLevels/delete/' + id,
+		type : 'POST',
 		success : function(result) {
 			console.log(result);
 			if (result == "success") {
 				location.reload();
 			}
 		},
-		failure : function(errMsg) {
-			alert(errMsg);
+		error : function(response) {
+			$("#modal-body").html(response.responseText);
+			$("#modal").modal("show");
 		}
 	});
 }
@@ -32,7 +33,7 @@ function editClassLevel(_this) {
 	console.log(_this);
 	var id = $(_this).data("classlevel-id");
 	console.log("id=", id);
-	$.get($$ContextURL+"/classLevels/edit/" + id, function(result) {
+	$.get($$ContextURL + "/classLevels/edit/" + id, function(result) {
 		console.log("result=", result);
 		$("#modal-body").html(result);
 		$("#modal").modal("show");

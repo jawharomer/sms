@@ -5,16 +5,21 @@
 <div id="add-classlevel-container">
 	<sf:form id="addClassLevelForm" method="POST" commandName="classLevel"
 		onsubmit="addClassLevel(event)">
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
-					<td>Name</td>
-					<td><sf:input path="name" /></td>
+					<td>ناو</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="name" /></td>
 					<td><sf:errors path="name" /></td>
 				</tr>
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>
+						<button class="btn btn-sm  btn-success">
+							<i class="fa fa-plus"></i>
+						</button>
+					</td>
+
 				</tr>
 
 			</tbody>

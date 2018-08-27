@@ -5,35 +5,56 @@
 <div id="add-teacher-container">
 	<sf:form id="addTeacherForm" method="POST" commandName="teacher"
 		onsubmit="addTeacher(event)">
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
-					<td>FirstName</td>
-					<td><sf:input path="firstName" /></td>
+					<td>ناو</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="firstName" /></td>
 					<td><sf:errors path="firstName" /></td>
 				</tr>
 
 				<tr>
-					<td>MiddleName</td>
-					<td><sf:input path="middleName" /></td>
+					<td>ناوی باوک</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="middleName" /></td>
 					<td><sf:errors path="middleName" /></td>
 				</tr>
 
 				<tr>
-					<td>LastName</td>
-					<td><sf:input path="lastName" /></td>
+					<td>ناوی باپیر</td>
+					<td><sf:input cssClass="form-control form-control-sm" path="lastName" /></td>
 					<td><sf:errors path="lastName" /></td>
 				</tr>
 
 				<tr>
-					<td>Hire Amount</td>
-					<td><sf:input path="hireAmount" /></td>
+					<td>بری دامەزراندن</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="hireAmount" /></td>
 					<td><sf:errors path="hireAmount" /></td>
 				</tr>
 
+
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>ناوی بەکاربەر</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="userName" /></td>
+					<td><sf:errors path="userName" /></td>
+				</tr>
+
+				<tr>
+					<td>وشەی تێپەر</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="password" /></td>
+					<td><sf:errors path="password" /></td>
+				</tr>
+
+				<tr>
+					<td>
+						<button class="btn btn-sm btn-outline-success">
+							<i class="fa fa-plus"></i>
+						</button>
+					</td>
 				</tr>
 
 			</tbody>
