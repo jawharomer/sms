@@ -8,6 +8,8 @@ import org.hibernate.validator.constraints.NotBlank;
 
 public class ClassGroupTableD {
 
+	private Integer classGroupTableId;
+
 	@NotNull(message = "{classGroupTableD.schoolWeekDayId.null}")
 	private Integer schoolWeekDayId;
 
@@ -112,12 +114,20 @@ public class ClassGroupTableD {
 		this.teacherName = teacherName;
 	}
 
+	public Integer getClassGroupTableId() {
+		return classGroupTableId;
+	}
+
+	public void setClassGroupTableId(Integer classGroupTableId) {
+		this.classGroupTableId = classGroupTableId;
+	}
+
 	@Override
 	public String toString() {
-		return "ClassGroupTableD [schoolWeekDayId=" + schoolWeekDayId + ", lessonTimeId=" + lessonTimeId
-				+ ", classGroupId=" + classGroupId + ", classSubjectId=" + classSubjectId + ", teacherId=" + teacherId
-				+ ", weekDay=" + weekDay + ", groupName=" + groupName + ", lessonTime=" + lessonTime + ", subjectName="
-				+ subjectName + ", teacherName=" + teacherName + "]";
+		return "ClassGroupTableD [classGroupTableId=" + classGroupTableId + ", schoolWeekDayId=" + schoolWeekDayId
+				+ ", lessonTimeId=" + lessonTimeId + ", classGroupId=" + classGroupId + ", classSubjectId="
+				+ classSubjectId + ", teacherId=" + teacherId + ", weekDay=" + weekDay + ", groupName=" + groupName
+				+ ", lessonTime=" + lessonTime + ", subjectName=" + subjectName + ", teacherName=" + teacherName + "]";
 	}
 
 }

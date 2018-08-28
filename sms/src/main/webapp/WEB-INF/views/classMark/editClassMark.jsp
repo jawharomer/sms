@@ -8,17 +8,24 @@
 		commandName="classMark" onsubmit="modalEditClassMark(event)">
 
 		<sf:input path="id" type="hidden" />
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
-					<td>Name</td>
-					<td><sf:input path="name" /></td>
+					<td>ناوی</td>
+					<td><sf:input cssClass="form-control form-control-sm" path="name" /></td>
 					<td><sf:errors path="name" /></td>
 				</tr>
-
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>نمرە</td>
+					<td><sf:input cssClass="form-control form-control-sm" path="limit" /></td>
+					<td><sf:errors path="limit" /></td>
+				</tr>
+				<tr>
+					<td>
+						<button class="btn btn-warning btn-sm">
+							<i class="fa fa-edit"></i>
+						</button>
+					</td>
 				</tr>
 
 			</tbody>

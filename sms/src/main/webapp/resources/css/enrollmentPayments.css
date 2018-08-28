@@ -1,8 +1,40 @@
-.td-container-div {
-	
+#enrollment-payments-container {
+	padding: 5px;
+	flex: 1;
+}
+
+#enrollment-payment-table  tfoot td {
+	border: none;
+}
+
+#enrollment-table-div {
+	padding-top: 10px;
 }
 
 .td-inline-div {
 	display: inline-block;
 	width: 100%;
+}
+
+.cus-note-td {
+	max-width: 40px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+
+@media print {
+	footer,header{
+	display: none;
+	}
+	.cus-not-print {
+		display: none;
+	}
+	.dt-buttons {
+		display: none;
+	}
+	.dataTables_filter {
+		display: none;
+	}
 }

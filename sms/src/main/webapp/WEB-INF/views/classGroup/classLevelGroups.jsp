@@ -1,18 +1,20 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<div id="class-level-marks-body">
-	<div>${classLevel.name}</div>
+<div id="class-level-class-groups-container">
+	<h3>${classLevel.name}</h3>
 
 	<div>
 		<button data-class-level-id="${classLevel.id}"
-			onclick="getAddClassGroup(this)" type="button" class="btn btn-primary">زیادکردن</button>
+			onclick="getAddClassGroup(this)" class="btn btn-primary">
+			<i class="fa fa-plus"></i>
+		</button>
 	</div>
 
-	<div>
-		<table class="table">
-			<thead class="thead-dark">
+	<div id="class-g-l-gs-div">
+		<table class="w-100 table table-bordered">
+			<thead>
 				<tr>
-					<th>ناوی نمرە</th>
+					<th>ناوی پۆل</th>
 					<th>کردارەکان</th>
 				</tr>
 			</thead>
@@ -22,11 +24,16 @@
 						<td>${item.name}</td>
 						<td>
 							<div>
+								<button class="btn btn-sm btn-danger"
+									data-class-group-id="${item.id}"
+									onclick="deleteClassGroup(this)">
+									<i class="fa fa-times"></i>
+								</button>
+								<button class="btn btn-sm btn-warning"
+									data-class-group-id="${item.id}" onclick="editClassGroup(this)">
+									<i class="fa fa-edit"></i>
+								</button>
 
-								<button data-class-group-id="${item.id}"
-									onclick="editClassGroup(this)">Edit</button>
-								<button data-class-group-id="${item.id}"
-									onclick="deleteClassGroup(this)">Delete</button>
 							</div>
 						</td>
 					</tr>
@@ -36,27 +43,6 @@
 	</div>
 </div>
 
-
-<!-- Modal -->
-<div class="modal fade" id="modal" tabindex="-1" role="dialog"
-	aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-	<div class="modal-dialog" role="document">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-				<button type="button" class="close" data-dismiss="modal"
-					aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="modal-body" id="modal-body"></div>
-			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary">Save changes</button>
-			</div>
-		</div>
-	</div>
-</div>
 
 
 

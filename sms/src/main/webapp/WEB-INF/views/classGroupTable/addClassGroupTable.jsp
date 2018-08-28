@@ -4,21 +4,19 @@
 
 <div id="add-class-group-table-container">
 
-	Adding class Group page
-
 	<sf:form id="add-class-group-table-form" method="POST"
 		commandName="classGroupTableD" onsubmit="addClassGroupTable(event)">
-${classGroupId}
 		<sf:input type="hidden" path="classGroupId" />
 		<sf:input type="hidden" path="schoolWeekDayId" />
 		<sf:input type="hidden" path="lessonTimeId" />
 
-		<table>
+		<table class="w-100">
 			<tbody>
 
 				<tr>
 					<td>بابەت</td>
-					<td><sf:select path="classSubjectId">
+					<td><sf:select cssClass="form-control form-control-sm"
+							path="classSubjectId">
 							<c:if test="${classGroupTableD.classSubjectId==null}">
 								<option value="null">بابەت</option>
 							</c:if>
@@ -37,7 +35,8 @@ ${classGroupId}
 				</tr>
 				<tr>
 					<td>مامۆستا</td>
-					<td><sf:select path="teacherId">
+					<td><sf:select cssClass="form-control form-control-sm"
+							path="teacherId">
 							<c:if test="${classGroupTableD.teacherId==null}">
 								<option value="null">مامۆستا</option>
 							</c:if>
@@ -58,8 +57,11 @@ ${classGroupId}
 
 
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>
+						<button class="btn btn-sm btn-success">
+							<i class="fa fa-plus"></i>
+						</button>
+					</td>
 				</tr>
 
 			</tbody>
@@ -86,8 +88,9 @@ ${classGroupId}
 					success : function(response) {
 						$("#add-class-group-table-form").html(response);
 					},
-					failure : function(errMsg) {
-						alert(errMsg);
+					error : function(response) {
+						$("#modal-body").html(response.responseText);
+						$("#modal").modal("show");
 					}
 				});
 	}

@@ -1,9 +1,5 @@
 $(document).ready()
 {
-
-	$("#test").css("background", "red");
-	$('#test').DataTable();
-
 	var table = $('#studentsTable').DataTable({
 		paginate : false,
 		dom : 'Bfrtip',

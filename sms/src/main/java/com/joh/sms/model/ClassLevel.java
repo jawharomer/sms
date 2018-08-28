@@ -24,9 +24,8 @@ public class ClassLevel {
 	private int id;
 
 	@NotBlank(message = "{classLevel.name.blank}")
-	@Column(name = "LEVEL_NAME")
+	@Column(name = "LEVEL_NAME", unique = true)
 	private String name;
-
 
 	public ClassLevel() {
 
@@ -47,8 +46,6 @@ public class ClassLevel {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
 
 	@Override
 	public String toString() {

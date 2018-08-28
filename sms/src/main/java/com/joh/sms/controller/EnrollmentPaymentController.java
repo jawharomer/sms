@@ -23,6 +23,7 @@ import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.EnrollmentPayment;
 import com.joh.sms.model.Student;
 import com.joh.sms.service.EnrollmentPaymentService;
+import com.joh.sms.service.EnrollmentService;
 
 @Controller()
 @RequestMapping(path = "/enrollmentPayments")
@@ -33,14 +34,20 @@ public class EnrollmentPaymentController {
 	@Autowired
 	private EnrollmentPaymentService enrollmentPaymentService;
 
+	@Autowired
+	private EnrollmentService enrollmentService;
+
 	@GetMapping(path = "/enrollment/{id}")
 	public String getAllEnrollmentPayment(@PathVariable int id, Model model) {
 		logger.info("getAllEnrollmentPayment->fired");
 		logger.info("enrollmentId=" + id);
 		model.addAttribute("enrollmentId", id);
+		Enrollment enrolllment = enrollmentService.findOne(id);
+		logger.info("enrolllment=" + enrolllment);
 		Iterable<EnrollmentPayment> enrollmentPayments = enrollmentPaymentService.findByEnrollmentId(id);
 		logger.info("enrollmentPayments=" + enrollmentPayments);
 		model.addAttribute("enrollmentPayments", enrollmentPayments);
+		model.addAttribute("enrolllment", enrolllment);
 		return "enrollmentPayments";
 	}
 
@@ -92,7 +99,6 @@ public class EnrollmentPaymentController {
 
 		logger.info("enrollmentPayment=" + enrollmentPayment);
 		model.addAttribute("enrollmentPayment", enrollmentPayment);
-
 		return "enrollmentPayment/editEnrollmentPayment";
 	}
 
@@ -106,10 +112,8 @@ public class EnrollmentPaymentController {
 
 		logger.info("error=" + result.getAllErrors());
 		if (result.hasErrors()) {
-
 			model.addAttribute("enrollmentPayment", enrollmentPayment);
-
-			return "enrollmentPayment/editEnrollment";
+			return "enrollmentPayment/editEnrollmentPayment";
 		} else {
 			enrollmentPaymentService.update(enrollmentPayment);
 			return "success";

@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import com.joh.sms.exception.CusDataIntegrityViolationException;
 import com.joh.sms.exception.ItemExistsException;
 
@@ -53,6 +55,13 @@ public class GlobalExceptionHandler {
 
 		return "entityNotFoundException";
 	}
+	
+	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+	@ExceptionHandler(JsonMappingException.class)
+	public String handleJsonMappingException(HttpServletRequest request, JsonMappingException ex) {
+		logger.info("JsonMappingException occured:: URL=" + request.getRequestURL());
+		return "jsonMappingException";
+	}
 
 	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler({ NoResultException.class })
@@ -60,4 +69,6 @@ public class GlobalExceptionHandler {
 		logger.info("NoResultException occured:: URL=" + request.getRequestURL());
 		return "noResultException";
 	}
+
+	
 }

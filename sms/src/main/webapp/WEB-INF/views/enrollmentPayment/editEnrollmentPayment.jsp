@@ -3,28 +3,30 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 
 <div id="edit-enrollment-payment-container">
-
-	Editing Enrollment Payment
-
 	<sf:form id="edit-enrollment-payment-form" method="POST"
 		commandName="enrollmentPayment"
 		onsubmit="editEnrollmentPayment(event)">
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
 					<td>بر</td>
-					<td><sf:input path="amount" /></td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="amount" /></td>
 					<td><sf:errors path="amount" /></td>
 				</tr>
 
 				<tr>
 					<td>تێبینی</td>
-					<td><sf:input path="note" /></td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="note" /></td>
 					<td><sf:errors path="note" /></td>
 				</tr>
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>
+						<button class="btn btn-outline-success btn-sm">
+							<i class="fa fa-plus"></i>
+						</button>
+					</td>
 				</tr>
 
 			</tbody>

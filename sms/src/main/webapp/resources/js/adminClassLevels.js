@@ -13,20 +13,26 @@ function deleteClassLevel(_this) {
 	console.log(_this);
 	var id = $(_this).data("classlevel-id");
 	console.log("id=", id);
-	$.ajax({
-		url : $$ContextURL + '/classLevels/delete/' + id,
-		type : 'POST',
-		success : function(result) {
-			console.log(result);
-			if (result == "success") {
-				location.reload();
-			}
-		},
-		error : function(response) {
-			$("#modal-body").html(response.responseText);
-			$("#modal").modal("show");
+
+	$.when(cusConfirm()).done(function(result) {
+		if (result) {
+			$.ajax({
+				url : $$ContextURL + '/classLevels/delete/' + id,
+				type : 'POST',
+				success : function(result) {
+					console.log(result);
+					if (result == "success") {
+						location.reload();
+					}
+				},
+				error : function(response) {
+					$("#modal-body").html(response.responseText);
+					$("#modal").modal("show");
+				}
+			});
 		}
 	});
+
 }
 
 function editClassLevel(_this) {

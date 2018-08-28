@@ -16,19 +16,24 @@ function deleteClassSubject(_this) {
 	console.log(_this);
 	var id = $(_this).data("class-subject-id");
 	console.log("id=", id);
-	$.ajax({
-		url : $$ContextURL + '/classSubjects/' + id,
-		type : 'DELETE',
-		success : function(response) {
-			console.log(response);
-			if (response == "success") {
-				location.reload();
-			}
-		},
-		failure : function(errMsg) {
-			alert(errMsg);
+	$.when(cusConfirm()).done(function(result) {
+		if (result) {
+			$.ajax({
+				url : $$ContextURL + '/classSubjects/delete/' + id,
+				type : 'POST',
+				success : function(response) {
+					console.log(response);
+					if (response == "success") {
+						location.reload();
+					}
+				},
+				failure : function(errMsg) {
+					alert(errMsg);
+				}
+			});
 		}
 	});
+
 }
 
 function editClassSubject(_this) {

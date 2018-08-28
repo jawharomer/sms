@@ -4,25 +4,26 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <div id="edit-lesson-time-container">
-	${lessonTime}
-
 	<sf:form id="edit-lesson-time-form" method="POST"
 		commandName="lessonTime" onsubmit="modalEditLessonTime(event)">
-${time}
 		<sf:input path="id" type="hidden" />
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
-					<td>Name</td>
+					<td>کات</td>
 					<fmt:formatDate value="${lessonTime.time}" pattern="HH:mm"
 						var="formattedTime" />
-					<td><input name="time" value="${formattedTime}"></td>
+					<td><input id="lesson-time"
+						class="form-control form-control-sm" name="time"
+						value="${formattedTime}"></td>
 					<td><sf:errors path="time" /></td>
 				</tr>
-
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>
+						<button class="btn btn-sm  btn-warning">
+							<i class="fa fa-edit"></i>
+						</button>
+					</td>
 				</tr>
 
 			</tbody>
@@ -36,6 +37,12 @@ ${time}
 
 
 <script>
+	$(document).ready()
+	{
+		$("#birthDate").datepicker({
+			dateFormat : "yy-mm-dd"
+		});
+	}
 	function modalEditLessonTime(event) {
 		console.log("modalEditLessonTime->fired");
 		event.preventDefault();
@@ -52,8 +59,9 @@ ${time}
 				console.log("response=", response);
 				$("#edit-lesson-time-container").html(response);
 			},
-			failure : function(errMsg) {
-				alert(errMsg);
+			error : function(response) {
+				$("#modal-body").html(response.responseText);
+				$("#modal").modal("show");
 			}
 		});
 	}

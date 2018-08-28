@@ -4,20 +4,26 @@
 
 <div id="add-class-mark-container">
 
-	Adding class mark page
-
 	<sf:form id="add-class-mark-form" method="POST" commandName="classMark"
 		onsubmit="addClassMark(event)">
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
-					<td>Name</td>
-					<td><sf:input path="name" /></td>
+					<td>ناوی</td>
+					<td><sf:input cssClass="form-control form-control-sm" path="name" /></td>
 					<td><sf:errors path="name" /></td>
 				</tr>
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>نمرە</td>
+					<td><sf:input cssClass="form-control form-control-sm" path="limit" /></td>
+					<td><sf:errors path="limit" /></td>
+				</tr>
+				<tr>
+					<td>
+						<button class="btn btn-success btn-sm">
+							<i class="fa fa-plus"></i>
+						</button>
+					</td>
 				</tr>
 
 			</tbody>

@@ -1,5 +1,6 @@
 package com.joh.sms.model;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -14,6 +15,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
@@ -28,9 +30,10 @@ public class EnrollmentPayment {
 	@Column(name = "I_ENROLLMENT_PAYMENT")
 	private int id;
 
+	@NotNull(message = "{enrollmentPayment.amount.null}")
 	@Min(value = 1, message = "{enrollmentPayment.amount.min}")
 	@Column(name = "AMOUNT")
-	private double amount;
+	private BigDecimal amount;
 
 	@Column(name = "PAYMENT_TIME", updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
@@ -51,14 +54,6 @@ public class EnrollmentPayment {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public double getAmount() {
-		return amount;
-	}
-
-	public void setAmount(double amount) {
-		this.amount = amount;
 	}
 
 	public Date getTime() {
@@ -85,9 +80,18 @@ public class EnrollmentPayment {
 		this.enrollment = enrollment;
 	}
 
+	public BigDecimal getAmount() {
+		return amount;
+	}
+
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
+	}
+
 	@Override
 	public String toString() {
-		return "EnrollmentPayment [id=" + id + ", amount=" + amount + ", time=" + time + ", note=" + note + "]";
+		return "EnrollmentPayment [id=" + id + ", amount=" + amount + ", time=" + time + ", note=" + note
+				+ ", enrollment=" + enrollment + "]";
 	}
 
 }

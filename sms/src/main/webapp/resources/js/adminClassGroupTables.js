@@ -1,6 +1,7 @@
 function getAddClassGroupTable(_this) {
 	console.log("getAddClassGroupTable->fired");
-	var id = 2;
+
+	var id = $(_this).data("class-group-id");
 	var schoolWeekDayId = $(_this).data("school-week-day-id");
 	var lessonTimeId = $(_this).data("lesson-time-id");
 
@@ -20,40 +21,36 @@ function getAddClassGroupTable(_this) {
 			$("#modal").modal("show");
 			$("#modal-body").html(response);
 		},
-		failure : function(errMsg) {
-			alert(errMsg);
+		error : function(response) {
+			$("#modal-body").html(response.responseText);
+			$("#modal").modal("show");
 		}
 	});
 
 }
 
-function deleteLessonTime(_this) {
-	console.log("deleteLessonTime->fired");
+function deleteClassGroupTable(_this) {
+	console.log("deleteClassGroupTable->fired");
 	console.log(_this);
-	var id = $(_this).data("lesson-time-id");
+	var id = $(_this).data("class-group-table-id");
 	console.log("id=", id);
-	$.ajax({
-		url : $$ContextURL + '/lessonTimes/' + id,
-		type : 'DELETE',
-		success : function(response) {
-			console.log(response);
-			if (response == "success") {
-				location.reload();
-			}
-		},
-		failure : function(errMsg) {
-			alert(errMsg);
+
+	$.when(cusConfirm()).done(function(result) {
+		if (result) {
+			$.ajax({
+				url : $$ContextURL + '/classGroupTables/delete/' + id,
+				type : 'POST',
+				success : function(response) {
+					console.log(response);
+					$("#modal-body").html(response);
+					$("#modal").modal("show");
+				},
+				error : function(response) {
+					$("#modal-body").html(response.responseText);
+					$("#modal").modal("show");
+				}
+			});
 		}
 	});
-}
 
-function editLessonTime(_this) {
-	console.log(_this);
-	var id = $(_this).data("lesson-time-id");
-	console.log("id=", id);
-	$.get($$ContextURL + "/lessonTimes/edit/" + id, function(response) {
-		console.log("response=", response);
-		$("#modal-body").html(response);
-		$("#modal").modal("show");
-	});
 }

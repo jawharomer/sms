@@ -69,7 +69,7 @@ public class LessonTimeController {
 		return "classLevelLessonTimes";
 	}
 
-	@DeleteMapping(path = "/{id}")
+	@PostMapping(path = "/delete/{id}")
 	@ResponseBody
 	public String deleteLessonTime(@PathVariable int id) {
 		logger.info("deleteLessonTime->fired");

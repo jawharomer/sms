@@ -56,7 +56,7 @@ public class SchoolWeekDayController {
 		logger.info("schoolWeekDay=" + schoolWeekDay);
 		logger.info("error=" + result.getAllErrors());
 		if (result.hasErrors()) {
-			return "schoolWeeekDay/addSchoolWeekDay";
+			return "schoolWeekDay/addSchoolWeekDay";
 		} else {
 			schoolWeekDayService.save(schoolWeekDay);
 			return "success";

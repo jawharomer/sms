@@ -6,6 +6,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "SCHOOL_WEEK_DAYS")
@@ -15,7 +18,8 @@ public class SchoolWeekDay {
 	@Column(name = "I_SCHOOL_WEEK_DAY")
 	private int id;
 
-	@Column(name = "WEEK_DAY", nullable = false)
+	@NotBlank(message = "{schoolWeekDay.weekDay.blank}")
+	@Column(name = "WEEK_DAY", nullable = false, unique = true)
 	private String weekDay;
 
 	public int getId() {

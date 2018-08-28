@@ -5,7 +5,9 @@
 <div id="admin-teachers-container">
 	<h3>مامۆستاکان</h3>
 	<div>
-		<button onclick="getAddTeacher()" class="btn btn-primary">زیادکردن</button>
+		<button onclick="getAddTeacher()" class="btn btn-primary">
+			<i class="fa fa-plus"></i>
+		</button>
 	</div>
 
 	<div id="teacher-table-div">
@@ -25,12 +27,14 @@
 						<td>${item.lastName}</td>
 						<td>
 							<div>
-								<button class="btn btn-danger btn-sm" data-teacher-id="${item.id}"
-									onclick="deleteTeacher(this)">
+								<button class="btn btn-danger btn-sm"
+									data-teacher-id="${item.id}" onclick="deleteTeacher(this)">
 									<i class="fa fa-times"></i>
-									</button>
-								<button class="btn btn-warning btn-sm" data-teacher-id="${item.id}" onclick="editTeacher(this)">
-										<i class="fa fa-edit"></i></button>
+								</button>
+								<button class="btn btn-warning btn-sm"
+									data-teacher-id="${item.id}" onclick="editTeacher(this)">
+									<i class="fa fa-edit"></i>
+								</button>
 							</div>
 						</td>
 					</tr>

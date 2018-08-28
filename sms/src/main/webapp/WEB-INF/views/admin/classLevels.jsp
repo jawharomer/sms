@@ -17,6 +17,9 @@
 				<tr>
 					<td>ناو</td>
 					<td>بابەتەکان</td>
+					<td>نمرەکان</td>
+					<td>کاتی وانەکان</td>
+					<td>پۆلەکان</td>
 					<td>کردارەکان</td>
 				</tr>
 			</thead>
@@ -24,11 +27,24 @@
 				<c:forEach items="${classLevels}" var="item">
 					<tr>
 						<td>${item.name}</td>
-						<td>
-							<button class="btn btn-sm btn-outline-info">
-								<i class="fa fa-eye"></i>
-							</button>
-						</td>
+						<td><a class="btn btn-sm btn-outline-info"
+							href="<c:url value="/classSubjects/classLevel/" />${item.id}"> <i
+								class="fa fa-eye"></i>
+						</a></td>
+						<td><a target="_blank" class="btn btn-sm btn-outline-info"
+							href="<c:url value="/classMarks/classLevel/" />${item.id}"> <i
+								class="fa fa-eye"></i>
+						</a></td>
+						
+						<td><a class="btn btn-sm btn-outline-info"
+							href="<c:url value="/lessonTimes/classLevel/" />${item.id}"> <i
+								class="fa fa-eye"></i>
+						</a></td>
+
+						<td><a class="btn btn-sm btn-outline-info"
+							href="<c:url value="/classGroups/classLevel/" />${item.id}"> <i
+								class="fa fa-eye"></i>
+						</a></td>
 						<td>
 							<div>
 								<button class="btn btn-sm btn-danger"

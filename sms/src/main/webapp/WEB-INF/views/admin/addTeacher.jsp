@@ -23,7 +23,8 @@
 
 				<tr>
 					<td>ناوی باپیر</td>
-					<td><sf:input cssClass="form-control form-control-sm" path="lastName" /></td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="lastName" /></td>
 					<td><sf:errors path="lastName" /></td>
 				</tr>
 
@@ -80,8 +81,9 @@
 			success : function(data) {
 				$("#add-teacher-container").html(data);
 			},
-			failure : function(errMsg) {
-				alert(errMsg);
+			error : function(response) {
+				$("#modal-body").html(response.responseText);
+				$("#modal").modal("show");
 			}
 		});
 	}

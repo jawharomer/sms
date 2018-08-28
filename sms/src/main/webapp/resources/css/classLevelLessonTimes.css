@@ -1,3 +1,8 @@
-#class-level-subjects-body {
+#class-lesson-times-body{
 	flex: 1;
+	padding:5px;
+}
+
+#class-l-l-ts-div{
+	padding-top: 20px;
 }

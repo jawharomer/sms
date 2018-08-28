@@ -4,20 +4,22 @@
 
 <div id="add-class-group-container">
 
-	Adding class group page
-
-	<sf:form id="add-class-group-form" method="POST" commandName="classGroup"
-		onsubmit="addClassGroup(event)">
-		<table>
+	<sf:form id="add-class-group-form" method="POST"
+		commandName="classGroup" onsubmit="addClassGroup(event)">
+		<table class="w-100">
 			<tbody>
 				<tr>
-					<td>Name</td>
-					<td><sf:input path="name" /></td>
+					<td>ناو</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="name" /></td>
 					<td><sf:errors path="name" /></td>
 				</tr>
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>
+						<button class="btn btn-sm btn-success">
+							<i class="fa fa-plus"></i>
+						</button>
+					</td>
 				</tr>
 
 			</tbody>
@@ -44,8 +46,9 @@
 					success : function(response) {
 						$("#add-class-group-container").html(response);
 					},
-					failure : function(errMsg) {
-						alert(errMsg);
+					error : function(response) {
+						$("#modal-body").html(response.responseText);
+						$("#modal").modal("show");
 					}
 				});
 	}

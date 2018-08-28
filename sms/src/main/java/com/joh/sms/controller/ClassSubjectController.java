@@ -71,7 +71,7 @@ public class ClassSubjectController {
 		return "classLevelSubjects";
 	}
 
-	@DeleteMapping(path = "/{id}")
+	@PostMapping(path = "/delete/{id}")
 	@ResponseBody
 	public String deleteClasSubject(@PathVariable int id) {
 		logger.info("deleteClasSubject->fired");

@@ -18,12 +18,12 @@ public class ClassGroupTableDAOImpl implements ClassGroupTableDAOExt {
 	@Override
 	public List<ClassGroupTableD> findAllClassGroupTable(int classGroupId) {
 		List<ClassGroupTableD> classGroupTableDs = new ArrayList<>();
-		Query query = em.createNativeQuery("SELECT  SWD.I_SCHOOL_WEEK_DAY,\n" + "    WEEK_DAY,\n"
-				+ "    GROUP_NAME,LESSON_TIME,\n" + "    SUBJECT_NAME,\n"
+		Query query = em.createNativeQuery("SELECT  CGT.I_CLASS_GROUP_TABLE,SWD.I_SCHOOL_WEEK_DAY,\n"
+				+ "    WEEK_DAY,\n" + "    GROUP_NAME,LESSON_TIME,\n" + "    SUBJECT_NAME,\n"
 				+ "    CONCAT(IFNULL(T.FIRST_NAME, ''),' ',IFNULL(T.MIDDLE_NAME, '')) AS TEACHER_NAME,LT.I_LESSON_TIME\n"
 				+ "FROM CLASS_GROUPS CG \n" + "INNER JOIN LESSON_TIMES LT USING(I_CLASS_LEVEL)\n"
 				+ "JOIN SCHOOL_WEEK_DAYS SWD\n" + "LEFT OUTER JOIN CLASS_GROUP_TABLES CGT\n"
-				+ "ON CG.I_CLASS_GROUP=CGT.I_CLASS_GROUP\n" + "AND LT.I_LESSON_TIME=CGT.I_LESSON_TIME\n"
+				+ "ON CG.I_CLASS_GROUP=CGT.I_CLASS_GROUP AND   LT.I_LESSON_TIME=CGT.I_LESSON_TIME AND CGT.I_SCHOOL_WEEK_DAY=SWD.I_SCHOOL_WEEK_DAY \n"
 				+ "LEFT OUTER JOIN CLASS_SUBJECTS CS\n" + "ON CG.I_CLASS_LEVEL=CS.I_CLASS_LEVEL\n"
 				+ "AND CGT.I_CLASS_SUBJECT=CS.I_CLASS_SUBJECT\n" + "AND CGT.I_SCHOOL_WEEK_DAY=SWD.I_SCHOOL_WEEK_DAY\n"
 				+ "LEFT OUTER JOIN TEACHERS T USING(I_TEACHER)\n"
@@ -34,13 +34,15 @@ public class ClassGroupTableDAOImpl implements ClassGroupTableDAOExt {
 
 		for (Object row[] : resultList) {
 			ClassGroupTableD classGroupTableD = new ClassGroupTableD();
-			classGroupTableD.setSchoolWeekDayId((Integer) row[0]);
-			classGroupTableD.setWeekDay((String) row[1]);
-			classGroupTableD.setGroupName((String) row[2]);
-			classGroupTableD.setLessonTime((Date) row[3]);
-			classGroupTableD.setSubjectName((String) row[4]);
-			classGroupTableD.setTeacherName((String) row[5]);
-			classGroupTableD.setLessonTimeId((Integer) row[6]);
+
+			classGroupTableD.setClassGroupTableId((Integer) row[0]);
+			classGroupTableD.setSchoolWeekDayId((Integer) row[1]);
+			classGroupTableD.setWeekDay((String) row[2]);
+			classGroupTableD.setGroupName((String) row[3]);
+			classGroupTableD.setLessonTime((Date) row[4]);
+			classGroupTableD.setSubjectName((String) row[5]);
+			classGroupTableD.setTeacherName((String) row[6]);
+			classGroupTableD.setLessonTimeId((Integer) row[7]);
 
 			classGroupTableDs.add(classGroupTableD);
 		}

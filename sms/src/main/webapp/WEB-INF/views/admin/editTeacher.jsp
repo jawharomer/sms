@@ -71,8 +71,9 @@
 				console.log("data=", data);
 				$("#edit-teacher-container").html(data);
 			},
-			failure : function(errMsg) {
-				alert(errMsg);
+			error : function(response) {
+				$("#modal-body").html(response.responseText);
+				$("#modal").modal("show");
 			}
 		});
 	}

@@ -65,12 +65,6 @@ public class ClassLevelController {
 
 			classLevelService.save(classLevel);
 
-			// Test
-			ClassSubject classSubject = new ClassSubject();
-			classSubject.setClassLevel(classLevel);
-			classSubject.setName("یاکەمی ب");
-			classSubjectServices.save(classSubject);
-
 			return "success";
 		}
 

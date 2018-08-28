@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -33,6 +34,8 @@ public class Teacher {
 	@Column(name = "LAST_NAME")
 	private String lastName;
 
+	
+	@NotNull(message = "{teacher.hireAmount.null}")
 	@Column(name = "HIRE_AMOUNT")
 	private BigDecimal hireAmount;
 

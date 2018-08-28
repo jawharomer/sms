@@ -57,14 +57,14 @@ public class ClassGroupTableController {
 		logger.info("classGroupId=" + id);
 		ClassGroup classGroup = classGroupService.findOne(id);
 
-		List<ClassGroupTableD> classGroupTableDs = classGroupTableService
-				.findAllClassGroupTable(classGroup.getId());
+		List<ClassGroupTableD> classGroupTableDs = classGroupTableService.findAllClassGroupTable(classGroup.getId());
 		logger.info("classGroupTableDs=" + classGroupTableDs);
 		Iterable<LessonTime> lessonTimes = lessonTimeService.findByClassLevelId(classGroup.getClassLevel().getId());
 
 		logger.info("lessonTimes=" + lessonTimes);
 		model.addAttribute("classGroupTableDs", classGroupTableDs);
 		model.addAttribute("lessonTimes", lessonTimes);
+		model.addAttribute("classGroupId", id);
 
 		return "adminClassGroupTables";
 	}
@@ -73,6 +73,8 @@ public class ClassGroupTableController {
 	public String getAddingClassMark(@PathVariable int id, @RequestParam int schoolWeekDayId,
 			@RequestParam int lessonTimeId, Model model) {
 		logger.info("getAddingClassMark->fired");
+		logger.info("classGroupId=" + id);
+
 		model.addAttribute("classGroupId", id);
 		model.addAttribute("schoolWeekDayId", schoolWeekDayId);
 		model.addAttribute("lessonTimeId", lessonTimeId);
@@ -120,7 +122,7 @@ public class ClassGroupTableController {
 
 			Iterable<ClassSubject> classSubjects = classSubjectService
 					.findAllByClassLevelId(classGroup.getClassLevel().getId());
-			
+
 			logger.info("classSubjects=" + classSubjects);
 
 			logger.info("teachers=" + teachers);
@@ -158,6 +160,14 @@ public class ClassGroupTableController {
 			return "success";
 
 		}
+	}
+
+	@PostMapping(path = "/delete/{id}")
+	public String deleteClassGroupTable(@PathVariable int id) {
+
+		classGroupTableService.delete(id);
+
+		return "success";
 	}
 
 }

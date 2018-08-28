@@ -9,6 +9,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name = "CLASS_MARKS")
@@ -19,11 +23,15 @@ public class ClassMark {
 	@Column(name = "I_CLASS_MARK")
 	private int id;
 
+	@NotBlank(message = "{classMark.name.blank}")
 	@Column(name = "MARK_NAME")
 	private String name;
 
+	
+	@Min(value=1,message="{classMark.limit.min}")
+	@NotNull(message = "{classMark.limit.null}")
 	@Column(name = "MARK_LIMIT")
-	private double limit;
+	private Integer limit;
 
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "I_CLASS_LEVEL", updatable = false)
@@ -45,20 +53,20 @@ public class ClassMark {
 		this.name = name;
 	}
 
-	public double getLimit() {
-		return limit;
-	}
-
-	public void setLimit(double limit) {
-		this.limit = limit;
-	}
-
 	public ClassLevel getClassLevel() {
 		return classLevel;
 	}
 
 	public void setClassLevel(ClassLevel classLevel) {
 		this.classLevel = classLevel;
+	}
+
+	public Integer getLimit() {
+		return limit;
+	}
+
+	public void setLimit(Integer limit) {
+		this.limit = limit;
 	}
 
 	@Override

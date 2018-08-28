@@ -3,19 +3,17 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 
 <div id="add-enrollment-container">
-
-	Adding Enrollment
-
 	<sf:form id="add-enrollment-form" method="POST"
 		commandName="enrollmentD" onsubmit="addEnrollment(event)">
 		<sf:input path="enrollmentId" type="hidden" />
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
-					<td>Student name</td>
-					<td><sf:select path="studentId">
+					<td>قوتابی</td>
+					<td><sf:select cssClass="form-control form-control-sm"
+							path="studentId">
 							<c:if test="${enrollmentD.studentId==null}">
-								<option value="null">qwtabi</option>
+								<option value="null">هالبژێرە</option>
 							</c:if>
 							<c:forEach items="${students}" var="item">
 								<c:choose>
@@ -33,10 +31,11 @@
 				</tr>
 
 				<tr>
-					<td>classGroup</td>
-					<td><sf:select path="classGroupId">
+					<td>پۆل</td>
+					<td><sf:select cssClass="form-control form-control-sm"
+							path="classGroupId">
 							<c:if test="${enrollmentD.classGroupId==null}">
-								<option value="null">groupName</option>
+								<option value="null">هالبژێرە</option>
 							</c:if>
 							<c:forEach items="${classGroups}" var="item">
 								<c:choose>
@@ -55,17 +54,24 @@
 
 				<tr>
 					<td>بردی پارە</td>
-					<td><sf:input path="fee" /></td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="fee" /></td>
+					<td><sf:errors path="fee" /></td>
 				</tr>
 
 				<tr>
 					<td>تێبینی</td>
-					<td><sf:input path="note" /></td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="note" /></td>
+					<td><sf:errors path="note" /></td>
 				</tr>
 
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td><input type="submit" value="Adding">
+						<button class="btn btn-sm btn-success">
+							<i class="fa fa-plus"></i>
+						</button></td>
+
 				</tr>
 
 			</tbody>
@@ -92,8 +98,9 @@
 					success : function(response) {
 						$("#add-enrollment-container").html(response);
 					},
-					failure : function(errMsg) {
-						alert(errMsg);
+					error : function(response) {
+						$("#modal-body").html(response.responseText);
+						$("#modal").modal("show");
 					}
 				});
 	}

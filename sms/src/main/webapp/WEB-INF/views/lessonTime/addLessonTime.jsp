@@ -4,23 +4,24 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <div id="add-lesson-time-container">
-
-	Adding lesson Time
-
 	<sf:form id="add-lesson-time-form" method="POST"
 		commandName="lessonTime" onsubmit="addLessonTime(event)">
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
-					<td>Name</td>
+					<td>کات</td>
 					<fmt:formatDate value="${item.time}" pattern="HH:mm"
 						var="formattedTime" />
-					<td><input name="time" value="${formattedTime}"></td>
+					<td><input id="lesson-time" class="form-control form-control-sm" name="time"
+						value="${formattedTime}"></td>
 					<td><sf:errors path="time" /></td>
 				</tr>
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>
+						<button class="btn btn-sm  btn-success">
+							<i class="fa fa-plus"></i>
+						</button>
+					</td>
 				</tr>
 
 			</tbody>
@@ -33,6 +34,7 @@
 
 
 <script>
+
 	function addLessonTime(event) {
 		event.preventDefault();
 		console.log("addLessonTime->fired");
@@ -47,8 +49,9 @@
 					success : function(response) {
 						$("#add-lesson-time-container").html(response);
 					},
-					failure : function(errMsg) {
-						alert(errMsg);
+					error : function(response) {
+						$("#modal-body").html(response.responseText);
+						$("#modal").modal("show");
 					}
 				});
 	}

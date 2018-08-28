@@ -29,6 +29,11 @@ public class ClassGroupTableServiceImpl implements ClassGroupTableService {
 	}
 
 	@Override
+	public void delete(int id) {
+		classGroupTableDAO.delete(id);
+	}
+
+	@Override
 	public List<ClassGroupTableD> findAllTeacherClassGroupSubject(int teacherId) {
 		return classGroupTableDAO.findAllTeacherClassGroupSubject(teacherId);
 	}

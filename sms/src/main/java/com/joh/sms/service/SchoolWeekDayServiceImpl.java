@@ -3,6 +3,7 @@ package com.joh.sms.service;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.joh.sms.dao.ClassLevelDAO;
@@ -24,7 +25,7 @@ public class SchoolWeekDayServiceImpl implements SchoolWeekDayService {
 
 	@Override
 	public Iterable<SchoolWeekDay> findAll() {
-		return schoolWeekDayDAO.findAll();
+		return schoolWeekDayDAO.findAllByOrderById();
 	}
 
 	@Override

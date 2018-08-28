@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name = "CLASS_GROUPS")
@@ -20,7 +21,7 @@ public class ClassGroup {
 	@Column(name = "I_CLASS_GROUP")
 	private int id;
 
-	@Column(name = "GROUP_NAME")
+	@Column(name = "GROUP_NAME", unique = true)
 	private String name;
 
 	@ManyToOne(fetch = FetchType.LAZY)

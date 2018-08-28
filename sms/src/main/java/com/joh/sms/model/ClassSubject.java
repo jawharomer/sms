@@ -9,13 +9,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import org.hibernate.validator.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "CLASS_SUBJECTS")
+@Table(name = "CLASS_SUBJECTS", uniqueConstraints = { @UniqueConstraint(columnNames = { "SUBJECT_NAME", "I_CLASS_LEVEL" }) })
 public class ClassSubject {
 
 	@Id
@@ -23,8 +24,7 @@ public class ClassSubject {
 	@Column(name = "I_CLASS_SUBJECT")
 	private int id;
 
-	
-	@NotBlank(message="{classSubject.name.blank}")
+	@NotBlank(message = "{classSubject.name.blank}")
 	@Column(name = "SUBJECT_NAME")
 	private String name;
 

@@ -1,3 +1,8 @@
-#class-level-subjects-body {
+#class-level-class-groups-container {
 	flex: 1;
+	padding:5px;
+}
+
+#class-g-l-gs-div{
+	padding-top:10px;
 }

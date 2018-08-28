@@ -16,19 +16,25 @@ function deleteClassGroup(_this) {
 	console.log(_this);
 	var id = $(_this).data("class-group-id");
 	console.log("id=", id);
-	$.ajax({
-		url : $$ContextURL + '/classGroups/' + id,
-		type : 'DELETE',
-		success : function(response) {
-			console.log(response);
-			if (response == "success") {
-				location.reload();
-			}
-		},
-		failure : function(errMsg) {
-			alert(errMsg);
+
+	$.when(cusConfirm()).done(function(result) {
+		if (result) {
+			$.ajax({
+				url : $$ContextURL + '/classGroups/' + id,
+				type : 'DELETE',
+				success : function(response) {
+					console.log(response);
+					if (response == "success") {
+						location.reload();
+					}
+				},
+				failure : function(errMsg) {
+					alert(errMsg);
+				}
+			});
 		}
-	});
+	})
+
 }
 
 function editClassGroup(_this) {

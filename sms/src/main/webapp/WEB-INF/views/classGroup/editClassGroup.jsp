@@ -8,22 +8,26 @@
 		commandName="classGroup" onsubmit="modalEditClassGroup(event)">
 
 		<sf:input path="id" type="hidden" />
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
-					<td>Name</td>
-					<td><sf:input path="name" /></td>
+					<td>ناو</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="name" /></td>
 					<td><sf:errors path="name" /></td>
 				</tr>
-
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>
+						<button class="btn btn-sm btn-warning">
+							<i class="fa fa-edit"></i>
+						</button>
+					</td>
 				</tr>
 
 			</tbody>
 
 		</table>
+
 
 
 	</sf:form>
@@ -48,8 +52,9 @@
 				console.log("response=", response);
 				$("#edit-class-group-container").html(response);
 			},
-			failure : function(errMsg) {
-				alert(errMsg);
+			error : function(response) {
+				$("#modal-body").html(response.responseText);
+				$("#modal").modal("show");
 			}
 		});
 	}

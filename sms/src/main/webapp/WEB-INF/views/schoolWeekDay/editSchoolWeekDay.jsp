@@ -7,22 +7,26 @@
 	<sf:form id="edit-school-week-day-form" method="POST"
 		commandName="schoolWeekDay" onsubmit="modalEditSchoolWeekDay(event)">
 		<sf:input path="id" type="hidden" />
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
-					<td>Name</td>
-					<td><sf:input path="weekDay" /></td>
+					<td>رۆژی هەفتە</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="weekDay" /></td>
 					<td><sf:errors path="weekDay" /></td>
 				</tr>
 				<tr>
-					<td>Add</td>
-					<td><input type="submit" value="Adding"></td>
+					<td>
+						<button class="btn btn-sm btn-success">
+							<i class="fa fa-plus"></i>
+						</button>
+					</td>
 				</tr>
 
 			</tbody>
 
 		</table>
-
+		
 
 	</sf:form>
 
@@ -45,8 +49,9 @@
 				console.log("response=", response);
 				$("#edit-school-week-day-container").html(response);
 			},
-			failure : function(errMsg) {
-				alert(errMsg);
+			error : function(response) {
+				$("#modal-body").html(response.responseText);
+				$("#modal").modal("show");
 			}
 		});
 	}

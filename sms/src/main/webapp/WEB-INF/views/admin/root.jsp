@@ -10,9 +10,13 @@
 			<li class="list-group-item"><a
 				href='<c:url value="/admin/teachers" />'>مامۆستاکان</a></li>
 			<li class="list-group-item"><a
+				href='<c:url value="/schoolWeekDays" />'>رۆژانی هەفتە</a></li>
+			<li class="list-group-item"><a
 				href='<c:url value="/classLevels" />'>هۆبەکان</a></li>
 			<li class="list-group-item"><a
-				href='<c:url value="/classGroups" />'>خشتەی هەفتانە</a></li>
+				href='<c:url value="/classGroups" />'>پۆلەکان</a></li>
+			<li class="list-group-item"><a
+				href='<c:url value="/enrollments" />'>ناونوسین</a></li>
 		</ul>
 	</section>
 
