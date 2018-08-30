@@ -18,8 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.joh.sms.domain.model.StudentPresentD;
 import com.joh.sms.exception.CusDataIntegrityViolationException;
+import com.joh.sms.model.ClassGroup;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentPresent;
+import com.joh.sms.service.ClassGroupService;
 import com.joh.sms.service.ClassSubjectService;
 import com.joh.sms.service.StudentPresentService;
 
@@ -35,15 +37,20 @@ public class StudentPresentController {
 	@Autowired
 	private ClassSubjectService classSubjectServices;
 
+	@Autowired
+	private ClassGroupService classGroupService;
+
 	@GetMapping(path = "/classGroup/{id}")
 	public String getAllStudentPresentByClassGroup(@PathVariable int id, Model model) {
 		logger.info("getAllStudentPresentByClassGroup->fired");
 		logger.info("classGroupId=" + id);
 
+		ClassGroup classGroup = classGroupService.findOne(id);
+
 		List<StudentPresentD> studentPresentDs = studentPresentService.findAllStudentPresentByClassGroupId(id);
 
 		model.addAttribute("studentPresentDs", studentPresentDs);
-		model.addAttribute("classGroupId", id);
+		model.addAttribute("classGroup", classGroup);
 
 		return "adminStudentPresents";
 	}

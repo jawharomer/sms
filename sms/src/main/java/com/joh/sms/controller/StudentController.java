@@ -46,7 +46,7 @@ public class StudentController {
 
 	public StudentController() {
 		student = new Student();
-		student.setId(2);
+		student.setId(72);
 	}
 
 	@Autowired

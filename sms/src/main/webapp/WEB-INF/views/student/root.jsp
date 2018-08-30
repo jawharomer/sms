@@ -8,21 +8,37 @@
 				href="<c:url value="/students/notifications" />${item.id}">
 					ئاگادارکردنەوەکان</a></li>
 			<li class="list-group-item">
-				<button data-student-id="${student.id}"
+				<button style="background: transparent;" class="btn" data-student-id="${student.id}"
 					onclick="getStudentStudentPresents(this)">خشتەی هاتن</button>
 			</li>
-			<li class="list-group-item"><a href='<c:url value="/students/classGroupTable" />'>خشتەی
-					هەفتانە</a></li>
-			<li class="list-group-item"><a href='<c:url value="/students/marks" />'>نمرەکان</a></li>
+			<li class="list-group-item"><a
+				href='<c:url value="/students/classGroupTable" />'>خشتەی هەفتانە</a></li>
+			<li class="list-group-item"><a
+				href='<c:url value="/students/marks" />'>نمرەکان</a></li>
+
+			<!-- 
 			<li class="list-group-item">واجبەکان
 				<ul>
-					<c:forEach items="${classSubjects}" var="item">
-						<li><a
-							href="<c:url value="/students/notifications/classSubject/" />${item.id}">${item.name}</a>
-						</li>
-					</c:forEach>
+					
 				</ul>
 			</li>
+			 -->
+			<li class="list-group-item px-0" style="max-width: 170px;width: 170px;"><a
+				style="padding: 0 1.25rem; background-color: transparent"
+				data-toggle="collapse" href="#notific-collapse-div">واجبەکان</a>
+				<div></div>
+				<div class="collapse py-0 mt-2" id="notific-collapse-div">
+					<div >
+						<ul class="list-group px-0">
+							<c:forEach items="${classSubjects}" var="item">
+								<li class="list-group-item bg-secondary"><a
+									href="<c:url value="/students/notifications/classSubject/" />${item.id}">${item.name}</a>
+								</li>
+							</c:forEach>
+						</ul>
+					</div>
+				</div></li>
+			<li class="list-group-item">dd</li>
 		</ul>
 	</section>
 

@@ -69,3 +69,24 @@ $(document).ready()
 	// E-DataTable
 
 }
+
+function getStudentStudnetPresents(_this) {
+	console.log("getStudentStudnetPresents->fired");
+	console.log(_this);
+	var id = $(_this).data("student-id");
+	console.log("id=", id);
+	$.ajax({
+		url : $$ContextURL + '/studentPresents/student/' + id,
+		type : 'GET',
+		success : function(response) {
+			console.log(response);
+			$("#modal-body").html(response);
+			$("#modal").modal("show");
+		},
+		error : function(response) {
+			$("#modal-body").html(response.responseText);
+			$("#modal").modal("show");
+		}
+	});
+
+}

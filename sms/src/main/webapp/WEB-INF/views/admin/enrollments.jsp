@@ -12,7 +12,7 @@
 		<table id="enrollment-table" class="display nowrap">
 			<thead>
 				<tr>
-					<th>#</th>
+					<th style="min-width: 80px;">#</th>
 					<th>قوتابی</th>
 					<th>پۆل</th>
 					<th>بڕ</th>

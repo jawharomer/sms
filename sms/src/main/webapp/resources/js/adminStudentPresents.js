@@ -1,3 +1,37 @@
+$(document).ready()
+{
+	// S-DataTable
+	var table = $('#student-presents-table').DataTable({
+
+		columnDefs : [ {
+			orderable : false,
+			className : 'select-checkbox',
+			targets : 0,
+			data : 0
+		} ],
+		select : {
+			style : 'multi'
+		},
+		paginate : false,
+		dom : 'Bfrtip',
+		buttons : [ {
+			extend : "excel",
+			className : "btn btn-sm  btn-outline-info",
+			exportOptions : {
+				columns : ':not(.cus-not-export)'
+			}
+		}, {
+			extend : "csv",
+			className : "btn btn-sm btn-outline-info",
+			exportOptions : {
+				columns : ':not(.cus-not-export)'
+			}
+		} ],
+		bInfo : false,
+	});
+
+}
+
 function getStudentStudentPresents(_this) {
 	console.log("getStudentStudentPresents->fired");
 	var id = $(_this).data("student-id");
