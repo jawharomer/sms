@@ -14,18 +14,26 @@ function addClassGroupStudentPresent(event, _this) {
 	console.log("data=", data);
 	var presentDate = $("#presentDate").val();
 	console.log("presentDate=", presentDate);
-	$.ajax({
-		type : "POST",
-		url : $$ContextURL + "/studentPresents/add/classGroup/"+presentDate,
-		data : JSON.stringify(data),
-		contentType : "application/json",
-		success : function(response) {
-			console.log("response=", response);
-			$("#modal-body").html(response);
-			$("#modal").modal("show");
-		},
-		failure : function(errMsg) {
-			alert(errMsg);
-		}
-	});
+	$.when(cusConfirm()).done(
+			function(result) {
+				if (result) {
+					$.ajax({
+						type : "POST",
+						url : $$ContextURL + "/studentPresents/add/classGroup/"
+								+ presentDate,
+						data : JSON.stringify(data),
+						contentType : "application/json",
+						success : function(response) {
+							console.log("response=", response);
+							$("#modal-body").html(response);
+							$("#modal").modal("show");
+						},
+						error : function(response) {
+							$("#modal-body").html(response.responseText);
+							$("#modal").modal("show");
+						}
+					});
+				}
+			});
+
 }

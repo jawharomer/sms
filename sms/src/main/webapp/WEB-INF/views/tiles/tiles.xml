@@ -245,6 +245,7 @@
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
+			<add-attribute value="select.dataTables.min" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="app" />
@@ -259,6 +260,7 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.dataTables" />
 			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.select.min" />
 			<add-attribute value="dt/dataTables.buttons.min" />
 			<add-attribute value="dt/buttons.flash.min" />
 			<add-attribute value="dt/jszip.min" />
@@ -467,8 +469,11 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
 			<add-attribute value="app" />
-			<add-attribute value="enrollmentPayments" />
+			<add-attribute value="admin" />
+			<add-attribute value="addClassGroupStudentPresent" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
@@ -522,7 +527,8 @@
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="app" />
-			<add-attribute value="admin" />
+			<add-attribute value="student" />
+
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
@@ -643,7 +649,7 @@
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
-			<add-attribute value="adminClassGroupTables" />
+			<add-attribute value="studentNotificaions" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
@@ -654,7 +660,76 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
-			<add-attribute value="adminClassGroupTables" />
+			<add-attribute value="studentNotificaions" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Admin ClassGroupStudents -->
+	<definition name="classGroupStudents"
+		extends="base-definition">
+		<put-attribute name="title" value="ClassLevelMarks" />
+		<put-attribute name="pageCSS" value="admin"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/classGroup/students.jsp" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="select.dataTables.min" />
+			<add-attribute value="app" />
+			<add-attribute value="classGroupStudents" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.select.min" />
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="app" />
+			<add-attribute value="classGroupStudents" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- Admin ClasGroupTables page -->
+	<definition name="adminStudentNotifications"
+		extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/studentNotifications.jsp" cascade="true" />
+		<put-attribute name="title" value="Admin ClassGroups" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminStudentNotifications" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="adminStudentNotifications" />
 		</put-list-attribute>
 
 	</definition>
@@ -673,8 +748,9 @@
 			value="/WEB-INF/views/teacher/notification.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
 			<add-attribute value="app" />
-			<add-attribute value="admin" />
+			<add-attribute value="teacher" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
@@ -707,7 +783,7 @@
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="app" />
-			<add-attribute value="admin" />
+			<add-attribute value="teacher" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
@@ -717,6 +793,7 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="app" />
+			<add-attribute value="teacher" />
 			<add-attribute value="teacherClassSubjectMarks" />
 		</put-list-attribute>
 	</definition>
@@ -733,7 +810,7 @@
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="app" />
-			<add-attribute value="admin" />
+			<add-attribute value="teacher" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
@@ -743,6 +820,7 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="app" />
+			<add-attribute value="teacher" />
 			<add-attribute value="teacherSubjectNotifications" />
 		</put-list-attribute>
 	</definition>

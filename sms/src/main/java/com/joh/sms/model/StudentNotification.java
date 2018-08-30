@@ -1,14 +1,16 @@
 package com.joh.sms.model;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
@@ -16,6 +18,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name = "STUDENT_NOTIFICATIONS")
@@ -25,14 +28,16 @@ public class StudentNotification {
 	@Column(name = "I_STUDENT_NOTIFICATION")
 	private int id;
 
-	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "I_STUDENT", updatable = false, nullable = false)
-	private Student student;
+	@ManyToMany(targetEntity=Student.class)
+	@JoinTable(name = "STUDENTNOTIFICAION_STUDENT", joinColumns = { @JoinColumn(name = "I_STUDENT_NOTIFICATION") }, inverseJoinColumns = {
+			@JoinColumn(name = "I_STUDENT"), })
+	private List<Student> students;
 
 	@Column(name = "TITLE")
 	private String title;
 
-	@Column(name = "NOTE")
+	@Length(min=1,max=512,message="{studentNotification.note.length}")
+	@Column(name = "NOTE",length=512)
 	private String note;
 
 	@Column(name = "NOTIFICATION_TIME")
@@ -49,12 +54,12 @@ public class StudentNotification {
 		this.id = id;
 	}
 
-	public Student getStudent() {
-		return student;
+	public List<Student> getStudents() {
+		return students;
 	}
 
-	public void setStudent(Student student) {
-		this.student = student;
+	public void setStudents(List<Student> students) {
+		this.students = students;
 	}
 
 	public String getTitle() {
@@ -83,7 +88,7 @@ public class StudentNotification {
 
 	@Override
 	public String toString() {
-		return "StudentNotification [id=" + id + ", student=" + student + ", title=" + title + ", note=" + note
+		return "StudentNotification [id=" + id + ", students=" + students + ", title=" + title + ", note=" + note
 				+ ", time=" + time + "]";
 	}
 

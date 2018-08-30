@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.joh.sms.domain.model.StudentPresentD;
+import com.joh.sms.exception.CusDataIntegrityViolationException;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentPresent;
 import com.joh.sms.service.ClassSubjectService;
@@ -67,6 +68,10 @@ public class StudentPresentController {
 		logger.info("addClassGroupStudentPresents->fired");
 		logger.info("studentPresentDs=" + studentPresentDs);
 		logger.info("Date=" + date);
+
+		if (studentPresentDs == null || studentPresentDs.size() == 0) {
+			throw new CusDataIntegrityViolationException("هیچ قوتابیەک دەستنیشان نەکراوە");
+		}
 		List<StudentPresent> studentPresents = new ArrayList<>();
 		for (StudentPresentD studentPresentD : studentPresentDs) {
 			StudentPresent studentPresent = new StudentPresent();

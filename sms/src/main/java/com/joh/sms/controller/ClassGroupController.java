@@ -1,5 +1,7 @@
 package com.joh.sms.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
@@ -17,8 +19,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.joh.sms.model.ClassGroup;
 import com.joh.sms.model.ClassLevel;
+import com.joh.sms.model.Student;
 import com.joh.sms.service.ClassGroupService;
 import com.joh.sms.service.ClassLevelService;
+import com.joh.sms.service.StudentService;
 
 @Controller
 @RequestMapping(path = "/classGroups")
@@ -30,6 +34,9 @@ public class ClassGroupController {
 	private ClassGroupService classGroupService;
 	@Autowired
 	private ClassLevelService classLevelService;
+
+	@Autowired
+	private StudentService studentService;
 
 	@GetMapping()
 	public String getAdminClassGroups(Model model) {
@@ -112,8 +119,24 @@ public class ClassGroupController {
 			classLevel.setId(id);
 			classGroup.setClassLevel(classLevel);
 			classGroupService.save(classGroup);
+
 			return "success";
 		}
+	}
+
+	@GetMapping(path = "/{id}/students")
+	public String getClassGroupStudents(@PathVariable int id, Model model) {
+		logger.info("getClassGroupStudents->fired");
+		logger.info("classGroupId=" + id);
+
+		ClassGroup classGroup = classGroupService.findOne(id);
+		model.addAttribute("classGroup", classGroup);
+
+		List<Student> students = studentService.findAllByClassGroupId(id);
+		logger.info("students=" + students);
+		model.addAttribute("students", students);
+
+		return "classGroupStudents";
 	}
 
 }

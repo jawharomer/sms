@@ -1,6 +1,8 @@
 package com.joh.sms.controller;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.validation.Valid;
 
@@ -11,14 +13,21 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.joh.sms.domain.model.StudentNotificaionD;
 import com.joh.sms.model.Student;
+import com.joh.sms.model.StudentNotification;
 import com.joh.sms.model.Teacher;
+import com.joh.sms.service.StudentNotificationSerivce;
 import com.joh.sms.service.StudentService;
 import com.joh.sms.service.TeacherService;
 
@@ -33,6 +42,9 @@ public class AdminController {
 
 	@Autowired
 	private TeacherService teacherService;
+
+	@Autowired
+	private StudentNotificationSerivce studentNotificationSerivce;
 
 	@GetMapping()
 	public String getAmdinPage() {
@@ -98,6 +110,76 @@ public class AdminController {
 			return "success";
 		}
 
+	}
+
+	// Student Notificaions
+
+	@GetMapping(path = "/students/notificaions")
+	public String getAllStudentNotificaions(Model model) {
+
+		Iterable<StudentNotification> studentNotifications = studentNotificationSerivce.findAll();
+		model.addAttribute("studentNotifications", studentNotifications);
+		return "adminStudentNotifications";
+	}
+
+	@GetMapping(path = "/students/notificaions/add")
+	public String getAddingStudentNotificaions(@RequestParam("studentIds[]") Integer[] studentIds, Model model)
+			throws JsonProcessingException {
+		logger.info("getAddingStudentNotificaions->fired");
+		logger.info("studnetIds=" + studentIds);
+		StudentNotificaionD studentNotificaionD = new StudentNotificaionD();
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		model.addAttribute("studentIds", objectMapper.writeValueAsString(studentIds));
+		model.addAttribute("studentNotificaionD", studentNotificaionD);
+		return "notification/addStudentNotification";
+	}
+
+	@PostMapping(path = "/students/notificaions/add")
+	public String addStudentNotificaions(@RequestBody @Valid StudentNotificaionD studentNotificaionD,
+			BindingResult result, Model model) throws JsonProcessingException {
+		logger.info("addStudentNotificaions->fired");
+		logger.info("studentNotificaionD=" + studentNotificaionD);
+		logger.info("errors=" + result.getAllErrors());
+		if (result.hasErrors()) {
+
+			ObjectMapper objectMapper = new ObjectMapper();
+			model.addAttribute("studentIds", objectMapper.writeValueAsString(studentNotificaionD.getStudentIds()));
+			model.addAttribute("studentNotificaionD", studentNotificaionD);
+			return "notification/addStudentNotification";
+		} else {
+
+			List<Student> students = new ArrayList<>();
+			for (Integer studentId : studentNotificaionD.getStudentIds()) {
+				Student student = new Student();
+				student.setId(studentId);
+				students.add(student);
+			}
+
+			StudentNotification studentNotification = new StudentNotification();
+			studentNotification.setStudents(students);
+			studentNotification.setTitle(studentNotificaionD.getTitle());
+			studentNotification.setNote(studentNotificaionD.getNote());
+			studentNotificationSerivce.save(studentNotification);
+			return "success";
+		}
+	}
+
+	@PostMapping(path = "/students/notificaions/delete/{id}")
+	public String deleteStudentNotification(@PathVariable int id) {
+		logger.info("getAddingStudentNotificaions->fired");
+		logger.info("id=" + id);
+		studentNotificationSerivce.delete(id);
+		return "success";
+	}
+
+	@GetMapping(path = "/notificaions/{id}/students")
+	public String getStudentNotificaionStudents(@PathVariable int id, Model model) {
+		logger.info("getStudentNotificaionStudents->fired");
+		logger.info("id=" + id);
+		List<Student> students = studentService.findAllByNotificationId(id);
+		model.addAttribute("students", students);
+		return "notification/notificaionStudents";
 	}
 
 	// Teachers

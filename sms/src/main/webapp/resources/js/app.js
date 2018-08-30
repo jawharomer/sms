@@ -30,3 +30,8 @@ function cusConfirm() {
 	return deferred.promise();
 }
 
+
+function cusPF(input){
+// custom prevent Eclipse formating ${variable} inside Javascipt code
+	return input;
+}

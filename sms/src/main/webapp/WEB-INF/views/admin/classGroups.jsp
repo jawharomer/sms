@@ -7,6 +7,7 @@
 			<thead>
 				<tr>
 					<th>پۆل</th>
+					<th><i class="text-success fa fa-plus"></i> <span> تۆماری نەهاتن </span></th>
 					<th>خشتەی هەفتانە</th>
 				</tr>
 			</thead>
@@ -15,6 +16,11 @@
 					<tr>
 
 						<td>${item.name}</td>
+
+						<td><a target="_blank" class="btn btn-sm btn-success"
+							href="<c:url value="/studentPresents/add/classGroup/" />${item.id}">
+								<i class="fa fa-plus"></i>
+						</a></td>
 
 						<td><a class="btn btn-sm btn-info"
 							href="<c:url value="/classGroupTables/classGroup/" />${item.id}">

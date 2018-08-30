@@ -56,7 +56,7 @@ public class TeacherController {
 
 	public TeacherController() {
 		teacher = new Teacher();
-		teacher.setId(6);
+		teacher.setId(1);
 	}
 
 	@ModelAttribute("classGroupTableDs")

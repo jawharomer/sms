@@ -1,5 +1,7 @@
 package com.joh.sms.controller;
 
+import java.util.Enumeration;
+
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
@@ -55,11 +57,12 @@ public class GlobalExceptionHandler {
 
 		return "entityNotFoundException";
 	}
-	
+
 	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler(JsonMappingException.class)
 	public String handleJsonMappingException(HttpServletRequest request, JsonMappingException ex) {
 		logger.info("JsonMappingException occured:: URL=" + request.getRequestURL());
+		ex.printStackTrace();
 		return "jsonMappingException";
 	}
 
@@ -70,5 +73,4 @@ public class GlobalExceptionHandler {
 		return "noResultException";
 	}
 
-	
 }

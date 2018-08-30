@@ -46,7 +46,7 @@ public class StudentController {
 
 	public StudentController() {
 		student = new Student();
-		student.setId(3);
+		student.setId(2);
 	}
 
 	@Autowired
@@ -107,9 +107,6 @@ public class StudentController {
 	@GetMapping()
 	public String getStudenRoot(Model model) {
 		logger.info("getStudenRoot->fired");
-
-		// JOHTEST
-
 		return "studentRoot";
 	}
 

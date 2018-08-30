@@ -1,0 +1,17 @@
+#class-group-student-container {
+	padding: 5px;
+	flex: 1;
+	overflow: auto;
+	max-width: 100%;
+}
+
+.cus-note-td {
+	max-width: 40px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+#student-table-div {
+	padding-top: 10px;
+}

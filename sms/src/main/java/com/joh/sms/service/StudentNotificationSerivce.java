@@ -9,4 +9,10 @@ public interface StudentNotificationSerivce {
 
 	List<StudentNotification> findAllByStudentId(int id);
 
+	StudentNotification save(StudentNotification studentNotification);
+
+	Iterable<StudentNotification> findAll();
+
+	void delete(int id);
+
 }

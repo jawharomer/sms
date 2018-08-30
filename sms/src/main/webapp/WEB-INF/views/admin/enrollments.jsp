@@ -7,10 +7,12 @@
 		class="btn btn-primary">
 		<i class="fa fa-plus"></i>
 	</button>
+	<button class="btn btn-info" onclick="getAddingStudentNotificaion()">ئاگادارکرنەوە</button>
 	<div id="enrollment-table-div">
 		<table id="enrollment-table" class="display nowrap">
 			<thead>
 				<tr>
+					<th>#</th>
 					<th>قوتابی</th>
 					<th>پۆل</th>
 					<th>بڕ</th>
@@ -22,6 +24,7 @@
 			<tbody>
 				<c:forEach items="${enrollments}" var="item">
 					<tr>
+						<td>${item.studentId}</td>
 						<td>${item.studentName}</td>
 						<td>${item.groupName}</td>
 						<td>${item.fee}</td>
@@ -32,7 +35,7 @@
 						<td class="cus-note-td">${item.note}</td>
 						<td>
 							<div>
-								<button  class="btn btn-sm btn-danger"
+								<button class="btn btn-sm btn-danger"
 									data-enrollment-id="${item.enrollmentId}"
 									onclick="deleteEnrollment(this)">
 									<i class="fa fa-times"></i>
@@ -49,6 +52,7 @@
 			</tbody>
 			<tfoot>
 				<tr>
+					<th class="cus-not-search">&nbsp;</th>
 					<th>قوتابی</th>
 					<th>پۆل</th>
 					<th>بڕ</th>

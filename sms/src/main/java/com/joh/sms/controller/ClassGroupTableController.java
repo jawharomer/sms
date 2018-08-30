@@ -59,6 +59,7 @@ public class ClassGroupTableController {
 
 		List<ClassGroupTableD> classGroupTableDs = classGroupTableService.findAllClassGroupTable(classGroup.getId());
 		logger.info("classGroupTableDs=" + classGroupTableDs);
+		logger.debug("classGroup.getClassLevel().getId()=" + classGroup.getClassLevel().getId());
 		Iterable<LessonTime> lessonTimes = lessonTimeService.findByClassLevelId(classGroup.getClassLevel().getId());
 
 		logger.info("lessonTimes=" + lessonTimes);

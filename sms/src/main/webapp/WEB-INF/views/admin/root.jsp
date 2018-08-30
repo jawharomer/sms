@@ -17,6 +17,8 @@
 				href='<c:url value="/classGroups" />'>پۆلەکان</a></li>
 			<li class="list-group-item"><a
 				href='<c:url value="/enrollments" />'>ناونوسین</a></li>
+				<li class="list-group-item"><a
+				href='<c:url value="/admin/students/notificaions" />'>ئ.قوتابی</a></li>
 		</ul>
 	</section>
 

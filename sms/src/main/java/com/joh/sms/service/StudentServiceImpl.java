@@ -1,5 +1,7 @@
 package com.joh.sms.service;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.sql.Delete;
@@ -46,6 +48,16 @@ public class StudentServiceImpl implements StudentService {
 		// then it will update it
 		studentDAO.findOne(student.getId());
 		studentDAO.save(student);
+	}
+	
+	@Override
+	public List<Student> findAllByNotificationId(int id) {
+		return studentDAO.findAllByNotificationId(id);
+	}
+	
+	@Override
+	public List<Student> findAllByClassGroupId(int id) {
+		return studentDAO.findAllByClassGroupId(id);
 	}
 	
 	

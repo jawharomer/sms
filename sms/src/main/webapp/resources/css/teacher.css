@@ -1,0 +1,25 @@
+#teacher-body {
+	flex: 1 1 auto;
+	overflow: visible;
+	display: flex;
+	flex-direction: row;
+}
+
+#section-right {
+	min-height: 0;
+	overflow: auto;
+	flex-basis: auto;
+	padding-left: 10px;
+}
+
+#section-right .cus-right-nav {
+	padding: 0px;
+}
+
+#main-content {
+	overflow: auto;
+	flex: 1;
+	min-height: 0;
+	padding-left: 10px;
+	padding:4px;
+}

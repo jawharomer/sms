@@ -17,4 +17,8 @@ public interface StudentService {
 
 	void update(Student student);
 
+	List<Student> findAllByNotificationId(int id);
+
+	List<Student> findAllByClassGroupId(int id);
+
 }

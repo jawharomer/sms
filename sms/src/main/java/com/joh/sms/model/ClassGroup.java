@@ -25,7 +25,7 @@ public class ClassGroup {
 	private String name;
 
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "I_CLASS_LEVEL", updatable = false)
+	@JoinColumn(name = "I_CLASS_LEVEL", nullable = false, updatable = false)
 	private ClassLevel classLevel;
 
 	public int getId() {

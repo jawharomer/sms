@@ -15,16 +15,25 @@
 		<table id="teachersTable" class="display nowrap">
 			<thead>
 				<tr>
-					<td>FirstName</td>
-					<td>LastName</td>
-					<td>LastName</td>
+					<td>ناو</td>
+					<td>باوک</td>
+					<td>باپیر</td>
+					<td>بری پارە</td>
+					<td>ن.بەکاربەر</td>
+					<td>وشەی نهێنی</td>
+					<td>کردرارەکان</td>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${teachers}" var="item">
 					<tr>
 						<td>${item.firstName}</td>
+						<td>${item.middleName}</td>
 						<td>${item.lastName}</td>
+						<td>${item.hireAmount}</td>
+						<td>${item.userName}</td>
+						<td>${item.password}</td>
+						
 						<td>
 							<div>
 								<button class="btn btn-danger btn-sm"
