@@ -4,10 +4,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-<table>
+<div id="class-group-table-container"></div>
+<table class="table table-bordered">
 	<thead>
 		<tr>
-			<th>&nbsp;</th>
+			<th>ز.هەفتە</th>
 			<c:forEach items="${lessonTimes}" var="item">
 				<th>${item.time}</th>
 			</c:forEach>
@@ -43,8 +44,8 @@
 		<td>
 
 			<div class="td-container-div">
-				<div class="td-inline-div"><%=item.getSubjectName() == null ? "" : item.getSubjectName()%></div>
-				<div class="td-inline-div"><%=item.getTeacherName() == null ? "" : item.getTeacherName()%></div>
+				<div class="cus-p-100 td-inline-div"><%=item.getSubjectName() == null ? "" : item.getSubjectName()%></div>
+				<div  class="mt-1 border-top cus-p-100  td-inline-div"><%=item.getTeacherName() == null ? "" : item.getTeacherName()%></div>
 			</div>
 
 		</td>

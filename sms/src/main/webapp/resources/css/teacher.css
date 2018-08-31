@@ -3,6 +3,8 @@
 	overflow: visible;
 	display: flex;
 	flex-direction: row;
+	max-width: 100%;
+	overflow: auto;
 }
 
 #section-right {
@@ -10,6 +12,8 @@
 	overflow: auto;
 	flex-basis: auto;
 	padding-left: 10px;
+	max-width: 200px;
+	overflow: auto;
 }
 
 #section-right .cus-right-nav {
@@ -21,5 +25,5 @@
 	flex: 1;
 	min-height: 0;
 	padding-left: 10px;
-	padding:4px;
+	padding: 4px;
 }

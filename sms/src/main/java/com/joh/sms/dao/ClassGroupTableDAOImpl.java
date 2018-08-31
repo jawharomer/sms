@@ -62,13 +62,42 @@ public class ClassGroupTableDAOImpl implements ClassGroupTableDAOExt {
 
 		List<Object[]> resultList = query.getResultList();
 
-		for (Object row[] : resultList) {
+		for (Object columns[] : resultList) {
 			ClassGroupTableD classGroupTableD = new ClassGroupTableD();
 
-			classGroupTableD.setGroupName((String) row[0]);
-			classGroupTableD.setSubjectName((String) row[1]);
-			classGroupTableD.setClassGroupId((Integer) row[2]);
-			classGroupTableD.setClassSubjectId((Integer) row[3]);
+			classGroupTableD.setGroupName((String) columns[0]);
+			classGroupTableD.setSubjectName((String) columns[1]);
+			classGroupTableD.setClassGroupId((Integer) columns[2]);
+			classGroupTableD.setClassSubjectId((Integer) columns[3]);
+
+			classGroupTableDs.add(classGroupTableD);
+		}
+		return classGroupTableDs;
+	}
+
+	@Override
+	public List<ClassGroupTableD> findTeacherClassGroupTable(int teacherId) {
+		List<ClassGroupTableD> classGroupTableDs = new ArrayList<>();
+		Query query = em
+				.createNativeQuery("SELECT SWD.I_SCHOOL_WEEK_DAY,WEEK_DAY,GROUP_NAME,SUBJECT_NAME,LESSON_TIME FROM\n"
+						+ "SCHOOL_WEEK_DAYS SWD\n" + "JOIN \n" + "TEACHERS T\n"
+						+ "LEFT OUTER JOIN CLASS_GROUP_TABLES CGT ON CGT.I_TEACHER=T.I_TEACHER AND CGT.I_SCHOOL_WEEK_DAY=SWD.I_SCHOOL_WEEK_DAY\n"
+						+ "LEFT OUTER JOIN CLASS_GROUPS CG USING(I_CLASS_GROUP)\n"
+						+ "LEFT OUTER JOIN CLASS_SUBJECTS CS USING (I_CLASS_SUBJECT)\n"
+						+ "LEFT OUTER JOIN LESSON_TIMES LT USING(I_LESSON_TIME)\n" + "WHERE T.I_TEACHER=?1 \n"
+						+ "ORDER BY SWD.I_SCHOOL_WEEK_DAY,LESSON_TIME;");
+		query.setParameter(1, teacherId);
+
+		List<Object[]> resultList = query.getResultList();
+
+		for (Object columns[] : resultList) {
+			ClassGroupTableD classGroupTableD = new ClassGroupTableD();
+
+			classGroupTableD.setSchoolWeekDayId((Integer) columns[0]);
+			classGroupTableD.setWeekDay((String) columns[1]);
+			classGroupTableD.setGroupName((String) columns[2]);
+			classGroupTableD.setSubjectName((String) columns[3]);
+			classGroupTableD.setLessonTime((Date) columns[4]);
 
 			classGroupTableDs.add(classGroupTableD);
 		}

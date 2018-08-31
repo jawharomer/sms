@@ -73,7 +73,7 @@ public class TeacherController {
 
 	@ModelAttribute("teacher")
 	private Teacher teacher() {
-		logger.info("teacehr=" + teacher);
+		logger.info("teacher=" + teacher);
 
 		return teacher;
 	}
@@ -184,6 +184,19 @@ public class TeacherController {
 		}
 
 		return "teacher/addSubjectNotification";
+	}
+
+	@GetMapping(path = "/classGroupTable/{id}")
+	public String getTeacherClassGroupTable(@PathVariable int id, Model model) {
+		logger.info("getTeacherClassGroupTable->fired");
+		logger.info("teacherId=" + id);
+
+		List<ClassGroupTableD> classGroupTableDs = classGroupTableService.findTeacherClassGroupTable(id);
+		logger.info("classGroupTableDs=" + classGroupTableDs);
+
+		model.addAttribute("classGroupTableDs", classGroupTableDs);
+
+		return "teacherClassGroupTable";
 	}
 
 }

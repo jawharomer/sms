@@ -15,4 +15,6 @@ public interface ClassGroupTableService {
 
 	void delete(int id);
 
+	List<ClassGroupTableD> findTeacherClassGroupTable(int teacherId);
+
 }

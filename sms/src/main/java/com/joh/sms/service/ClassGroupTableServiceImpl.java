@@ -37,5 +37,10 @@ public class ClassGroupTableServiceImpl implements ClassGroupTableService {
 	public List<ClassGroupTableD> findAllTeacherClassGroupSubject(int teacherId) {
 		return classGroupTableDAO.findAllTeacherClassGroupSubject(teacherId);
 	}
+	
+	@Override
+	public List<ClassGroupTableD> findTeacherClassGroupTable(int teacherId) {
+		return classGroupTableDAO.findTeacherClassGroupTable(teacherId);
+	}
 
 }

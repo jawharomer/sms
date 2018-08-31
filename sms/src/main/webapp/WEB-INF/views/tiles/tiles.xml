@@ -567,7 +567,7 @@
 			<add-attribute value="jquery-ui" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
-			<add-attribute value="adminClassGroupTables" />
+			<add-attribute value="studentClassGroupTable" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
@@ -578,7 +578,7 @@
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
-			<add-attribute value="adminClassGroupTables" />
+			<add-attribute value="studentClassGroupTable" />
 		</put-list-attribute>
 
 	</definition>
@@ -762,6 +762,7 @@
 			<add-attribute value="font-awesome" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
+			<add-attribute value="teacherClassGroupTable" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
@@ -771,9 +772,34 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="app" />
-			<add-attribute value="student" />
+			<add-attribute value="teacher" />
+			<add-attribute value="teacherClassGroupTable" />
 		</put-list-attribute>
 	</definition>
+
+
+	<definition name="teacherClassGroupTable"
+		extends="teacherRoot">
+		<put-attribute name="title" value="teacherClassSubject" />
+		<put-attribute name="teacherBody"
+			value="/WEB-INF/views/teacher/classGroupTable.jsp" cascade="true" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="teacher" />
+			<add-attribute value="teacherClassGroupTable" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="teacher" />
+			<add-attribute value="teacherClassSubjectMarks" />
+		</put-list-attribute>
+	</definition>
+
 
 
 
@@ -839,8 +865,5 @@
 
 
 
-
-
-
-
 </tiles-definitions>
+

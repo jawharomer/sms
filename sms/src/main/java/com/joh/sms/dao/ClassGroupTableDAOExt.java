@@ -9,4 +9,6 @@ public interface ClassGroupTableDAOExt {
 	List<ClassGroupTableD> findAllClassGroupTable(int classGroupId);
 
 	List<ClassGroupTableD> findAllTeacherClassGroupSubject(int teacherId);
+
+	List<ClassGroupTableD> findTeacherClassGroupTable(int teacherId);
 }
