@@ -3,21 +3,38 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 
 <div id="add-subject-notification">
-
-	Adding Subject Notification Page
-
 	<sf:form id="add-subject-notificaion-form" method="POST"
 		commandName="subjectNotificationD"
 		onsubmit="addSubjectNotificaion(event)">
 		<sf:input type="hidden" path="classGroupId" />
 		<sf:input type="hidden" path="classSubjectId" />
-		<div>
-			<sf:textarea path="note" rows="4" cols="20" />
+		<table class="w-100">
 
-			<button type="submit">Add Notificaion</button>
-		</div>
+			<tr>
+				<td>بابت</td>
+				<td><sf:input cssClass="form-control" path="title" rows="4"
+						cols="20" /></td>
+				<td><sf:errors path="title" /></td>
+			</tr>
+
+			<tr>
+				<td>ناوەڕۆک</td>
+				<td><sf:textarea cssClass="form-control" path="note" rows="4"
+						cols="20" /></td>
+				<td><sf:errors path="note" /></td>
+			</tr>
 
 
+			<tr>
+				<td>
+					<button class="btn btn-outline-success btn-sm">
+						<i class="fa fa-plus"></i>
+					</button>
+				</td>
+			</tr>
+
+
+		</table>
 
 	</sf:form>
 
@@ -35,11 +52,12 @@
 			url : "<c:url value="/teachers/notifications/add"/>",
 			data : JSON.stringify(data),
 			contentType : "application/json",
-			success : function(response) {
-				$("#add-subject-notification-container").html(response);
+			success : function(data) {
+				$("#add-subject-notification").html(data);
 			},
-			failure : function(errMsg) {
-				alert(errMsg);
+			error : function(response) {
+				$("#modal-body").html(response.responseText);
+				$("#modal").modal("show");
 			}
 		});
 	}

@@ -35,5 +35,9 @@ public class TestA {
 	public String toString() {
 		return "TestA [ai=" + ai + ", a=" + a + "]";
 	}
+	
+	public static void main(String[] args) {
+		System.out.println(2<<4);
+	}
 
 }

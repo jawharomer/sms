@@ -59,22 +59,21 @@ public class TeacherController {
 		teacher.setId(1);
 	}
 
-	@ModelAttribute("classGroupTableDs")
+	@ModelAttribute("navClassGroupTableDs")
 	private List<ClassGroupTableD> classGroupTableDs() {
 		logger.info("teacehr=" + teacher);
 
-		List<ClassGroupTableD> classGroupTableDs = classGroupTableService
+		List<ClassGroupTableD> navClassGroupTableDs = classGroupTableService
 				.findAllTeacherClassGroupSubject(teacher.getId());
 
-		logger.info("classGroupTableDs=" + classGroupTableDs);
+		logger.info("navClassGroupTableDs=" + navClassGroupTableDs);
 
-		return classGroupTableDs;
+		return navClassGroupTableDs;
 	}
 
 	@ModelAttribute("teacher")
 	private Teacher teacher() {
 		logger.info("teacher=" + teacher);
-
 		return teacher;
 	}
 
@@ -177,13 +176,23 @@ public class TeacherController {
 
 			subjectNotification.setClassSubject(classSubject);
 			subjectNotification.setClassGroup(classGroup);
+			subjectNotification.setTitle(subjectNotificationD.getTitle());
 			subjectNotification.setNote(subjectNotificationD.getNote());
 
 			subjectNotificationSerivce.save(subjectNotification);
 
 		}
 
-		return "teacher/addSubjectNotification";
+		return "success";
+	}
+
+	@PostMapping(path = "/notifications/delete/{id}")
+	public String deleteSubjectNotification(@PathVariable int id, Model model) {
+		logger.info("deleteSubjectNotification->fired");
+		logger.info("subjectNotificaionId=" + id);
+
+		subjectNotificationSerivce.delete(id);
+		return "success";
 	}
 
 	@GetMapping(path = "/classGroupTable/{id}")

@@ -10,4 +10,6 @@ public interface SubjectNotificationSerivce {
 
 	SubjectNotification save(SubjectNotification subjectNotificaion);
 
+	void delete(int id);
+
 }

@@ -16,12 +16,17 @@ public class SubjectNotificationServiceImpl implements SubjectNotificationSerivc
 
 	@Override
 	public List<SubjectNotification> findAllByClassSubjectIdAndClassGroupId(int classSubjectId, int classGroupId) {
-		return subjectNotificationDAO.findAllByClassSubjectIdAndClassGroupId(classSubjectId, classGroupId);
+		return subjectNotificationDAO.findAllByClassSubjectIdAndClassGroupIdOrderByIdDesc(classSubjectId, classGroupId);
 	}
 
 	@Override
 	public SubjectNotification save(SubjectNotification subjectNotificaion) {
 		return subjectNotificationDAO.save(subjectNotificaion);
+	}
+
+	@Override
+	public void delete(int id) {
+		subjectNotificationDAO.delete(id);
 	}
 
 }

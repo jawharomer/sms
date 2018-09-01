@@ -8,9 +8,11 @@ import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,12 +26,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.joh.sms.domain.model.StudentNotificaionD;
+import com.joh.sms.domain.model.StudentSubjectMarkD;
+import com.joh.sms.domain.model.TeacherLecturePresentD;
+import com.joh.sms.model.ClassMark;
+import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentNotification;
 import com.joh.sms.model.Teacher;
+import com.joh.sms.model.TeacherPresent;
+import com.joh.sms.service.ClassMarkService;
+import com.joh.sms.service.EnrollmentService;
 import com.joh.sms.service.StudentNotificationSerivce;
 import com.joh.sms.service.StudentService;
+import com.joh.sms.service.StudentSubjectMarkService;
+import com.joh.sms.service.TeacherPresentService;
 import com.joh.sms.service.TeacherService;
+import com.joh.sms.validator.TeacherPresentValidator;
 
 @Controller()
 @RequestMapping(path = "/admin")
@@ -45,6 +57,18 @@ public class AdminController {
 
 	@Autowired
 	private StudentNotificationSerivce studentNotificationSerivce;
+
+	@Autowired
+	private StudentSubjectMarkService studentSubjectMarkService;
+
+	@Autowired
+	private EnrollmentService enrollmentService;
+
+	@Autowired
+	private ClassMarkService classMarkService;
+
+	@Autowired
+	private TeacherPresentService teacherPresentService;
 
 	@GetMapping()
 	public String getAmdinPage() {
@@ -109,6 +133,30 @@ public class AdminController {
 			studentService.update(student);
 			return "success";
 		}
+
+	}
+
+	@GetMapping(path = "/students/{id}/marks")
+	public String getStudentMakrs(@PathVariable int id, Model model) {
+		logger.info("getStudentMakrs->fired");
+		logger.info("studentId=" + id);
+
+		Student student = studentService.findOne(id);
+
+		List<StudentSubjectMarkD> studentSubjectMarkDs = studentSubjectMarkService
+				.findAllStudentStudentSubjectMark(student.getId());
+
+		logger.info("studentSubjectMarkDs=" + studentSubjectMarkDs);
+		Enrollment enrollment = enrollmentService.findEnrollmentByStudentId(student.getId());
+		Iterable<ClassMark> classMarks = classMarkService
+				.findByClassLevelId(enrollment.getClassGroup().getClassLevel().getId());
+
+		logger.info("classMarks=" + classMarks);
+
+		model.addAttribute("studentSubjectMarkDs", studentSubjectMarkDs);
+		model.addAttribute("classMarks", classMarks);
+
+		return "student/studentStudentSubjectMarks";
 
 	}
 
@@ -243,6 +291,82 @@ public class AdminController {
 			return "success";
 		}
 
+	}
+
+	@GetMapping(path = "/teacherLecturePresents")
+	public String getAllTeacherLecturePresents(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
+			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date to, Model model) {
+		logger.info("getAllTeacherLecturePresents->fired");
+		logger.info("from=" + from);
+		logger.info("to=" + to);
+
+		List<TeacherLecturePresentD> teacherLecturePresentDs = teacherService.findAllTeacherLecturePresent(from, to);
+
+		model.addAttribute("teacherLecturePresentDs", teacherLecturePresentDs);
+		model.addAttribute("from", from);
+		model.addAttribute("to", to);
+
+		return "adminTeacherLecturePresents";
+	}
+
+	@GetMapping(path = "/teacherPresents")
+	public String getTeacherPresents(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
+			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date to, Model model) {
+		logger.info("getAllTeacherLecturePresents->fired");
+		logger.info("from=" + from);
+		logger.info("to=" + to);
+
+		List<TeacherPresent> teacherPresents = teacherPresentService.findAllByDateBetweenOrderByDateDesc(from, to);
+
+		model.addAttribute("teacherPresents", teacherPresents);
+		model.addAttribute("from", from);
+		model.addAttribute("to", to);
+
+		return "adminTeacherPresents";
+	}
+
+	@GetMapping(path = "/teacherPresents/add")
+	public String getAddingTeacherPresent(Model model) {
+		logger.info("getAddingTeacherPresent->fired");
+
+		Iterable<Teacher> teachers = teacherService.findAll();
+
+		model.addAttribute("teacherPresent", new TeacherPresent());
+
+		model.addAttribute("teachers", teachers);
+
+		return "admin/addTeacherPresent";
+	}
+
+	@PostMapping(path = "/teacherPresents/add")
+	public String addTeacherPresent(
+			@RequestBody @Validated(TeacherPresentValidator.insert.class) TeacherPresent teacherPresent,
+			BindingResult result, Model model) {
+		logger.info("addTeacherPresent->fired");
+
+		logger.info("errors=" + result.getAllErrors());
+
+		if (result.hasErrors()) {
+			Iterable<Teacher> teachers = teacherService.findAll();
+
+			model.addAttribute("teacherPresent", teacherPresent);
+
+			model.addAttribute("teachers", teachers);
+
+			return "admin/addTeacherPresent";
+		} else {
+			teacherPresentService.save(teacherPresent);
+			return "success";
+		}
+
+	}
+
+	@PostMapping(path = "/teacherPresents/delete/{id}")
+	public String deleteTeacherPresent(@PathVariable int id) {
+		logger.info("deleteTeacherPresent->fired");
+		logger.info("teacherPresentId=" + id);
+		teacherPresentService.delete(id);
+		return "success";
 	}
 
 }

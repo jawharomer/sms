@@ -66,6 +66,33 @@
 							path="parentPassword" /></td>
 					<td><sf:errors path="parentPassword" /></td>
 				</tr>
+				<tr>
+				
+					<td>رەگەز</td>
+					<td>
+						<div class="form-check form-check-inline">
+							<sf:radiobutton path="gender" label="مێ" value="${0}" />
+						</div>
+						<div class="form-check form-check-inline">
+							<sf:radiobutton path="gender" label="نێر" value="${1}" />
+						</div>
+					</td>
+					<td><sf:errors path="gender" /></td>
+				</tr>
+
+				<tr>
+					<td>ژ.مۆبایل</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="mobile" /></td>
+					<td><sf:errors path="mobile" /></td>
+				</tr>
+
+				<tr>
+					<td>ژ.م بەخێوکەر</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="parentMobile" /></td>
+					<td><sf:errors path="parentMobile" /></td>
+				</tr>
 
 				<tr>
 					<td><button class="btn btn-outline-warning btn-sm">

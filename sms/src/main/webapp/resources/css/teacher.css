@@ -27,3 +27,26 @@
 	padding-left: 10px;
 	padding: 4px;
 }
+
+#cus-class-group-li{
+	padding: 0px;
+}
+#cus-class-group-li  li{
+	border: none;
+}
+.cus-list-level-1{
+	padding: 3px;
+	padding-right:1em;
+
+}
+.cus-list-level-1 >li{
+	padding: 3px;
+}
+.cus-list-level-2{
+	padding: 0px;
+	padding-right: 1em;
+}
+.cus-list-level-2 >li{
+}
+
+

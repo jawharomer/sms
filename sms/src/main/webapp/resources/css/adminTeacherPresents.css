@@ -1,0 +1,8 @@
+#teacher-lecture-present-table  tfoot td {
+	border: none;
+}
+
+.cus-note-td {
+	max-width: 100px;
+	overflow: auto;
+}

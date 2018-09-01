@@ -5,16 +5,21 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 
-
 <div>
 	<c:forEach items="${subjectNotifications}" var="item">
-		<div>
-			<div>${item.title}</div>
-			<div>
-				<fmt:formatDate value="${item.time}" pattern="yyyy-MM-dd HH:mm:ss" />
+
+		<div class="card my-1 border border-warning">
+			<div class="card-header">
+				<h5>
+					<fmt:formatDate value="${item.time}" pattern="yyyy-MM-dd HH:mm:ss" />
+				</h5>
 			</div>
-			<div>${item.note}</div>
+			<div class="card-body">
+				<h5 class="card-title">${item.title}</h5>
+				<p class="card-text">${item.note}</p>
+			</div>
 		</div>
 	</c:forEach>
 
 </div>
+

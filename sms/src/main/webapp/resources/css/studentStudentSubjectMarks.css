@@ -1,8 +1,3 @@
-.td-container-div {
-	
-}
-
-.td-inline-div {
-	display: inline-block;
-	width: 100%;
+#student-subject-mark-container{
+	padding: 5px;
 }

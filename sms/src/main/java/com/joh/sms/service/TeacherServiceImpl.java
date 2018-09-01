@@ -1,11 +1,15 @@
 package com.joh.sms.service;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.joh.sms.dao.TeacherDAO;
+import com.joh.sms.domain.model.TeacherLecturePresentD;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.Teacher;
 
@@ -45,6 +49,11 @@ public class TeacherServiceImpl implements TeacherService {
 		// then it will update it
 		teacherDAO.findOne(teacher.getId());
 		return teacherDAO.save(teacher);
+	}
+
+	@Override
+	public List<TeacherLecturePresentD> findAllTeacherLecturePresent(Date from, Date to) {
+		return teacherDAO.findAllTeacherLecturePresent(from, to);
 	}
 
 }

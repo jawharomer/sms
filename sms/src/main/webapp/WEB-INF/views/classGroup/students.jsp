@@ -13,6 +13,7 @@
 					<th>باوک</th>
 					<th>باپی</th>
 					<th>تۆماری نەهاتن</th>
+					<th>نمرەکان</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -23,15 +24,21 @@
 						<td>${item.middleName}</td>
 						<td>${item.lastName}</td>
 						<td>
-							<button class="btn btn-sm btn-info"
-								data-student-id="${item.id}" onclick="getStudentStudnetPresents(this)">
+							<button class="btn btn-sm btn-info" data-student-id="${item.id}"
+								onclick="getStudentStudnetPresents(this)">
+								<i class="fa fa-eye"></i>
+							</button>
+						</td>
+						<td>
+							<button class="btn btn-sm btn-info" data-student-id="${item.id}"
+								onclick="getStudentStudnetSubjectMarks(this)">
 								<i class="fa fa-eye"></i>
 							</button>
 						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
-			
+
 		</table>
 	</div>
 

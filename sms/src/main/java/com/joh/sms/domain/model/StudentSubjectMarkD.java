@@ -10,7 +10,7 @@ public class StudentSubjectMarkD {
 	private String studentName;
 	private String subjectName;
 	private String markName;
-	private Double markLimit;
+	private Integer markLimit;
 
 	@NotNull(message = "{studentSubjectMark.mark.null}")
 	private Double mark;
@@ -56,11 +56,11 @@ public class StudentSubjectMarkD {
 		this.markName = markName;
 	}
 
-	public Double getMarkLimit() {
+	public Integer getMarkLimit() {
 		return markLimit;
 	}
 
-	public void setMarkLimit(Double markLimit) {
+	public void setMarkLimit(Integer markLimit) {
 		this.markLimit = markLimit;
 	}
 

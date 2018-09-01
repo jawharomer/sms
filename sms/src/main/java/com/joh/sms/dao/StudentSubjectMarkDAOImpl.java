@@ -38,7 +38,7 @@ public class StudentSubjectMarkDAOImpl implements StudentSubjectMarkDAOExt {
 			studentSubjectMarkD.setStudentName((String) row[0]);
 			studentSubjectMarkD.setSubjectName((String) row[1]);
 			studentSubjectMarkD.setMarkName((String) row[2]);
-			studentSubjectMarkD.setMarkLimit((Double) row[3]);
+			studentSubjectMarkD.setMarkLimit((Integer) row[3]);
 			studentSubjectMarkD.setMark((Double) row[4]);
 			studentSubjectMarkD.setStudentId((Integer) row[5]);
 			studentSubjectMarkD.setClassMarkId((Integer) row[6]);
@@ -73,7 +73,7 @@ public class StudentSubjectMarkDAOImpl implements StudentSubjectMarkDAOExt {
 			studentSubjectMarkD.setStudentName((String) row[0]);
 			studentSubjectMarkD.setSubjectName((String) row[1]);
 			studentSubjectMarkD.setMarkName((String) row[2]);
-			studentSubjectMarkD.setMarkLimit((Double) row[3]);
+			studentSubjectMarkD.setMarkLimit((Integer) row[3]);
 			studentSubjectMarkD.setMark((Double) row[4]);
 			studentSubjectMarkD.setStudentId((Integer) row[5]);
 			studentSubjectMarkD.setClassMarkId((Integer) row[6]);

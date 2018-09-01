@@ -90,3 +90,25 @@ function getStudentStudnetPresents(_this) {
 	});
 
 }
+
+
+function getStudentStudnetSubjectMarks(_this) {
+	console.log("getStudentStudnetSubjectMarks->fired");
+	console.log(_this);
+	var id = $(_this).data("student-id");
+	console.log("id=", id);
+	$.ajax({
+		url : $$ContextURL + '/admin/students/' + id+"/marks",
+		type : 'GET',
+		success : function(response) {
+			console.log(response);
+			$("#modal-body").html(response);
+			$("#modal").modal("show");
+		},
+		error : function(response) {
+			$("#modal-body").html(response.responseText);
+			$("#modal").modal("show");
+		}
+	});
+
+}

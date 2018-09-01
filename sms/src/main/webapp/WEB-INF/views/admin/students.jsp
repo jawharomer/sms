@@ -6,7 +6,8 @@
 	<h3>قوتابیەکان</h3>
 	<div>
 		<button onclick="getAddStudent()" class="btn btn-primary">
-		<i class="fa fa-plus"></i></button>
+			<i class="fa fa-plus"></i>
+		</button>
 	</div>
 
 	<div class="student-table-div">
@@ -21,6 +22,10 @@
 					<td>وشوەی نهێنی</td>
 					<td>ن.ب بەخێوکەر</td>
 					<td>و.ن بەخێوکەر</td>
+					<td>رەگەز</td>
+					<td>ژ.مۆبایل</td>
+					<td>ژ.م بەخێوکەر</td>
+
 					<td>کردارەکان</td>
 				</tr>
 			</thead>
@@ -34,6 +39,10 @@
 						<td>${student.password}</td>
 						<td>${student.parentUserName}</td>
 						<td>${student.parentPassword}</td>
+						<td><c:if test="${student.gender==0}">م</c:if> <c:if
+								test="${student.gender==1}">ن</c:if></td>
+						<td>${student.mobile}</td>
+						<td>${student.parentMobile}</td>
 						<td>
 							<div>
 								<button class="btn btn-danger btn-sm"

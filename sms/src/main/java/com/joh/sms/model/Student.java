@@ -10,7 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -57,6 +60,17 @@ public class Student {
 	@NotBlank(message = "{student.parentPassword.blank}")
 	@Column(name = "PARENT_PASSWORD")
 	private String parentPassword;
+
+	@Min(message = "{student.gender.min}", value = 0)
+	@Max(message = "{student.gender.max}", value = 1)
+	@NotNull(message = "{student.gender.null}")
+	@Column(name = "GENDER", length = 1)
+	private Integer gender;
+
+	@Column(name = "MOBILE")
+	private String mobile;
+	@Column(name = "PARENT_MOBILE")
+	private String parentMobile;
 
 	public Student() {
 	}
@@ -133,11 +147,36 @@ public class Student {
 		this.parentPassword = parentPassword;
 	}
 
+	public Integer getGender() {
+		return gender;
+	}
+
+	public void setGender(Integer gender) {
+		this.gender = gender;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getParentMobile() {
+		return parentMobile;
+	}
+
+	public void setParentMobile(String parentMobile) {
+		this.parentMobile = parentMobile;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
 				+ lastName + ", birthDate=" + birthDate + ", userName=" + userName + ", password=" + password
-				+ ", parentUserName=" + parentUserName + ", parentPassword=" + parentPassword + "]";
+				+ ", parentUserName=" + parentUserName + ", parentPassword=" + parentPassword + ", gender=" + gender
+				+ ", mobile=" + mobile + ", parentMobile=" + parentMobile + "]";
 	}
 
 }

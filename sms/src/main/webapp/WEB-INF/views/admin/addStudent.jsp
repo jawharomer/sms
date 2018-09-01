@@ -41,7 +41,7 @@
 				<tr>
 					<td>ناوی بەکاربەر</td>
 					<td><sf:input cssClass="form-control  form-control-sm"
-							path="userName"  /></td>
+							path="userName" /></td>
 					<td><sf:errors path="userName" /></td>
 				</tr>
 
@@ -63,9 +63,38 @@
 				<tr>
 					<td>وشوی تێپەری بەخێوکەر</td>
 					<td><sf:input cssClass="form-control form-control-sm"
-							path="parentPassword"  /></td>
+							path="parentPassword" /></td>
 					<td><sf:errors path="parentPassword" /></td>
 				</tr>
+
+				<tr>
+					<td>رەگەز</td>
+					<td>
+						<div class="form-check form-check-inline">
+							<sf:radiobutton path="gender" label="مێ" value="${0}" />
+						</div>
+						<div class="form-check form-check-inline">
+							<sf:radiobutton path="gender" label="نێر" value="${1}" />
+						</div>
+					</td>
+					<td><sf:errors path="gender" /></td>
+				</tr>
+
+				<tr>
+					<td>ژ.مۆبایل</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="mobile" /></td>
+					<td><sf:errors path="mobile" /></td>
+				</tr>
+
+				<tr>
+					<td>ژ.م بەخێوکەر</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="parentMobile" /></td>
+					<td><sf:errors path="parentMobile" /></td>
+				</tr>
+
+
 
 				<tr>
 					<td>
@@ -103,8 +132,8 @@
 			url : "<c:url value="/admin/students/add"/>",
 			data : JSON.stringify($("#addStudentForm").serializeObject()),
 			contentType : "application/json",
-			success : function(data) {
-				$("#add-student-container").html(data);
+			success : function(response) {
+				$("#add-student-container").html(response);
 			},
 			error : function(response) {
 				$("#modal-body").html(response.responseText);

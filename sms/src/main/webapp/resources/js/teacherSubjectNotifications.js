@@ -24,34 +24,26 @@ function getAddSubjectNotification(_this) {
 	});
 }
 
-function deleteClassLevel(_this) {
-	console.log("deleteClassLevel->fired");
+function deleteSubjectNotificaion(_this) {
+	console.log("deleteSubjectNotificaion->fired");
 	console.log(_this);
-	var id = $(_this).data("classlevel-id");
+	var id = $(_this).data("subject-notificaion-id");
 	console.log("id=", id);
-	$.ajax({
-		url : $$ContextURL + '/classLevels/' + id,
-		type : 'DELETE',
-		success : function(result) {
-			console.log(result);
-			if (result == "success") {
-				location.reload();
-			}
-		},
-		failure : function(errMsg) {
-			alert(errMsg);
+	$.when(cusConfirm()).done(function(result) {
+		if (result) {
+			$.ajax({
+				url : $$ContextURL + '/teachers/notifications/delete/' + id,
+				type : 'POST',
+				success : function(response) {
+					$("#modal-body").html(response);
+					$("#modal").modal("show");
+				},
+				error : function(response) {
+					$("#modal-body").html(response.responseText);
+					$("#modal").modal("show");
+				}
+			});
 		}
-	});
-}
-
-function editClassLevel(_this) {
-	console.log(_this);
-	var id = $(_this).data("classlevel-id");
-	console.log("id=", id);
-	$.get($$ContextURL + "/classLevels/edit/" + id, function(result) {
-		console.log("result=", result);
-		$("#modal-body").html(result);
-		$("#modal").modal("show");
 	});
 
 }

@@ -10,5 +10,5 @@ import com.joh.sms.model.Student;
 import com.joh.sms.model.SubjectNotification;
 
 public interface SubjectNotificationDAO extends CrudRepository<SubjectNotification, Integer> {
-	List<SubjectNotification> findAllByClassSubjectIdAndClassGroupId(int classSubjectId, int classGroupId);
+	List<SubjectNotification> findAllByClassSubjectIdAndClassGroupIdOrderByIdDesc(int classSubjectId, int classGroupId);
 }

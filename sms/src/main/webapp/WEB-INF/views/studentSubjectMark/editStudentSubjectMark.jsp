@@ -3,7 +3,6 @@
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 
 <div id="edit-student-subject-mark-container">
-	This is Edit Student Subject Mark page
 	<sf:form id="edit-student-subject-mark-form" method="POST"
 		commandName="studentSubjectMarkD"
 		onsubmit="editStudentSubjectMark(event)">
@@ -14,12 +13,14 @@
 			<tbody>
 
 				<tr>
-					<td><sf:input path="mark" /></td>
+					<td><sf:input cssClass="form-control form-control-sm" path="mark" /></td>
 					<td><sf:errors path="mark" /></td>
 				</tr>
 
 				<tr>
-					<td><input type="submit"></td>
+					<td><button class="btn btn-outline-warning btn-sm">
+							<i class="fa fa-edit"></i>
+						</button></td>
 				</tr>
 			</tbody>
 
@@ -46,8 +47,9 @@
 						$("#edit-student-subject-mark-container")
 								.html(response);
 					},
-					failure : function(errMsg) {
-						alert(errMsg);
+					error : function(response) {
+						$("#modal-body").html(response.responseText);
+						$("#modal").modal("show");
 					}
 				});
 	}

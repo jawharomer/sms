@@ -8,17 +8,31 @@
 	<button data-class-subject-id="${classSubjectId}"
 		data-class-group-id="${classGroupId}"
 		onclick="getAddSubjectNotification(this)" type="button"
-		class="btn btn-primary">زیادکردن</button>
+		class="btn btn-success">
+		<i class="fa fa-plus"></i>
+	</button>
 </div>
 
 <div>
 	<c:forEach items="${subjectNotifications}" var="item">
-		<div>
-			<div>${item.title}</div>
-			<div>
-				<fmt:formatDate value="${item.time}" pattern="yyyy-MM-dd HH:mm:ss" />
+
+		<div class="card my-1 border border-warning">
+			<div class="card-header d-flex">
+				<h5>
+					<fmt:formatDate value="${item.time}" pattern="yyyy-MM-dd HH:mm:ss" />
+				</h5>
+				<div class="mr-auto">
+					<button class="btn btn-danger  btn-sm rounded-circle"
+						data-subject-notificaion-id="${item.id}"
+						onclick="deleteSubjectNotificaion(this)">
+						<i class="fa fa-times"></i>
+					</button>
+				</div>
 			</div>
-			<div>${item.note}</div>
+			<div class="card-body">
+				<h5 class="card-title">${item.title}</h5>
+				<p class="card-text">${item.note}</p>
+			</div>
 		</div>
 	</c:forEach>
 

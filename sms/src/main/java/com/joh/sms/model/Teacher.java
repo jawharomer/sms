@@ -13,14 +13,17 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import com.joh.sms.validator.TeacherPresentValidator;
+
 @Entity
 @Table(name = "TEACHERS")
 public class Teacher {
 
+	@NotNull(groups = { TeacherPresentValidator.insert.class }, message = "{teacherPresent.teacher.id.null}")
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "I_TEACHER")
-	private int id;
+	private Integer id;
 
 	@NotBlank(message = "{teacher.firstName.blank}")
 	@Column(name = "FIRST_NAME")
@@ -34,14 +37,9 @@ public class Teacher {
 	@Column(name = "LAST_NAME")
 	private String lastName;
 
-	
 	@NotNull(message = "{teacher.hireAmount.null}")
 	@Column(name = "HIRE_AMOUNT")
 	private BigDecimal hireAmount;
-
-	@NotBlank(message = "{teacher.userName.blank}")
-	@Column(name = "USER_NAME")
-	private String userName;
 
 	@NotBlank(message = "{teacher.password.blank}")
 	@Column(name = "PASSWORD")
@@ -50,11 +48,11 @@ public class Teacher {
 	@Column(name = "NOTE")
 	private String note;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -90,14 +88,6 @@ public class Teacher {
 		this.hireAmount = hireAmount;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
 	public String getPassword() {
 		return password;
 	}
@@ -117,8 +107,7 @@ public class Teacher {
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", hireAmount=" + hireAmount + ", userName=" + userName + ", password=" + password
-				+ ", note=" + note + "]";
+				+ lastName + ", hireAmount=" + hireAmount + ", password=" + password + ", note=" + note + "]";
 	}
 
 }
