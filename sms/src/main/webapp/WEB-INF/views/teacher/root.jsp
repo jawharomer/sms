@@ -6,10 +6,6 @@
 <section id="teacher-body">
 	<section id="section-right" class="card">
 		<ul class="list-group cus-right-nav">
-			<li class="list-group-item">
-				<button data-student-id="${student.id}"
-					onclick="getStudentStudentPresents(this)">خشتەی هاتن</button>
-			</li>
 			<li class="list-group-item"><a
 				href='<c:url value="/teachers/classGroupTable/" />${teacher.id}'>خشتەی
 					هەفتانە</a></li>

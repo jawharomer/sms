@@ -9,7 +9,7 @@
 	<hr>
 
 	<div class="p-1">
-		<form action="<c:url value="/admin/teacherPresents" />">
+		<form action="<c:url value="/admin/teacherLecturePresents" />">
 			<table class="w-100">
 				<tr>
 					<td>

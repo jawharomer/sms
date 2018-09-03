@@ -71,3 +71,28 @@ function editStudent(_this) {
 	});
 
 }
+
+function getAddUser(_this) {
+	var id = $(_this).data("student-id");
+	var role = $(_this).data("role");
+
+	console.log("reference=", id);
+	console.log("role=", role);
+	$.ajax({
+		type : "GET",
+		url : $$ContextURL + "/admin/users/add/" + role,
+		data : {
+			reference : id
+		},
+		contentType : "application/json",
+		success : function(response) {
+			$("#modal-body").html(response);
+			$("#modal").modal("show");
+		},
+		error : function(response) {
+			$("#modal-body").html(response.responseText);
+			$("#modal").modal("show");
+		}
+	});
+
+}

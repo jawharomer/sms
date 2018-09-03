@@ -1,7 +1,5 @@
 package com.joh.sms.controller;
 
-import java.util.Enumeration;
-
 import javax.persistence.EntityNotFoundException;
 import javax.persistence.NoResultException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,11 +10,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.exc.UnrecognizedPropertyException;
 import com.joh.sms.exception.CusDataIntegrityViolationException;
 import com.joh.sms.exception.ItemExistsException;
 
@@ -68,9 +64,16 @@ public class GlobalExceptionHandler {
 
 	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler({ NoResultException.class })
-	public String handleNoResultException(HttpServletRequest request, Exception ex) {
+	public String handleNoResultException(HttpServletRequest request, NoResultException ex) {
 		logger.info("NoResultException occured:: URL=" + request.getRequestURL());
 		return "noResultException";
+	}
+
+	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
+	@ExceptionHandler({ Exception.class })
+	public String handleNoResultException(HttpServletRequest request, Exception ex) {
+		logger.info("NoResultException occured:: URL=" + request.getRequestURL());
+		return "internalServerError";
 	}
 
 }

@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,8 +22,8 @@ import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.LessonTime;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentNotification;
-import com.joh.sms.model.StudentPresent;
 import com.joh.sms.model.SubjectNotification;
+import com.joh.sms.service.AuthenticationFacadeService;
 import com.joh.sms.service.ClassGroupService;
 import com.joh.sms.service.ClassGroupTableService;
 import com.joh.sms.service.ClassLevelService;
@@ -39,16 +40,14 @@ import com.joh.sms.service.SubjectNotificationSerivce;
 @Controller()
 @RequestMapping(path = "/students")
 public class StudentController {
-
+	
 	private static final Logger logger = Logger.getLogger(StudentController.class);
 
-	private Student student;
 
-	public StudentController() {
-		student = new Student();
-		student.setId(2);
-	}
+	@Autowired
+	private AuthenticationFacadeService authenticationFacadeService;
 
+	
 	@Autowired
 	private StudentService studentService;
 
@@ -85,23 +84,33 @@ public class StudentController {
 	@Autowired()
 	private StudentPresentService studentPresentService;
 
+	private Student getStudent() {
+		return studentService.findOne(authenticationFacadeService.getAppUserDetail().getReference());
+	}
+
+	public StudentController() {
+	}
+
 	@ModelAttribute("classSubjects")
 	private Iterable<ClassSubject> classSubjects() {
+		logger.info("student=" + getStudent());
+		try {
+			ClassLevel classLevel = classLevelService.findClassLevelByStudentId(getStudent().getId());
+			Iterable<ClassSubject> classSubjects = classSubjectService.findAllByClassLevelId(classLevel.getId());
 
-		logger.info("student=" + student);
-
-		ClassLevel classLevel = classLevelService.findClassLevelByStudentId(student.getId());
-		Iterable<ClassSubject> classSubjects = classSubjectService.findAllByClassLevelId(classLevel.getId());
-
-		logger.info("classSubjects=" + classSubjects);
-		return classSubjects;
+			logger.info("classSubjects=" + classSubjects);
+			return classSubjects;
+		} catch (NullPointerException e) {
+			logger.info(
+					"classLevel or classSubjects is not avaiable for this student it seams this user is not enrolled to any calss groups");
+		}
+		return null;
 	}
 
 	@ModelAttribute("student")
 	private Student student() {
-		logger.info("student=" + student);
-
-		return student;
+		logger.info("student=" + getStudent());
+		return getStudent();
 	}
 
 	@GetMapping()
@@ -114,13 +123,13 @@ public class StudentController {
 	public String getClassGroupTable(Model model) {
 		logger.info("getClassGroupTable->fired");
 
-		logger.info("student=" + student);
+		logger.info("student=" + getStudent());
 
-		ClassGroup classGroup = classGroupService.findByStudentId(student.getId());
+		ClassGroup classGroup = classGroupService.findByStudentId(getStudent().getId());
 
 		logger.info("classGroup=" + classGroup);
 
-		ClassLevel classLevel = classLevelService.findClassLevelByStudentId(student.getId());
+		ClassLevel classLevel = classLevelService.findClassLevelByStudentId(getStudent().getId());
 		logger.info("classLevel=" + classLevel);
 
 		List<ClassGroupTableD> classGroupTableDs = classGroupTableService.findAllClassGroupTable(classGroup.getId());
@@ -137,13 +146,13 @@ public class StudentController {
 	@GetMapping(path = "/marks")
 	public String getStudentAllSubjectMark(Model model) {
 		logger.info("getStudentAllSubjectMark->fired");
-		logger.info("student=" + student);
-
+		logger.info("student=" + getStudent());
 		List<StudentSubjectMarkD> studentSubjectMarkDs = studentSubjectMarkService
-				.findAllStudentStudentSubjectMark(student.getId());
+				.findAllStudentStudentSubjectMark(getStudent().getId());
 
 		logger.info("studentSubjectMarkDs=" + studentSubjectMarkDs);
-		Enrollment enrollment = enrollmentService.findEnrollmentByStudentId(student.getId());
+		Enrollment enrollment = enrollmentService.findEnrollmentByStudentId(getStudent().getId());
+
 		Iterable<ClassMark> classMarks = classMarkService
 				.findByClassLevelId(enrollment.getClassGroup().getClassLevel().getId());
 
@@ -158,10 +167,10 @@ public class StudentController {
 	@GetMapping(path = "/notifications/classSubject/{id}")
 	public String getSubjectNotification(@PathVariable int id, Model model) {
 		logger.info("getSubjectNotification->fired");
-		logger.info("student=" + student);
+		logger.info("student=" + getStudent());
 		logger.info("classSubjectId=" + id);
 
-		ClassGroup classGroup = classGroupService.findByStudentId(student.getId());
+		ClassGroup classGroup = classGroupService.findByStudentId(getStudent().getId());
 		List<SubjectNotification> subjectNotifications = subjectNotificationSerivce
 				.findAllByClassSubjectIdAndClassGroupId(id, classGroup.getId());
 		logger.info("subjectNotifications=" + subjectNotifications);
@@ -174,14 +183,21 @@ public class StudentController {
 	@GetMapping(path = "/notifications")
 	public String getAllStudentNotification(Model model) {
 		logger.info("getAllStudentNotification->fired");
-		logger.info("student=" + student);
-		List<StudentNotification> studentNotifications = studentNotificationSerivce.findAllByStudentId(student.getId());
+		logger.info("student=" + getStudent());
+		List<StudentNotification> studentNotifications = studentNotificationSerivce
+				.findAllByStudentId(getStudent().getId());
 
 		logger.info("studentNotifications=" + studentNotifications);
 
 		model.addAttribute("studentNotifications", studentNotifications);
 
 		return "studentNotifications";
+	}
+
+	@ExceptionHandler(NullPointerException.class)
+	public String nullPointerExceptionHandler(Model model) {
+		logger.info("nullPointerExceptionHandler->fired");
+		return "studentNullPointerException";
 	}
 
 }

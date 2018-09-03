@@ -13,7 +13,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -45,17 +44,9 @@ public class Student {
 	@Column(name = "BIRTH_DATE")
 	private Date birthDate;
 
-	@NotBlank(message = "{student.userName.blank}")
-	@Column(name = "USER_NAME")
-	private String userName;
-
 	@NotBlank(message = "{student.password.blank}")
 	@Column(name = "PASSWORD")
 	private String password;
-
-	@NotBlank(message = "{student.parentUserName.blank}")
-	@Column(name = "PARENT_USER_NAME")
-	private String parentUserName;
 
 	@NotBlank(message = "{student.parentPassword.blank}")
 	@Column(name = "PARENT_PASSWORD")
@@ -71,9 +62,6 @@ public class Student {
 	private String mobile;
 	@Column(name = "PARENT_MOBILE")
 	private String parentMobile;
-
-	public Student() {
-	}
 
 	public int getId() {
 		return id;
@@ -115,28 +103,12 @@ public class Student {
 		this.birthDate = birthDate;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
 	public String getPassword() {
 		return password;
 	}
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-
-	public String getParentUserName() {
-		return parentUserName;
-	}
-
-	public void setParentUserName(String parentUserName) {
-		this.parentUserName = parentUserName;
 	}
 
 	public String getParentPassword() {
@@ -174,9 +146,8 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", birthDate=" + birthDate + ", userName=" + userName + ", password=" + password
-				+ ", parentUserName=" + parentUserName + ", parentPassword=" + parentPassword + ", gender=" + gender
-				+ ", mobile=" + mobile + ", parentMobile=" + parentMobile + "]";
+				+ lastName + ", birthDate=" + birthDate + ", password=" + password + ", parentPassword="
+				+ parentPassword + ", gender=" + gender + ", mobile=" + mobile + ", parentMobile=" + parentMobile + "]";
 	}
 
 }

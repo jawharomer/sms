@@ -8,7 +8,8 @@
 </head>
 <body>
 
-	<h3>Can not Do this procedure because the Item Already Exists</h3>
+	<h3>ناتوانی ئەم کارە ئەنجام بدەیت بەهۆی دووبارەبوونەوە</h3>
+	${message}
 
 </body>
 </html>

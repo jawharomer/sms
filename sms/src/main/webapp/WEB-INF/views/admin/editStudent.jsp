@@ -38,12 +38,6 @@
 					<td><sf:errors path="birthDate" /></td>
 				</tr>
 
-				<tr>
-					<td>ناوی بەکاربەر</td>
-					<td><sf:input cssClass="form-control  form-control-sm"
-							path="userName" /></td>
-					<td><sf:errors path="userName" /></td>
-				</tr>
 
 
 				<tr>
@@ -53,12 +47,6 @@
 					<td><sf:errors path="password" /></td>
 				</tr>
 
-				<tr>
-					<td>ناوی بەرکارەبەری بەخێوکەر</td>
-					<td><sf:input cssClass="form-control form-control-sm"
-							path="parentUserName" /></td>
-					<td><sf:errors path="parentUserName" /></td>
-				</tr>
 
 				<tr>
 					<td>وشوی تێپەری بەخێوکەر</td>
@@ -67,7 +55,7 @@
 					<td><sf:errors path="parentPassword" /></td>
 				</tr>
 				<tr>
-				
+
 					<td>رەگەز</td>
 					<td>
 						<div class="form-check form-check-inline">

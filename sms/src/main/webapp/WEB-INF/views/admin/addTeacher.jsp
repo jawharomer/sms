@@ -35,14 +35,6 @@
 					<td><sf:errors path="hireAmount" /></td>
 				</tr>
 
-
-				<tr>
-					<td>ناوی بەکاربەر</td>
-					<td><sf:input cssClass="form-control form-control-sm"
-							path="userName" /></td>
-					<td><sf:errors path="userName" /></td>
-				</tr>
-
 				<tr>
 					<td>وشەی تێپەر</td>
 					<td><sf:input cssClass="form-control form-control-sm"

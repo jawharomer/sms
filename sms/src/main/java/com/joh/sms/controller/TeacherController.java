@@ -23,13 +23,16 @@ import com.joh.sms.domain.model.SubjectNotificationD;
 import com.joh.sms.model.ClassGroup;
 import com.joh.sms.model.ClassMark;
 import com.joh.sms.model.ClassSubject;
+import com.joh.sms.model.Student;
 import com.joh.sms.model.SubjectNotification;
 import com.joh.sms.model.Teacher;
+import com.joh.sms.service.AuthenticationFacadeService;
 import com.joh.sms.service.ClassGroupTableService;
 import com.joh.sms.service.ClassMarkService;
 import com.joh.sms.service.ClassSubjectService;
 import com.joh.sms.service.StudentSubjectMarkService;
 import com.joh.sms.service.SubjectNotificationSerivce;
+import com.joh.sms.service.TeacherService;
 
 @Controller()
 @RequestMapping(path = "/teachers")
@@ -37,7 +40,8 @@ public class TeacherController {
 
 	private static final Logger logger = Logger.getLogger(TeacherController.class);
 
-	private Teacher teacher;
+	@Autowired
+	private AuthenticationFacadeService authenticationFacadeService;
 
 	@Autowired
 	private ClassGroupTableService classGroupTableService;
@@ -54,17 +58,19 @@ public class TeacherController {
 	@Autowired
 	private SubjectNotificationSerivce subjectNotificationSerivce;
 
-	public TeacherController() {
-		teacher = new Teacher();
-		teacher.setId(1);
+	@Autowired
+	private TeacherService teacherService;
+
+	private Teacher getTeacher() {
+		return teacherService.findOne(authenticationFacadeService.getAppUserDetail().getReference());
 	}
 
 	@ModelAttribute("navClassGroupTableDs")
 	private List<ClassGroupTableD> classGroupTableDs() {
-		logger.info("teacehr=" + teacher);
+		logger.info("teacehr=" + getTeacher());
 
 		List<ClassGroupTableD> navClassGroupTableDs = classGroupTableService
-				.findAllTeacherClassGroupSubject(teacher.getId());
+				.findAllTeacherClassGroupSubject(getTeacher().getId());
 
 		logger.info("navClassGroupTableDs=" + navClassGroupTableDs);
 
@@ -73,8 +79,8 @@ public class TeacherController {
 
 	@ModelAttribute("teacher")
 	private Teacher teacher() {
-		logger.info("teacher=" + teacher);
-		return teacher;
+		logger.info("teacher=" + getTeacher());
+		return getTeacher();
 	}
 
 	@GetMapping()

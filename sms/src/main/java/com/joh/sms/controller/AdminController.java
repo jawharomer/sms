@@ -13,9 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -28,12 +26,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.joh.sms.domain.model.StudentNotificaionD;
 import com.joh.sms.domain.model.StudentSubjectMarkD;
 import com.joh.sms.domain.model.TeacherLecturePresentD;
+import com.joh.sms.model.AppUser;
 import com.joh.sms.model.ClassMark;
 import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentNotification;
 import com.joh.sms.model.Teacher;
 import com.joh.sms.model.TeacherPresent;
+import com.joh.sms.service.AppUserService;
 import com.joh.sms.service.ClassMarkService;
 import com.joh.sms.service.EnrollmentService;
 import com.joh.sms.service.StudentNotificationSerivce;
@@ -69,6 +69,9 @@ public class AdminController {
 
 	@Autowired
 	private TeacherPresentService teacherPresentService;
+
+	@Autowired
+	private AppUserService appUserService;
 
 	@GetMapping()
 	public String getAmdinPage() {
@@ -367,6 +370,43 @@ public class AdminController {
 		logger.info("teacherPresentId=" + id);
 		teacherPresentService.delete(id);
 		return "success";
+	}
+
+	// User
+
+	@GetMapping(path = "/users/add/{role}")
+	public String getAddUser(@PathVariable String role, @RequestParam(required = false) Integer reference,
+			Model model) {
+		logger.info("getAddUser->fired");
+		logger.info("role=" + role);
+		AppUser appUser = new AppUser();
+		appUser.setRole(role);
+		appUser.setReference(reference);
+		try {
+			AppUser appUserOld = appUserService.findByRoleAndReference(role, reference);
+			logger.info("user already exists");
+			appUser.setId(appUserOld.getId());
+			appUser.setUserName(appUserOld.getUserName());
+		} catch (NullPointerException e) {
+			logger.info("user does not exists");
+		}
+
+		model.addAttribute("appUser", appUser);
+		return "admin/addUser";
+	}
+
+	@PostMapping(path = "/users/add")
+	public String addUser(@RequestBody @Valid AppUser appUser, BindingResult result, Model model) {
+		logger.info("addUser->fired");
+		logger.info("appUser=" + appUser);
+		logger.info("errors=" + result.getAllErrors());
+		if (result.hasErrors()) {
+			model.addAttribute("appUser", appUser);
+			return "admin/addUser";
+		} else {
+			appUserService.save(appUser);
+			return "success";
+		}
 	}
 
 }

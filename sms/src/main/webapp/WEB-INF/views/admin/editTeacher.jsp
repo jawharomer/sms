@@ -10,36 +10,47 @@
 		<table>
 			<tbody>
 				<tr>
-					<td>FirstName</td>
-					<td><sf:input path="firstName" /></td>
+					<td>ناو</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="firstName" /></td>
 					<td><sf:errors path="firstName" /></td>
 				</tr>
 
 				<tr>
-					<td>MiddleName</td>
-					<td><sf:input path="middleName" /></td>
+					<td>ناوی باوک</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="middleName" /></td>
 					<td><sf:errors path="middleName" /></td>
 				</tr>
 
 				<tr>
-					<td>LastName</td>
-					<td><sf:input path="lastName" /></td>
+					<td>ناوی باپیر</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="lastName" /></td>
 					<td><sf:errors path="lastName" /></td>
 				</tr>
 
 				<tr>
-					<td>Hire amount</td>
-					<td><sf:input path="hireAmount" /></td>
+					<td>بری دامەزراندن</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="hireAmount" /></td>
 					<td><sf:errors path="hireAmount" /></td>
 				</tr>
 
 				<tr>
-					<td>Edit</td>
-					<td><input type="submit" value="Edit"></td>
+					<td>وشەی تێپەر</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="password" /></td>
+					<td><sf:errors path="password" /></td>
 				</tr>
 
-			</tbody>
-
+				<tr>
+					<td>
+						<button class="btn btn-sm btn-outline-success">
+							<i class="fa fa-plus"></i>
+						</button>
+					</td>
+				</tr>
 		</table>
 
 

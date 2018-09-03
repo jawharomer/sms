@@ -4,64 +4,66 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
-<div id="class-group-table-container"></div>
-<table class="table table-bordered">
-	<thead>
-		<tr>
-			<th>ز.هەفتە</th>
-			<c:forEach items="${lessonTimes}" var="item">
-				<th>${item.time}</th>
-			</c:forEach>
-		</tr>
-	</thead>
+<div id="class-group-table-container">
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>ز.هەفتە</th>
+				<c:forEach items="${lessonTimes}" var="item">
+					<th>${item.time}</th>
+				</c:forEach>
+			</tr>
+		</thead>
 
-	<tbody>
-		<%
-			Integer oldSchoolDayId = 0;
-			boolean newRow = false;
-			List<ClassGroupTableD> classGroupTableDs = (List<ClassGroupTableD>) request
-					.getAttribute("classGroupTableDs");
-			for (int i = 0; i < classGroupTableDs.size(); i++) {
-				ClassGroupTableD item = classGroupTableDs.get(i);
-				Integer schoolWeekDayId = item.getSchoolWeekDayId();
-				Integer lessonTimeId = item.getLessonTimeId();
+		<tbody>
+			<%
+				Integer oldSchoolDayId = 0;
+				boolean newRow = false;
+				List<ClassGroupTableD> classGroupTableDs = (List<ClassGroupTableD>) request
+						.getAttribute("classGroupTableDs");
+				for (int i = 0; i < classGroupTableDs.size(); i++) {
+					ClassGroupTableD item = classGroupTableDs.get(i);
+					Integer schoolWeekDayId = item.getSchoolWeekDayId();
+					Integer lessonTimeId = item.getLessonTimeId();
 
-				if (schoolWeekDayId != oldSchoolDayId) {
-					newRow = true;
-					oldSchoolDayId = schoolWeekDayId;
-					System.out.println("New Row");
-				} else {
-					newRow = false;
-				}
+					if (schoolWeekDayId != oldSchoolDayId) {
+						newRow = true;
+						oldSchoolDayId = schoolWeekDayId;
+						System.out.println("New Row");
+					} else {
+						newRow = false;
+					}
 
-				if (newRow) {
-					System.out.println("New Row-><tr>");
-					out.write("<tr>");
-					out.write("<td>" + item.getWeekDay() + "</td>");
-				}
-		%>
+					if (newRow) {
+						System.out.println("New Row-><tr>");
+						out.write("<tr>");
+						out.write("<td>" + item.getWeekDay() + "</td>");
+					}
+			%>
 
-		<td>
+			<td>
 
-			<div class="td-container-div">
-				<div class="cus-p-100 td-inline-div"><%=item.getSubjectName() == null ? "" : item.getSubjectName()%></div>
-				<div  class="mt-1 border-top cus-p-100  td-inline-div"><%=item.getTeacherName() == null ? "" : item.getTeacherName()%></div>
-			</div>
+				<div class="td-container-div">
+					<div class="cus-p-100 td-inline-div"><%=item.getSubjectName() == null ? "" : item.getSubjectName()%></div>
+					<div class="mt-1 border-top cus-p-100  td-inline-div"><%=item.getTeacherName() == null ? "" : item.getTeacherName()%></div>
+				</div>
 
-		</td>
+			</td>
 
-		<%
-			if (i < classGroupTableDs.size() - 1) {
-					if (classGroupTableDs.get(i + 1).getSchoolWeekDayId() != oldSchoolDayId) {
-						System.out.println("Close Row-></tr>");
+			<%
+				if (i < classGroupTableDs.size() - 1) {
+						if (classGroupTableDs.get(i + 1).getSchoolWeekDayId() != oldSchoolDayId) {
+							System.out.println("Close Row-></tr>");
+							out.write("</tr>");
+						}
+					} else {
+						System.out.println("End RowClose Row-></tr>");
 						out.write("</tr>");
 					}
-				} else {
-					System.out.println("End RowClose Row-></tr>");
-					out.write("</tr>");
 				}
-			}
-		%>
-	</tbody>
+			%>
+		</tbody>
 
-</table>
+	</table>
+
+</div>
