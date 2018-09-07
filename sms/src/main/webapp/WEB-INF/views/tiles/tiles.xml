@@ -989,20 +989,34 @@
 
 	<!-- WebSite Root -->
 	<definition name="webSiteRoot" extends="base-definition">
+
 		<put-attribute name="title" value="WebSite" />
+
+		<put-attribute name="header"
+			value="/WEB-INF/views/webSite/webSiteHeader.jsp" />
+
+		<put-attribute name="footer"
+			value="/WEB-INF/views/webSite/webSiteFooter.jsp" />
+
 		<put-attribute name="body"
 			value="/WEB-INF/views/webSite/root.jsp" />
+
 		<put-attribute name="webSiteBody"
-			value="/WEB-INF/views/admin/home.jsp" cascade="true" />
+			value="/WEB-INF/views/webSite/home.jsp" cascade="true" />
+
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery.fancybox" />
+			<add-attribute value="webSite/webSite" />
+			<add-attribute value="webSite/home" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jquery" />
 			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.fancybox" />
 		</put-list-attribute>
 
 	</definition>
