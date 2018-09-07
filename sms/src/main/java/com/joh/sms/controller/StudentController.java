@@ -176,6 +176,7 @@ public class StudentController {
 		logger.info("subjectNotifications=" + subjectNotifications);
 
 		model.addAttribute("subjectNotifications", subjectNotifications);
+		model.addAttribute("classSubject",classSubjectService.findOne(id));
 
 		return "studentSubjectNotifications";
 	}

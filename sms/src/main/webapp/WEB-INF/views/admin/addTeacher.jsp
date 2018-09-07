@@ -36,10 +36,10 @@
 				</tr>
 
 				<tr>
-					<td>وشەی تێپەر</td>
-					<td><sf:input cssClass="form-control form-control-sm"
-							path="password" /></td>
-					<td><sf:errors path="password" /></td>
+					<td>تێبینی</td>
+					<td><sf:textarea cssClass="form-control form-control-sm"
+							path="note" /></td>
+					<td><sf:errors path="note" /></td>
 				</tr>
 
 				<tr>

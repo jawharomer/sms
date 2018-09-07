@@ -4,17 +4,17 @@
 <section id="admin-body">
 	<section id="section-right" class="card">
 		<ul class="list-group cus-right-nav">
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href="<c:url value="/students/notifications" />${item.id}">
 					ئاگادارکردنەوەکان</a></li>
-			<li class="list-group-item">
+			<li class="list-group-item list-group-item-action">
 				<button style="background: transparent;" class="btn"
 					data-student-id="${student.id}"
 					onclick="getStudentStudentPresents(this)">خشتەی هاتن</button>
 			</li>
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/students/classGroupTable" />'>خشتەی هەفتانە</a></li>
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/students/marks" />'>نمرەکان</a></li>
 
 			<!-- 
@@ -31,7 +31,7 @@
 				<div></div>
 				<div class="collapse py-0 mt-2" id="notific-collapse-div">
 					<div>
-						<ul class="list-group px-0">
+						<ul class="list-group list-group-item-action px-0">
 							<c:forEach items="${classSubjects}" var="item">
 								<li class="list-group-item bg-secondary"><a
 									href="<c:url value="/students/notifications/classSubject/" />${item.id}">${item.name}</a>

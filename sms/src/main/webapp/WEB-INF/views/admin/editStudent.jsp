@@ -38,22 +38,6 @@
 					<td><sf:errors path="birthDate" /></td>
 				</tr>
 
-
-
-				<tr>
-					<td>وشەی نهێنی</td>
-					<td><sf:input cssClass="form-control  form-control-sm"
-							path="password" /></td>
-					<td><sf:errors path="password" /></td>
-				</tr>
-
-
-				<tr>
-					<td>وشوی تێپەری بەخێوکەر</td>
-					<td><sf:input cssClass="form-control form-control-sm"
-							path="parentPassword" /></td>
-					<td><sf:errors path="parentPassword" /></td>
-				</tr>
 				<tr>
 
 					<td>رەگەز</td>
@@ -104,6 +88,7 @@
 		$("#birthDate").datepicker({
 			dateFormat : "yy-mm-dd"
 		});
+		$('#ui-datepicker-div').appendTo($('#modal'));
 	}
 	function modalEditStudent(event) {
 		console.log("modalEditStudent->fired");

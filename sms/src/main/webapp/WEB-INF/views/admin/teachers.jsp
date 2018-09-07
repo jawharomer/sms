@@ -20,8 +20,8 @@
 					<td>باوک</td>
 					<td>باپیر</td>
 					<td>بری پارە</td>
-					<td>وشەی نهێنی</td>
-					<td>ن.بەکاربەر</td>
+					<td>تێبینی</td>
+					<td>بەکاربەر</td>
 					<td>کردرارەکان</td>
 				</tr>
 			</thead>
@@ -33,7 +33,7 @@
 						<td>${item.middleName}</td>
 						<td>${item.lastName}</td>
 						<td>${item.hireAmount}</td>
-						<td>${item.password}</td>
+						<td class="cus-note-td">${item.note}</td>
 						<td>
 							<button class="btn btn-info btn-sm" data-role="ROLE_TEACHER"
 								data-student-id="${item.id}" onclick="getAddUser(this)">

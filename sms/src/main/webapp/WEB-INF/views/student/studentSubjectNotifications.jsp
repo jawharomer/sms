@@ -6,6 +6,7 @@
 
 
 <div>
+<h3>${classSubject.name}</h3>
 	<c:forEach items="${subjectNotifications}" var="item">
 
 		<div class="card my-1 border border-warning">

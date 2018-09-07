@@ -4,6 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div>
+<h3>${classGroup.name}</h3>
 	<table class="table table-bordered">
 		<thead>
 			<tr>

@@ -3,9 +3,13 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <div id="enrollment-payments-container">
-	<h3>پارەدانی ناونیسین</h3>
+	<h4>
+		<span>پارەدانی ناونیسین </span>-
+	    <span>${enrolllment.student.firstName}&nbsp; ${enrolllment.student.middleName}&nbsp;${enrolllment.student.lastName}</span>
+	</h4>
 
-	<button class="cus-not-print btn btn-success" data-enrollment-id="${enrollmentId}"
+	<button class="cus-not-print btn btn-success"
+		data-enrollment-id="${enrollmentId}"
 		onclick="getAddEnrollmentPayment(this)" type="button"
 		class="btn btn-primary">
 		<i class="fa fa-plus"></i>
@@ -17,7 +21,7 @@
 				<tr>
 					<th>کات</th>
 					<th>بڕ</th>
-					<th >تێبینی</th>
+					<th>تێبینی</th>
 					<th class="cus-not-print cus-not-export">کردارەکان</th>
 				</tr>
 			</thead>

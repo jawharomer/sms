@@ -61,8 +61,11 @@ body {
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td id="cus-submit-td"><input id="cus-login-btn"
-						class="btn btn-outline-success" type="submit" value="login"></td>
+					<td id="cus-submit-td">
+						<button id="cus-login-btn" class="btn btn-lg btn-outline-success">
+							<i class="fa fa-sign-in" aria-hidden="true"></i>
+						</button>
+					</td>
 				</tr>
 
 

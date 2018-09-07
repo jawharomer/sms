@@ -66,6 +66,7 @@ public class ClassGroupTableController {
 		model.addAttribute("classGroupTableDs", classGroupTableDs);
 		model.addAttribute("lessonTimes", lessonTimes);
 		model.addAttribute("classGroupId", id);
+		model.addAttribute("classGroup", classGroup);
 
 		return "adminClassGroupTables";
 	}
@@ -109,6 +110,7 @@ public class ClassGroupTableController {
 			BindingResult result, Model model) {
 		logger.info("addClassGroupTable->fired");
 		logger.info("classGroupId=" + id);
+		logger.info("classGroupTableD=" + classGroupTableD);
 
 		logger.info("error=" + result.getAllErrors());
 

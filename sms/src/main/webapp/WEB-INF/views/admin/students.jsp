@@ -15,19 +15,16 @@
 		<table id="studentsTable" class="display">
 			<thead>
 				<tr>
-					<td>#</td>
+					<td width="5%">#</td>
 					<td>ناو</td>
 					<td>ن.باوک</td>
 					<td>ن.باپیر</td>
-					<td>وشوەی نهێنی</td>
-					<td>و.ن بەخێوکەر</td>
-					<td>رەگەز</td>
-					<td>ژ.مۆبایل</td>
-					<td>ژ.م بەخێوکەر</td>
-					<td>ن.بەکاربەر</td>
-					<td>ن.ب بەخێوکەر</td>
-
-					<td>کردارەکان</td>
+					<td width="5%">رەگەز</td>
+					<td width="8%">ژ.مۆبایل</td>
+					<td width="8%">ژ.م بەخێوکەر</td>
+					<td width="7%">بەکاربەر</td>
+					<td width="7%">بەخێوکەر</td>
+					<td width="7%" class="cus-not-export">کردارەکان</td>
 				</tr>
 			</thead>
 			<tbody>
@@ -37,8 +34,6 @@
 						<td>${student.firstName}</td>
 						<td>${student.middleName}</td>
 						<td>${student.lastName}</td>
-						<td>${student.password}</td>
-						<td>${student.parentPassword}</td>
 						<td><c:if test="${student.gender==0}">م</c:if> <c:if
 								test="${student.gender==1}">ن</c:if></td>
 						<td>${student.mobile}</td>

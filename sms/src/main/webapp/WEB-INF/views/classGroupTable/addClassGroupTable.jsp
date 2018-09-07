@@ -86,7 +86,8 @@
 					data : JSON.stringify(data),
 					contentType : "application/json",
 					success : function(response) {
-						$("#add-class-group-table-form").html(response);
+						$("#modal-body").html(response);
+						$("#modal").modal("show");
 					},
 					error : function(response) {
 						$("#modal-body").html(response.responseText);

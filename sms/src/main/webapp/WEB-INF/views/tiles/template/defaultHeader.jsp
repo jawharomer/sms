@@ -6,9 +6,9 @@
 <nav class="navbar navbar-light bg-light">
 
 
-	<a class="navbar-brand" href="<c:url value="/adminRoot" />">
-		<b style="color: #F1008C">Welcom to K school</b>
-	</a>
+	<span class="navbar-brand">
+		<b>قوتابخانەی کۆرەکی ئەهلی</b>
+	</span>
 
 
 	<form action="<c:url value="/logout" />" method="POST">

@@ -34,7 +34,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/root.jsp" />
 		<put-attribute name="adminBody"
-			value="/WEB-INF/views/admin/students.jsp" cascade="true" />
+			value="/WEB-INF/views/admin/home.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="admin" />
@@ -594,6 +594,46 @@
 	</definition>
 
 
+	<!-- Admin Expenses -->
+	<definition name="adminExpenses" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/expenses.jsp" cascade="true" />
+
+		<put-attribute name="title" value="Admin Expenses" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminExpenses" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.dataTables" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminExpenses" />
+		</put-list-attribute>
+
+	</definition>
+
+
+
 	<!-- Student Page -->
 	<!-- Student Page -->
 	<!-- Student Page -->
@@ -602,7 +642,7 @@
 		<put-attribute name="body"
 			value="/WEB-INF/views/student/root.jsp" />
 		<put-attribute name="studentBody"
-			value="/WEB-INF/views/student/notification.jsp" cascade="true" />
+			value="/WEB-INF/views/student/home.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />

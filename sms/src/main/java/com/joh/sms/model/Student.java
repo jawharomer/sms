@@ -44,14 +44,6 @@ public class Student {
 	@Column(name = "BIRTH_DATE")
 	private Date birthDate;
 
-	@NotBlank(message = "{student.password.blank}")
-	@Column(name = "PASSWORD")
-	private String password;
-
-	@NotBlank(message = "{student.parentPassword.blank}")
-	@Column(name = "PARENT_PASSWORD")
-	private String parentPassword;
-
 	@Min(message = "{student.gender.min}", value = 0)
 	@Max(message = "{student.gender.max}", value = 1)
 	@NotNull(message = "{student.gender.null}")
@@ -60,6 +52,7 @@ public class Student {
 
 	@Column(name = "MOBILE")
 	private String mobile;
+
 	@Column(name = "PARENT_MOBILE")
 	private String parentMobile;
 
@@ -103,22 +96,6 @@ public class Student {
 		this.birthDate = birthDate;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	public String getParentPassword() {
-		return parentPassword;
-	}
-
-	public void setParentPassword(String parentPassword) {
-		this.parentPassword = parentPassword;
-	}
-
 	public Integer getGender() {
 		return gender;
 	}
@@ -146,8 +123,8 @@ public class Student {
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", birthDate=" + birthDate + ", password=" + password + ", parentPassword="
-				+ parentPassword + ", gender=" + gender + ", mobile=" + mobile + ", parentMobile=" + parentMobile + "]";
+				+ lastName + ", birthDate=" + birthDate + ", gender=" + gender + ", mobile=" + mobile
+				+ ", parentMobile=" + parentMobile + "]";
 	}
 
 }

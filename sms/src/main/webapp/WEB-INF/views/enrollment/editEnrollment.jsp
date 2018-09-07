@@ -18,10 +18,11 @@
 							<c:forEach items="${students}" var="item">
 								<c:choose>
 									<c:when test="${item.id==enrollmentD.studentId}">
-										<option value="${item.id}" selected="true">${item.lastName}&nbps;${item.middleName}&nbps;${item.firstName}</option>
+										<option value="${item.id}" selected="true">${item.firstName}&nbsp;${item.middleName}&nbsp;${item.lastName}
+										</option>
 									</c:when>
 									<c:otherwise>
-										<option value="${item.id}">${item.lastName}&nbsp;${item.middleName}&nbsp;${item.firstName}</option>
+										<option value="${item.id}">${item.firstName}&nbsp;${item.middleName}&nbsp;${item.lastName}</option>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
@@ -67,9 +68,8 @@
 				</tr>
 
 				<tr>
-					<td><input type="submit" value="Adding">
-						<button class="btn btn-sm btn-success">
-							<i class="fa fa-plus"></i>
+					<td><button class="btn btn-sm btn-warning">
+							<i class="fa fa-edit"></i>
 						</button></td>
 
 				</tr>

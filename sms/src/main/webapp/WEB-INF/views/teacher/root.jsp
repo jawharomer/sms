@@ -6,7 +6,7 @@
 <section id="teacher-body">
 	<section id="section-right" class="card">
 		<ul class="list-group cus-right-nav">
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/teachers/classGroupTable/" />${teacher.id}'>خشتەی
 					هەفتانە</a></li>
 			<c:if test="${navClassGroupTableDs!=null}">
@@ -34,7 +34,7 @@
 
 									if (newRow) {
 										System.out.println("New Row-><li>");
-										out.write("<li class='list-group-item bg-secondary text-white'>");
+										out.write("<li class='list-group-item list-group-item-action bg-secondary text-white'>");
 										
 										out.write("<div class='p-1'>"+item.getGroupName()+"</div>");
 										out.write("<ul class='list-group cus-list-level-2'>");

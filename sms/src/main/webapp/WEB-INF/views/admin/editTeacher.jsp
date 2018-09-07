@@ -7,7 +7,7 @@
 	<sf:form id="eidtTeacherForm" method="POST" commandName="teacher"
 		onsubmit="modalEditTeacher(event)">
 		<sf:input path="id" type="hidden" />
-		<table>
+		<table class="w-100">
 			<tbody>
 				<tr>
 					<td>ناو</td>
@@ -37,17 +37,17 @@
 					<td><sf:errors path="hireAmount" /></td>
 				</tr>
 
-				<tr>
-					<td>وشەی تێپەر</td>
-					<td><sf:input cssClass="form-control form-control-sm"
-							path="password" /></td>
-					<td><sf:errors path="password" /></td>
+					<tr>
+					<td>تێبینی</td>
+					<td><sf:textarea cssClass="form-control form-control-sm"
+							path="note" /></td>
+					<td><sf:errors path="note" /></td>
 				</tr>
 
 				<tr>
 					<td>
-						<button class="btn btn-sm btn-outline-success">
-							<i class="fa fa-plus"></i>
+						<button class="btn btn-sm btn-outline-warning">
+							<i class="fa fa-edit"></i>
 						</button>
 					</td>
 				</tr>

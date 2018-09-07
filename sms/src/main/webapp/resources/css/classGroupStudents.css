@@ -1,3 +1,8 @@
+/*Boostrap */
+.modal-dialog {
+	max-width: 900px;
+}
+
 #class-group-student-container {
 	padding: 5px;
 	flex: 1;

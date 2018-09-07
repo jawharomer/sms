@@ -9,7 +9,7 @@
 		<sf:input type="hidden" path="studentId" />
 		<sf:input type="hidden" path="classSubjectId" />
 		<sf:input type="hidden" path="classMarkId" />
-		<table>
+		<table class="w-100">
 			<tbody>
 
 				<tr>

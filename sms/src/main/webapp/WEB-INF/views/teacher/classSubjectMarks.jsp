@@ -5,7 +5,8 @@
 
 <div id="class-subject-marks-container">
 
-	<h3>نمرەی وانەکان</h3>
+	<h5>نمرەی وانەکان</h5>
+	
 
 	<table class="table table-bordered">
 		<thead>

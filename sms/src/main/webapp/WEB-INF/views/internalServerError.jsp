@@ -7,11 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-	<div id="cus-access-died-div" style="width: 400px; margin: 100px auto;text-align: center;">
-		<p style="font-size: 10em">?</p>
-	</div>
-
-
+	<table style="width: 100%">
+		<tr>
+			<td>
+				<p style="font-size: 10em;text-align: center;">?</p>
+			</td>
+		</tr>
+	</table>
 </body>
 </html>

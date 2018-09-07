@@ -13,7 +13,7 @@
 					<td>کات</td>
 					<fmt:formatDate value="${lessonTime.time}" pattern="HH:mm"
 						var="formattedTime" />
-					<td><input id="lesson-time"
+					<td><input placeholder="10:00" id="lesson-time"
 						class="form-control form-control-sm" name="time"
 						value="${formattedTime}"></td>
 					<td><sf:errors path="time" /></td>

@@ -3,6 +3,10 @@
 	text-align: right;
 }
 
+.datepicker {
+	z-index: 1151;
+}
+
 body {
 	font-size: 14px;
 }
@@ -11,6 +15,7 @@ body {
 .modal-backdrop {
 	z-index: -1;
 }
+
 
 /*S-JQuery UI*/
 .ui-widget {
@@ -58,7 +63,10 @@ a {
 	color: inherit;
 }
 
-
-
 /*General Class*/
-
+.cus-note-td {
+	max-width: 40px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+}

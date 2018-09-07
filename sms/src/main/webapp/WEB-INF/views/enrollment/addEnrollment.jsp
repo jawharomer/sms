@@ -17,10 +17,11 @@
 							<c:forEach items="${students}" var="item">
 								<c:choose>
 									<c:when test="${item.id==enrollmentD.studentId}">
-										<option value="${item.id}" selected="true">${item.lastName}&nbps;${item.middleName}&nbps;${item.firstName}</option>
+										<option value="${item.id}" selected="true">${item.firstName}&nbsp;${item.middleName}&nbsp;${item.lastName}
+										</option>
 									</c:when>
 									<c:otherwise>
-										<option value="${item.id}">${item.lastName}&nbsp;${item.middleName}&nbsp;${item.firstName}</option>
+										<option value="${item.id}">${item.firstName}&nbsp;${item.middleName}&nbsp;${item.lastName}</option>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>

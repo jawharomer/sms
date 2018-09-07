@@ -138,7 +138,7 @@ public class StudentSubjectMarkController {
 		StudentSubjectMarkD studentSubjectMarkD = new StudentSubjectMarkD();
 
 		studentSubjectMarkD.setStudentId(studentSubjectMark.getStudent().getId());
-		studentSubjectMarkD.setClassMarkId(studentSubjectMark.getClassSubject().getId());
+		studentSubjectMarkD.setClassMarkId(studentSubjectMark.getClassMark().getId());
 		studentSubjectMarkD.setClassSubjectId(studentSubjectMark.getClassSubject().getId());
 		studentSubjectMarkD.setMark(studentSubjectMark.getMark());
 
@@ -157,6 +157,8 @@ public class StudentSubjectMarkController {
 
 		double markLimit = classMarkService.findOne(studentSubjectMarkD.getClassMarkId()).getLimit();
 
+		logger.info("markLimit=" + markLimit);
+		
 		if (studentSubjectMarkD.getMark() != null && studentSubjectMarkD.getMark() > markLimit) {
 			result.rejectValue("mark", "studentSubjectMarkD.mark",
 					messageSource.getMessage("studentSubjectMark.mark.max", null, null));

@@ -27,6 +27,7 @@ import com.joh.sms.model.Student;
 import com.joh.sms.model.SubjectNotification;
 import com.joh.sms.model.Teacher;
 import com.joh.sms.service.AuthenticationFacadeService;
+import com.joh.sms.service.ClassGroupService;
 import com.joh.sms.service.ClassGroupTableService;
 import com.joh.sms.service.ClassMarkService;
 import com.joh.sms.service.ClassSubjectService;
@@ -60,6 +61,9 @@ public class TeacherController {
 
 	@Autowired
 	private TeacherService teacherService;
+
+	@Autowired
+	private ClassGroupService classGroupService;
 
 	private Teacher getTeacher() {
 		return teacherService.findOne(authenticationFacadeService.getAppUserDetail().getReference());
@@ -113,6 +117,8 @@ public class TeacherController {
 
 		model.addAttribute("classGroupId", classGroupId);
 		model.addAttribute("classSubjectId", classSubjectId);
+		model.addAttribute("classGroup", classGroupService.findOne(classGroupId));
+		model.addAttribute("classSubject", classSubjectService.findOne(classSubjectId));
 
 		return "teacherClassSubjectMarks";
 	}
@@ -134,6 +140,8 @@ public class TeacherController {
 
 		model.addAttribute("classGroupId", classGroupId);
 		model.addAttribute("classSubjectId", classSubjectId);
+		model.addAttribute("classGroup", classGroupService.findOne(classGroupId));
+		model.addAttribute("classSubject", classSubjectService.findOne(classSubjectId));
 
 		return "teacherSubjectNotifications";
 	}
@@ -152,6 +160,8 @@ public class TeacherController {
 		subjectNotificationD.setClassSubjectId(classSubjectId);
 
 		model.addAttribute("subjectNotificationD", subjectNotificationD);
+		model.addAttribute("classGroup", classGroupService.findOne(classGroupId));
+		model.addAttribute("classSubject", classSubjectService.findOne(classSubjectId));
 
 		return "teacher/addSubjectNotification";
 	}

@@ -10,26 +10,29 @@
 <section id="admin-body">
 	<section id="section-right" class="card">
 
-		<ul class="list-group cus-right-nav">
-			<li class="list-group-item"><a
+		<ul class="list-group  cus-right-nav">
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/admin/students" />'>قوتابیەکان</a></li>
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/admin/teachers" />'>مامۆستاکان</a></li>
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/admin/teacherLecturePresents" />?from=${currentDate}&to=${currentDate}'>وانەبێژی</a></li>
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/admin/teacherPresents" />?from=${currentDate}&to=${currentDate}'>ئ.مامۆستایان</a></li>
 
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/schoolWeekDays" />'>رۆژانی هەفتە</a></li>
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/classLevels" />'>هۆبەکان</a></li>
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/classGroups" />'>پۆلەکان</a></li>
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/enrollments" />'>ناونوسین</a></li>
-			<li class="list-group-item"><a
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/admin/students/notificaions" />'>ئ.قوتابی</a></li>
+
+			<li class="list-group-item list-group-item-action"><a
+				href='<c:url value="/expenses" />?from=${currentDate}&to=${currentDate}'>تێچووەکان</a></li>
 		</ul>
 	</section>
 

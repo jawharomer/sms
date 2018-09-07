@@ -41,10 +41,6 @@ public class Teacher {
 	@Column(name = "HIRE_AMOUNT")
 	private BigDecimal hireAmount;
 
-	@NotBlank(message = "{teacher.password.blank}")
-	@Column(name = "PASSWORD")
-	private String password;
-
 	@Column(name = "NOTE")
 	private String note;
 
@@ -88,14 +84,6 @@ public class Teacher {
 		this.hireAmount = hireAmount;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
 	public String getNote() {
 		return note;
 	}
@@ -107,7 +95,7 @@ public class Teacher {
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", hireAmount=" + hireAmount + ", password=" + password + ", note=" + note + "]";
+				+ lastName + ", hireAmount=" + hireAmount + ", note=" + note + "]";
 	}
 
 }

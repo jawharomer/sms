@@ -15,5 +15,9 @@
 </section>
 
 <section id="main-content">
+	<h5>
+		<span class="text-info">${classGroup.name}</span> <span
+			class="text-primary">${classSubject.name}</span>
+	</h5>
 	<tiles:insertAttribute name="classSubjectBody" />
 </section>
