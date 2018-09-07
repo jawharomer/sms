@@ -7,6 +7,7 @@
 	<definition name="base-definition"
 		template="/WEB-INF/views/tiles/layouts/defaultLayout.jsp">
 		<put-attribute name="title" value="" />
+		<put-attribute name="viewport" value="ddd" />
 		<put-attribute name="header"
 			value="/WEB-INF/views/tiles/template/defaultHeader.jsp" />
 		<put-attribute name="pageCSS" value=""></put-attribute>
@@ -1031,6 +1032,7 @@
 	<definition name="webSiteRoot" extends="base-definition">
 
 		<put-attribute name="title" value="WebSite" />
+		<put-attribute name="viewport" value="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 		<put-attribute name="header"
 			value="/WEB-INF/views/webSite/webSiteHeader.jsp" />
