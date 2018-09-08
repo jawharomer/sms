@@ -40,7 +40,7 @@ public class TeacherDAOImpl implements TeacherDAOExt {
 			teacherLecturePresentD.setTeacherName((String) columns[1]);
 			teacherLecturePresentD.setHireAmount((BigDecimal) columns[2]);
 			teacherLecturePresentD.setLecturePerWeek(Integer.parseInt("" + columns[3]));
-			teacherLecturePresentD.setTotalLectures(Integer.parseInt("" + columns[3]));
+			teacherLecturePresentD.setTotalLectures(Integer.parseInt("" + columns[4]));
 			teacherLecturePresentD.setTotalPayment((BigDecimal) columns[5]);
 
 			teacherLecturePresentDs.add(teacherLecturePresentD);
