@@ -32,9 +32,9 @@
 				<c:forEach items="${students}" var="student">
 					<tr>
 						<td>${student.id}</td>
-						<td><a data-fancybox="gallery" alt="sdfd"
+						<td><a data-fancybox="gallery" 
 							href="<c:url value="/attachedFiles/0/" />${student.attachedFile.id}">
-								<img class="img-thumbnail" width="50px"
+								<img class="cus-avatar"
 								src="<c:url value="/attachedFiles/1/" />${student.attachedFile.id}">
 						</a></td>
 						<td>${student.firstName}</td>

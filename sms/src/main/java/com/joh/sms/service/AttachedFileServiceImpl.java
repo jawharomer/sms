@@ -138,7 +138,7 @@ public class AttachedFileServiceImpl implements AttachedFileService {
 			folder.mkdirs();
 		}
 
-		File file = new File(folder + "/" + attachedFile.getId());
+		File file = new File(folder + "/" + attachedFile.getId() + "." + attachedFile.getExtension());
 		if (file.exists()) {
 			file.delete();
 		}
