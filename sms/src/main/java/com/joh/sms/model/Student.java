@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -16,6 +18,8 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "STUDENTS")
@@ -55,6 +59,11 @@ public class Student {
 
 	@Column(name = "PARENT_MOBILE")
 	private String parentMobile;
+
+	@JsonIgnore
+	@OneToOne()
+	@JoinColumn(name = "I_ATTACHED_FILE")
+	private AttachedFile attachedFile;
 
 	public int getId() {
 		return id;
@@ -120,11 +129,19 @@ public class Student {
 		this.parentMobile = parentMobile;
 	}
 
+	public AttachedFile getAttachedFile() {
+		return attachedFile;
+	}
+
+	public void setAttachedFile(AttachedFile attachedFile) {
+		this.attachedFile = attachedFile;
+	}
+
 	@Override
 	public String toString() {
 		return "Student [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
 				+ lastName + ", birthDate=" + birthDate + ", gender=" + gender + ", mobile=" + mobile
-				+ ", parentMobile=" + parentMobile + "]";
+				+ ", parentMobile=" + parentMobile + ", attachedFile=" + attachedFile + "]";
 	}
 
 }

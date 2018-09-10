@@ -1,5 +1,13 @@
 var $$ContextURL = "/sms";
 
+$(document).ready()
+{
+	if($.fancybox){
+		$.fancybox.defaults.i18n.en.ERROR="وێنەکە بەردەست نیە ";
+	}
+}
+
+
 $.datepicker.setDefaults({ changeMonth: true,changeYear: true,
 	monthNamesShort: [ "1", "2", "3", "4",
         "5", "6", "7", "8", "9",

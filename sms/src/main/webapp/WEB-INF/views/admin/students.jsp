@@ -16,6 +16,7 @@
 			<thead>
 				<tr>
 					<td width="5%">#</td>
+					<td width="5%">#</td>
 					<td>ناو</td>
 					<td>ن.باوک</td>
 					<td>ن.باپیر</td>
@@ -31,6 +32,11 @@
 				<c:forEach items="${students}" var="student">
 					<tr>
 						<td>${student.id}</td>
+						<td><a data-fancybox="gallery" alt="sdfd"
+							href="<c:url value="/attachedFiles/0/" />${student.attachedFile.id}">
+								<img class="img-thumbnail" width="50px"
+								src="<c:url value="/attachedFiles/1/" />${student.attachedFile.id}">
+						</a></td>
 						<td>${student.firstName}</td>
 						<td>${student.middleName}</td>
 						<td>${student.lastName}</td>

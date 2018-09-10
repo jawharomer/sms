@@ -10,6 +10,13 @@
 		onsubmit="addStudent(event)" action="/admin/students/add">
 		<table class="w-100">
 			<tbody>
+
+				<tr>
+					<td>وێنە</td>
+					<td><input type="file" accept="image/x-png,image/gif,image/jpeg,image/jpg" class="form-control form-control-sm"
+						name="file" /></td>
+
+				</tr>
 				<tr>
 					<td>ناوی قوتابی</td>
 					<td><sf:input cssClass="form-control form-control-sm"
@@ -100,12 +107,19 @@
 		console.log("addStudent->fired");
 
 		console.log($("#addStudentForm").serializeObject());
+		
+		var form=$("#addStudentForm")[0];
+		console.log("form=",form);
+		var data = new FormData(form);
 
 		$.ajax({
 			type : "POST",
 			url : "<c:url value="/admin/students/add"/>",
-			data : JSON.stringify($("#addStudentForm").serializeObject()),
-			contentType : "application/json",
+			data :data,
+			enctype: 'multipart/form-data',
+	        processData: false,  // Important!
+	        contentType: false,
+	        cache: false,
 			success : function(response) {
 				$("#add-student-container").html(response);
 			},

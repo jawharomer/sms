@@ -10,6 +10,8 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -21,7 +23,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "com.joh.sms.controller", "com.joh.sms.service" })
+@ComponentScan(basePackages = { "com.joh.sms.controller","com.joh.sms.commons", "com.joh.sms.service" })
 @Import(value = RepositoryConfig.class)
 public class SpringContextConfiguraror extends WebMvcConfigurerAdapter {
 
@@ -66,6 +68,11 @@ public class SpringContextConfiguraror extends WebMvcConfigurerAdapter {
 		source.setBasename("messages");
 		source.setDefaultEncoding("UTF-8");
 		return source;
+	}
+
+	@Bean
+	public MultipartResolver multipartResolver() {
+		return new StandardServletMultipartResolver();
 	}
 
 	@Override

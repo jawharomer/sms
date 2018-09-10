@@ -7,9 +7,24 @@
 	<sf:form id="eidtStudentForm" method="POST" commandName="student"
 		onsubmit="modalEditStudent(event)">
 
+		<div>
+			<img class="img-thumbnail" width="100px"
+				src="<c:url value="/attachedFiles/0/" />${student.attachedFile.id}">
+		</div>
+
 		<sf:input path="id" type="hidden" />
 		<table class="w-100">
 			<tbody>
+
+
+				<tr>
+					<td>وێنە</td>
+					<td><input type="file"
+						accept="image/x-png,image/gif,image/jpeg,image/jpg"
+						class="form-control form-control-sm" name="file" /></td>
+
+				</tr>
+
 				<tr>
 					<td>ناوی قوتابی</td>
 					<td><sf:input cssClass="form-control form-control-sm"
@@ -94,14 +109,18 @@
 		console.log("modalEditStudent->fired");
 		event.preventDefault();
 
-		var data = JSON.stringify($("#eidtStudentForm").serializeObject());
-		console.log("data=", data);
+		var form = $("#eidtStudentForm")[0];
+		console.log("form=", form);
+		var data = new FormData(form);
 
 		$.ajax({
 			type : "POST",
 			url : "<c:url value="/admin/students/update"/>",
 			data : data,
-			contentType : "application/json",
+			enctype : 'multipart/form-data',
+			processData : false, // Important!
+			contentType : false,
+			cache : false,
 			success : function(data) {
 				console.log("data=", data);
 				$("#edit-student-container").html(data);

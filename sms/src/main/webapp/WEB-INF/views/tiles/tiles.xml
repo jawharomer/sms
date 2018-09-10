@@ -54,6 +54,7 @@
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminStudents" />
@@ -64,6 +65,7 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="jquery.dataTables" />
 			<!-- S-DataTableLib -->
 			<add-attribute value="dt/dataTables.buttons.min" />
@@ -1032,7 +1034,8 @@
 	<definition name="webSiteRoot" extends="base-definition">
 
 		<put-attribute name="title" value="WebSite" />
-		<put-attribute name="viewport" value="width=device-width, initial-scale=1, shrink-to-fit=no" />
+		<put-attribute name="viewport"
+			value="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
 		<put-attribute name="header"
 			value="/WEB-INF/views/webSite/webSiteHeader.jsp" />

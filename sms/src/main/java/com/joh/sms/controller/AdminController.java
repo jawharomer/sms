@@ -1,5 +1,6 @@
 package com.joh.sms.controller;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,6 +29,7 @@ import com.joh.sms.domain.model.StudentNotificaionD;
 import com.joh.sms.domain.model.StudentSubjectMarkD;
 import com.joh.sms.domain.model.TeacherLecturePresentD;
 import com.joh.sms.model.AppUser;
+import com.joh.sms.model.AttachedFile;
 import com.joh.sms.model.ClassMark;
 import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.Student;
@@ -34,6 +37,7 @@ import com.joh.sms.model.StudentNotification;
 import com.joh.sms.model.Teacher;
 import com.joh.sms.model.TeacherPresent;
 import com.joh.sms.service.AppUserService;
+import com.joh.sms.service.AttachedFileService;
 import com.joh.sms.service.ClassMarkService;
 import com.joh.sms.service.EnrollmentService;
 import com.joh.sms.service.StudentNotificationSerivce;
@@ -73,6 +77,9 @@ public class AdminController {
 	@Autowired
 	private AppUserService appUserService;
 
+	@Autowired()
+	private AttachedFileService attachedFileService;
+
 	@GetMapping()
 	public String getAmdinPage() {
 		return "adminRoot";
@@ -104,13 +111,22 @@ public class AdminController {
 	}
 
 	@PostMapping(path = "/students/add")
-	public String addStudent(@RequestBody @Valid Student student, BindingResult result) {
+	public String addStudent(@RequestParam MultipartFile file, @Valid Student student, BindingResult result)
+			throws IOException {
 		logger.info("addStudent->fired");
+		logger.info("FileName=" + file.getOriginalFilename());
 		logger.info("student=" + student);
 		logger.info("error=" + result.getAllErrors());
 		if (result.hasErrors()) {
 			return "admin/addStudent";
 		} else {
+
+			if (!file.isEmpty()) {
+				AttachedFile attachedFile = attachedFileService.save(file);
+				logger.info("attachedFile=" + attachedFile);
+				student.setAttachedFile(attachedFile);
+			}
+
 			studentService.save(student);
 			return "success";
 		}
@@ -125,7 +141,8 @@ public class AdminController {
 	}
 
 	@PostMapping(path = "/students/update")
-	public String updateStudent(@RequestBody @Valid Student student, BindingResult result, Model model) {
+	public String updateStudent(@RequestParam MultipartFile file, @Valid Student student, BindingResult result,
+			Model model) throws IOException {
 		logger.info("updateStudent->fired");
 		logger.info("student=" + student);
 		logger.info("error=" + result.getAllErrors());
@@ -133,7 +150,31 @@ public class AdminController {
 			model.addAttribute("student", student);
 			return "admin/editStudent";
 		} else {
+
+			AttachedFile oldAttachedFile = studentService.findOne(student.getId()).getAttachedFile();
+
+			logger.info("oldAttachedFile=" + oldAttachedFile);
+
+			boolean newAttachedFileExists = false;
+
+			if (!file.isEmpty()) {
+				newAttachedFileExists = true;
+				logger.info("attache new image to student");
+				AttachedFile attachedFile = attachedFileService.save(file);
+				logger.info("attachedFile=" + attachedFile);
+				student.setAttachedFile(attachedFile);
+			} else {
+				// Keep old attached file
+				student.setAttachedFile(studentService.findOne(student.getId()).getAttachedFile());
+			}
+
 			studentService.update(student);
+
+			// Remove Old Image 
+			if (oldAttachedFile != null && newAttachedFileExists) {
+				attachedFileService.delete(oldAttachedFile);
+			}
+
 			return "success";
 		}
 

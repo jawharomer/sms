@@ -83,6 +83,8 @@ public class StudentController {
 
 	@Autowired()
 	private StudentPresentService studentPresentService;
+	
+	
 
 	private Student getStudent() {
 		return studentService.findOne(authenticationFacadeService.getAppUserDetail().getReference());

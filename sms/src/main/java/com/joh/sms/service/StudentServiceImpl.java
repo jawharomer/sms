@@ -1,5 +1,6 @@
 package com.joh.sms.service;
 
+import java.io.IOException;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -17,6 +18,9 @@ public class StudentServiceImpl implements StudentService {
 	@Autowired
 	private StudentDAO studentDAO;
 
+	@Autowired
+	private AttachedFileService attachedFileService;
+
 	@Override
 	public Iterable<Student> findAllStudent() {
 		return studentDAO.findAll();
@@ -33,6 +37,10 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	@Transactional
 	public void delete(int id) {
+		Student student = studentDAO.findOne(id);
+		if (student.getAttachedFile() != null) {
+			attachedFileService.delete(student.getAttachedFile());
+		}
 		studentDAO.delete(id);
 	}
 
@@ -49,17 +57,15 @@ public class StudentServiceImpl implements StudentService {
 		studentDAO.findOne(student.getId());
 		studentDAO.save(student);
 	}
-	
+
 	@Override
 	public List<Student> findAllByNotificationId(int id) {
 		return studentDAO.findAllByNotificationId(id);
 	}
-	
+
 	@Override
 	public List<Student> findAllByClassGroupId(int id) {
 		return studentDAO.findAllByClassGroupId(id);
 	}
-	
-	
 
 }

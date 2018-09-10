@@ -27,13 +27,7 @@
 		</table>
 	</div>
 	<div class="col-4">
-		<p style="font-size: 8em">
-			<c:if test="${student.gender==1}">
-				<i class="fa fa-male"></i>
-			</c:if>
-			<c:if test="${student.gender==0}">
-				<i class="fa fa-female"></i>
-			</c:if>
-		</p>
+		<img class="img-thumbnail" width="150px"
+			src="<c:url value="/attachedFiles/0/" />${student.attachedFile.id}">
 	</div>
 </div>
