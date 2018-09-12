@@ -17,10 +17,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.joh.sms.model.ClassLevel;
 import com.joh.sms.model.ClassMark;
-import com.joh.sms.model.ClassSubject;
 import com.joh.sms.service.ClassLevelService;
 import com.joh.sms.service.ClassMarkService;
-import com.joh.sms.service.ClassSubjectService;
 
 @Controller
 @RequestMapping("/classMarks")

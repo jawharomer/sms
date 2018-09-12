@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.joh.sms.dao.LessonTimeDAO;
-import com.joh.sms.model.ClassMark;
 import com.joh.sms.model.LessonTime;
 
 @Service

@@ -11,7 +11,7 @@
 					هەفتانە</a></li>
 			<c:if test="${navClassGroupTableDs!=null}">
 				<li class="list-group-item" id="cus-class-group-li">پۆلەکان
-					<ul  class="list-group cus-list-level-1">
+					<ul class="list-group cus-list-level-1">
 						<%
 							Integer oldClassGroupId = 0;
 								boolean newRow = false;
@@ -35,8 +35,8 @@
 									if (newRow) {
 										System.out.println("New Row-><li>");
 										out.write("<li class='list-group-item list-group-item-action bg-secondary text-white'>");
-										
-										out.write("<div class='p-1'>"+item.getGroupName()+"</div>");
+
+										out.write("<div class='p-1'>" + item.getGroupName() + "</div>");
 										out.write("<ul class='list-group cus-list-level-2'>");
 									}
 						%>
@@ -62,7 +62,7 @@
 		</ul>
 	</section>
 
-	<section id="main-content">
+	<section id="main-content" class="animated lightSpeedIn delay-1s">
 
 		<tiles:insertAttribute name="teacherBody" />
 

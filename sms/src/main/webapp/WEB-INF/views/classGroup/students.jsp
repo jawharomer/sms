@@ -12,6 +12,7 @@
 					<th>ناو</th>
 					<th>باوک</th>
 					<th>باپی</th>
+					<th>ئاستی زانستی</th>
 					<th>تۆماری نەهاتن</th>
 					<th>نمرەکان</th>
 				</tr>
@@ -23,6 +24,12 @@
 						<td>${item.firstName}</td>
 						<td>${item.middleName}</td>
 						<td>${item.lastName}</td>
+						<td>
+							<button class="btn btn-sm btn-info" data-student-id="${item.id}"
+								onclick="getStudentStudnetLevel(this)">
+								<i class="fa fa-line-chart"></i>
+							</button>
+						</td>
 						<td>
 							<button class="btn btn-sm btn-info" data-student-id="${item.id}"
 								onclick="getStudentStudnetPresents(this)">

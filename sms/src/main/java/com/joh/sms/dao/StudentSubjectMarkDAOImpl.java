@@ -1,14 +1,12 @@
 package com.joh.sms.dao;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-import com.joh.sms.domain.model.ClassGroupTableD;
 import com.joh.sms.domain.model.StudentSubjectMarkD;
 
 public class StudentSubjectMarkDAOImpl implements StudentSubjectMarkDAOExt {

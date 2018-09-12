@@ -21,6 +21,7 @@ import com.joh.sms.model.ClassSubject;
 import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.LessonTime;
 import com.joh.sms.model.Student;
+import com.joh.sms.model.StudentLevel;
 import com.joh.sms.model.StudentNotification;
 import com.joh.sms.model.SubjectNotification;
 import com.joh.sms.service.AuthenticationFacadeService;
@@ -31,6 +32,7 @@ import com.joh.sms.service.ClassMarkService;
 import com.joh.sms.service.ClassSubjectService;
 import com.joh.sms.service.EnrollmentService;
 import com.joh.sms.service.LessonTimeService;
+import com.joh.sms.service.StudentLevelService;
 import com.joh.sms.service.StudentNotificationSerivce;
 import com.joh.sms.service.StudentPresentService;
 import com.joh.sms.service.StudentService;
@@ -40,14 +42,12 @@ import com.joh.sms.service.SubjectNotificationSerivce;
 @Controller()
 @RequestMapping(path = "/students")
 public class StudentController {
-	
-	private static final Logger logger = Logger.getLogger(StudentController.class);
 
+	private static final Logger logger = Logger.getLogger(StudentController.class);
 
 	@Autowired
 	private AuthenticationFacadeService authenticationFacadeService;
 
-	
 	@Autowired
 	private StudentService studentService;
 
@@ -83,8 +83,9 @@ public class StudentController {
 
 	@Autowired()
 	private StudentPresentService studentPresentService;
-	
-	
+
+	@Autowired()
+	private StudentLevelService studentLevelService;
 
 	private Student getStudent() {
 		return studentService.findOne(authenticationFacadeService.getAppUserDetail().getReference());
@@ -178,7 +179,7 @@ public class StudentController {
 		logger.info("subjectNotifications=" + subjectNotifications);
 
 		model.addAttribute("subjectNotifications", subjectNotifications);
-		model.addAttribute("classSubject",classSubjectService.findOne(id));
+		model.addAttribute("classSubject", classSubjectService.findOne(id));
 
 		return "studentSubjectNotifications";
 	}
@@ -195,6 +196,17 @@ public class StudentController {
 		model.addAttribute("studentNotifications", studentNotifications);
 
 		return "studentNotifications";
+	}
+
+	@GetMapping(path = "/studentLevel")
+	public String getAllStudentStudenLevel(Model model) {
+		logger.info("getAllStudentStudenLevel->fired");
+
+		Iterable<StudentLevel> studentLevels = studentLevelService.findAllByStudentId(getStudent().getId());
+		logger.info("studentLevels=" + studentLevels);
+
+		model.addAttribute("studentLevels", studentLevels);
+		return "studentStudentLevel";
 	}
 
 	@ExceptionHandler(NullPointerException.class)

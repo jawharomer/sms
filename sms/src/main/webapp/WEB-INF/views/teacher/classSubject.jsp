@@ -8,7 +8,9 @@
 			href="<c:url value="/teachers/notifications?classSubjectId=${classSubjectId}&classGroupId=${classGroupId}" />">
 			ئاگادارکردنەوەکان </a> <a class="btn btn-secondary"
 			href="<c:url value="/teachers/marks?classSubjectId=${classSubjectId}&classGroupId=${classGroupId}" />">
-			نمرەکان </a>
+			نمرەکان </a> <a class="btn btn-secondary"
+			href="<c:url value="/teachers/studentLevels?classSubjectId=${classSubjectId}&classGroupId=${classGroupId}" />">
+			ئاستی زانستی </a>
 	</div>
 
 

@@ -20,7 +20,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.OptBoolean;
 
 @Entity
 @Table(name = "LESSON_TIMES", uniqueConstraints = {

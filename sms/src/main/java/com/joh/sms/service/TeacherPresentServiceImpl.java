@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.joh.sms.dao.TeacherPresentDAO;
-import com.joh.sms.model.ClassGroup;
 import com.joh.sms.model.TeacherPresent;
 
 @Service

@@ -17,6 +17,7 @@
 		<put-attribute name="footer"
 			value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="app" />
 		</put-list-attribute>
@@ -37,6 +38,7 @@
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/home.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="admin" />
 			<add-attribute value="app" />
@@ -50,6 +52,7 @@
 			value="/WEB-INF/views/admin/students.jsp" cascade="true" />
 		<put-attribute name="title" value="Admin Students" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.dataTables" />
@@ -91,6 +94,7 @@
 
 		<put-attribute name="title" value="Admin Teachers" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="font-awesome" />
@@ -129,6 +133,7 @@
 
 		<put-attribute name="title" value="Admin ClassLevels" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.dataTables" />
@@ -158,6 +163,7 @@
 
 		<put-attribute name="title" value="Admin ClassLevels" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.dataTables" />
@@ -186,6 +192,7 @@
 
 		<put-attribute name="title" value="Admin ClassGroups" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.dataTables" />
@@ -216,6 +223,7 @@
 		<put-attribute name="title"
 			value="Admin ClassGroupTables" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.dataTables" />
@@ -248,6 +256,7 @@
 		<put-attribute name="title"
 			value="Admin teacherLecturePresents" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.dataTables" />
@@ -280,6 +289,7 @@
 		<put-attribute name="title"
 			value="Admin teacherLecturePresents" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.dataTables" />
@@ -314,6 +324,7 @@
 		<put-attribute name="title"
 			value="Admin ClassGroupTables" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="select.dataTables.min" />
@@ -356,6 +367,7 @@
 		<put-attribute name="title"
 			value="Admin StudentPresents" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.dataTables" />
@@ -398,6 +410,7 @@
 			value="/WEB-INF/views/classSubject/classLevelSubjects.jsp" />
 
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery-ui" />
@@ -424,6 +437,7 @@
 			value="/WEB-INF/views/classMark/classLevelMarks.jsp" />
 
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery-ui" />
@@ -451,6 +465,7 @@
 			value="/WEB-INF/views/classGroup/classLevelGroups.jsp" />
 
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery-ui" />
@@ -479,6 +494,7 @@
 			value="/WEB-INF/views/lessonTime/classLevelLessonTimes.jsp" />
 
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery-ui" />
@@ -510,6 +526,7 @@
 			value="/WEB-INF/views/enrollmentPayment/enrollmentPayments.jsp" />
 
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery-ui" />
@@ -550,6 +567,7 @@
 			value="/WEB-INF/views/studentPresent/addClassGroupStudentPresent.jsp" />
 
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery-ui" />
@@ -579,6 +597,7 @@
 			value="/WEB-INF/views/admin/adminStudentSubjectMarks.jsp" />
 
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="app" />
 			<add-attribute value="adminStudentStudentSubjectMarks" />
@@ -604,6 +623,7 @@
 
 		<put-attribute name="title" value="Admin Expenses" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.dataTables" />
@@ -647,6 +667,7 @@
 		<put-attribute name="studentBody"
 			value="/WEB-INF/views/student/home.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="app" />
@@ -666,6 +687,31 @@
 	</definition>
 
 
+
+	<!-- studentStudentLevel -->
+	<definition name="studentStudentLevel" extends="studentRoot">
+		<put-attribute name="studentBody"
+			value="/WEB-INF/views/student/studentLevel.jsp" cascade="true" />
+
+		<put-attribute name="title"
+			value="Student ClassGroup Table" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+		</put-list-attribute>
+
+	</definition>
+
+
 	<!-- studentNullPointerException -->
 	<definition name="studentNullPointerException"
 		extends="studentRoot">
@@ -676,6 +722,7 @@
 		<put-attribute name="title"
 			value="Student ClassGroup Table" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="jquery-ui" />
@@ -706,6 +753,7 @@
 		<put-attribute name="title"
 			value="Student ClassGroup Table" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="jquery-ui" />
@@ -737,6 +785,7 @@
 		<put-attribute name="title"
 			value="Student StudentSubject Marks" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="jquery-ui" />
@@ -769,6 +818,7 @@
 		<put-attribute name="title"
 			value="studentSubjectNotifications" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="jquery-ui" />
@@ -801,6 +851,7 @@
 
 		<put-attribute name="title" value="studentNotifications" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="jquery.dataTables" />
 			<add-attribute value="jquery-ui" />
@@ -832,6 +883,7 @@
 			value="/WEB-INF/views/classGroup/students.jsp" />
 
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery-ui" />
@@ -870,6 +922,7 @@
 			value="/WEB-INF/views/admin/studentNotifications.jsp" cascade="true" />
 		<put-attribute name="title" value="Admin ClassGroups" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.dataTables" />
@@ -904,6 +957,7 @@
 		<put-attribute name="teacherBody"
 			value="/WEB-INF/views/teacher/notification.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="app" />
@@ -931,6 +985,7 @@
 			value="/WEB-INF/views/teacher/classGroupTable.jsp" cascade="true" />
 
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="app" />
@@ -965,6 +1020,7 @@
 		<put-attribute name="classSubjectBody"
 			value="/WEB-INF/views/teacher/classSubjectMarks.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="app" />
@@ -994,6 +1050,7 @@
 			value="/WEB-INF/views/teacher/teacherSubjectNotifications.jsp"
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery-ui" />
@@ -1011,6 +1068,35 @@
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
 			<add-attribute value="teacherSubjectNotifications" />
+		</put-list-attribute>
+	</definition>
+
+
+	<definition name="teacherStudentLevels"
+		extends="teacherClassSubject">
+		<put-attribute name="title"
+			value="teacherClassSubjectMarks" />
+		<put-attribute name="classSubjectBody"
+			value="/WEB-INF/views/teacher/studentLevels.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="app" />
+			<add-attribute value="teacher" />
+			<add-attribute value="teacherStudentLevels" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery" />
+			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="app" />
+			<add-attribute value="teacher" />
+			<add-attribute value="teacherStudentLevels" />
 		</put-list-attribute>
 	</definition>
 
@@ -1051,6 +1137,7 @@
 
 
 		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
 			<add-attribute value="bootstrap" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.fancybox" />

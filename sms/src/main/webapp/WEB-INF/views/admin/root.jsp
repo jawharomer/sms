@@ -36,7 +36,7 @@
 		</ul>
 	</section>
 
-	<section id="main-content">
+	<section id="main-content" class="animated lightSpeedIn delay-1s">
 
 		<tiles:insertAttribute name="adminBody" />
 

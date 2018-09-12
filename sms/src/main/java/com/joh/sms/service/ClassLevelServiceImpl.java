@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 import com.joh.sms.dao.ClassLevelDAO;
 import com.joh.sms.model.ClassLevel;
-import com.joh.sms.model.Teacher;
 
 @Service()
 public class ClassLevelServiceImpl implements ClassLevelService {

@@ -1,6 +1,8 @@
 
 package com.joh.sms.service;
 
+import java.awt.Graphics2D;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -22,8 +24,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.joh.sms.dao.AttachedFileDAO;
 import com.joh.sms.exception.AttachmentNotFoundException;
 import com.joh.sms.model.AttachedFile;
-
-import java.awt.*;
 
 @Service
 public class AttachedFileServiceImpl implements AttachedFileService {

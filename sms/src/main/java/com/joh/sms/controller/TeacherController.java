@@ -23,7 +23,7 @@ import com.joh.sms.domain.model.SubjectNotificationD;
 import com.joh.sms.model.ClassGroup;
 import com.joh.sms.model.ClassMark;
 import com.joh.sms.model.ClassSubject;
-import com.joh.sms.model.Student;
+import com.joh.sms.model.StudentLevel;
 import com.joh.sms.model.SubjectNotification;
 import com.joh.sms.model.Teacher;
 import com.joh.sms.service.AuthenticationFacadeService;
@@ -31,6 +31,7 @@ import com.joh.sms.service.ClassGroupService;
 import com.joh.sms.service.ClassGroupTableService;
 import com.joh.sms.service.ClassMarkService;
 import com.joh.sms.service.ClassSubjectService;
+import com.joh.sms.service.StudentLevelService;
 import com.joh.sms.service.StudentSubjectMarkService;
 import com.joh.sms.service.SubjectNotificationSerivce;
 import com.joh.sms.service.TeacherService;
@@ -64,6 +65,9 @@ public class TeacherController {
 
 	@Autowired
 	private ClassGroupService classGroupService;
+	
+	@Autowired
+	private StudentLevelService studentLevelService;
 
 	private Teacher getTeacher() {
 		return teacherService.findOne(authenticationFacadeService.getAppUserDetail().getReference());
@@ -144,6 +148,28 @@ public class TeacherController {
 		model.addAttribute("classSubject", classSubjectService.findOne(classSubjectId));
 
 		return "teacherSubjectNotifications";
+	}
+	
+	
+	@GetMapping(path = "/studentLevels")
+	public String getAllSubjectStudentLevel(@RequestParam int classSubjectId,
+			@RequestParam int classGroupId,Model model) {
+		logger.info("getAllSubjectStudentLevel->fired");
+
+		logger.info("classSubjectId=" + classSubjectId);
+
+		List<StudentLevel> studentLevels = studentLevelService.findAllSubjectStudentLevel(classSubjectId,classGroupId);
+
+		logger.info("studentLevels=" + studentLevels);
+
+		model.addAttribute("studentLevels", studentLevels);
+		
+		model.addAttribute("classGroupId",classGroupId);
+		model.addAttribute("classSubjectId", classSubjectId);
+		model.addAttribute("classGroup", classGroupService.findOne(classGroupId));
+		model.addAttribute("classSubject", classSubjectService.findOne(classSubjectId));
+
+		return "teacherStudentLevels";
 	}
 
 	@GetMapping(path = "/notifications/add")

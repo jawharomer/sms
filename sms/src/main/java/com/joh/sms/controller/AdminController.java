@@ -33,6 +33,7 @@ import com.joh.sms.model.AttachedFile;
 import com.joh.sms.model.ClassMark;
 import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.Student;
+import com.joh.sms.model.StudentLevel;
 import com.joh.sms.model.StudentNotification;
 import com.joh.sms.model.Teacher;
 import com.joh.sms.model.TeacherPresent;
@@ -40,6 +41,7 @@ import com.joh.sms.service.AppUserService;
 import com.joh.sms.service.AttachedFileService;
 import com.joh.sms.service.ClassMarkService;
 import com.joh.sms.service.EnrollmentService;
+import com.joh.sms.service.StudentLevelService;
 import com.joh.sms.service.StudentNotificationSerivce;
 import com.joh.sms.service.StudentService;
 import com.joh.sms.service.StudentSubjectMarkService;
@@ -77,8 +79,11 @@ public class AdminController {
 	@Autowired
 	private AppUserService appUserService;
 
-	@Autowired()
+	@Autowired
 	private AttachedFileService attachedFileService;
+	
+	@Autowired
+	private StudentLevelService studentLevelService;
 
 	@GetMapping()
 	public String getAmdinPage() {
@@ -273,6 +278,20 @@ public class AdminController {
 		model.addAttribute("students", students);
 		return "notification/notificaionStudents";
 	}
+	
+	
+	@GetMapping(path = "/students/{id}/studentLevel")
+	public String getAllStudentStudenLevel(@PathVariable int id,Model model) {
+		logger.info("getAllStudentStudenLevel->fired");
+		logger.info("studentId="+id);
+
+		Iterable<StudentLevel> studentLevels = studentLevelService.findAllByStudentId(id);
+		logger.info("studentLevels=" + studentLevels);
+
+		model.addAttribute("studentLevels", studentLevels);
+		return "studentLevel/studentStudentLevel";
+	}
+
 
 	// Teachers
 

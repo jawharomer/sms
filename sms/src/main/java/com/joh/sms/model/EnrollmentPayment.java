@@ -19,7 +19,6 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "ENROLLMENT_PAYMENT")

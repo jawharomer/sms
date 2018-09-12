@@ -12,7 +12,7 @@
 <head>
 <meta charset="utf-8" />
 
-<meta name="viewport" content="<tiles:getAsString name="viewport" />"/>
+<meta name="viewport" content="<tiles:getAsString name="viewport" />" />
 
 <title><tiles:getAsString name="title" /></title>
 

@@ -7,6 +7,8 @@
 			<li class="list-group-item list-group-item-action"><a
 				href="<c:url value="/students/notifications" />${item.id}">
 					ئاگادارکردنەوەکان</a></li>
+			<li class="list-group-item list-group-item-action"><a
+				href="<c:url value="/students/studentLevel" />"> ئاستی زانستی</a></li>
 			<li class="list-group-item list-group-item-action">
 				<button style="background: transparent;" class="btn"
 					data-student-id="${student.id}"
@@ -43,7 +45,7 @@
 		</ul>
 	</section>
 
-	<section id="main-content">
+	<section id="main-content" class="animated lightSpeedIn delay-1s">
 
 		<tiles:insertAttribute name="studentBody" />
 

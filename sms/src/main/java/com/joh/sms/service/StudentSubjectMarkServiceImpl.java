@@ -7,12 +7,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.joh.sms.dao.ClassGroupTableDAO;
 import com.joh.sms.dao.StudentSubjectMarkDAO;
-import com.joh.sms.domain.model.ClassGroupTableD;
 import com.joh.sms.domain.model.StudentSubjectMarkD;
-import com.joh.sms.model.ClassGroupTable;
-import com.joh.sms.model.LessonTime;
 import com.joh.sms.model.StudentSubjectMark;
 
 @Service

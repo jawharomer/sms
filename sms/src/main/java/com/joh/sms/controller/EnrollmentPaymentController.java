@@ -15,13 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.joh.sms.domain.model.EnrollmentD;
-import com.joh.sms.model.ClassGroup;
-import com.joh.sms.model.ClassLevel;
-import com.joh.sms.model.ClassSubject;
 import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.EnrollmentPayment;
-import com.joh.sms.model.Student;
 import com.joh.sms.service.EnrollmentPaymentService;
 import com.joh.sms.service.EnrollmentService;
 

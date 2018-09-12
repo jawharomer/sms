@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.joh.sms.domain.model.EnrollmentD;
 import com.joh.sms.model.ClassGroup;
-import com.joh.sms.model.ClassSubject;
 import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.Student;
 import com.joh.sms.service.ClassGroupService;

@@ -2,9 +2,7 @@ package com.joh.sms.service;
 
 import java.util.List;
 
-import com.joh.sms.domain.model.ClassGroupTableD;
 import com.joh.sms.domain.model.StudentSubjectMarkD;
-import com.joh.sms.model.ClassGroupTable;
 import com.joh.sms.model.StudentSubjectMark;
 
 public interface StudentSubjectMarkService {

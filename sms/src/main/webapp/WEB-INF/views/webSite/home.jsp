@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:url value="/resources/img/webSite" var="imgDir" />
 
-<div class="container">
+<div class="container animated slideInUp delay-1s">
 
 	<div class="row">
 		<div id="about"

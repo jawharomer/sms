@@ -3,7 +3,6 @@ package com.joh.sms.service;
 import java.util.List;
 
 import com.joh.sms.domain.model.StudentPresentD;
-import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentPresent;
 
 public interface StudentPresentService {

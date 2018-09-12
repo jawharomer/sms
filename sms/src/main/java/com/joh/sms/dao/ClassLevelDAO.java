@@ -1,12 +1,9 @@
 package com.joh.sms.dao;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import com.joh.sms.model.ClassLevel;
-import com.joh.sms.model.Student;
 
 public interface ClassLevelDAO extends CrudRepository<ClassLevel, Integer> {
 

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.joh.sms.dao.TeacherDAO;
 import com.joh.sms.domain.model.TeacherLecturePresentD;
-import com.joh.sms.model.Student;
 import com.joh.sms.model.Teacher;
 
 @Service

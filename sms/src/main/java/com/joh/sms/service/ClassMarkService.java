@@ -1,8 +1,6 @@
 package com.joh.sms.service;
 
 import com.joh.sms.model.ClassMark;
-import com.joh.sms.model.ClassSubject;
-import com.joh.sms.model.Student;
 
 public interface ClassMarkService {
 	

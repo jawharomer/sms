@@ -4,14 +4,11 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
-import org.hibernate.sql.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.joh.sms.dao.StudentDAO;
 import com.joh.sms.dao.StudentPresentDAO;
 import com.joh.sms.domain.model.StudentPresentD;
-import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentPresent;
 
 @Service()
