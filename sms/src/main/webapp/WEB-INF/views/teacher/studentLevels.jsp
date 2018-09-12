@@ -4,16 +4,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<div>
-	<button data-class-subject-id="${classSubjectId}"
-		data-class-group-id="${classGroupId}"
-		onclick="getAddSubjectNotification(this)" type="button"
-		class="btn btn-success">
-		<i class="fa fa-plus"></i>
-	</button>
-</div>
 
 <div>
+	<h5>ئاستی زانستی</h5>
 
 	<table class="table table-bordered">
 		<thead>
