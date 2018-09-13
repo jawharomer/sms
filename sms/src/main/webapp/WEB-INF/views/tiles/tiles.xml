@@ -18,7 +18,7 @@
 			value="/WEB-INF/views/tiles/template/defaultFooter.jsp" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="app" />
 		</put-list-attribute>
 
@@ -39,7 +39,7 @@
 			value="/WEB-INF/views/admin/home.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="admin" />
 			<add-attribute value="app" />
 		</put-list-attribute>
@@ -53,10 +53,10 @@
 		<put-attribute name="title" value="Admin Students" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
@@ -64,12 +64,12 @@
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
+			<add-attribute value="jquery.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.fancybox" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<!-- S-DataTableLib -->
 			<add-attribute value="dt/dataTables.buttons.min" />
 			<add-attribute value="dt/buttons.flash.min" />
@@ -95,21 +95,21 @@
 		<put-attribute name="title" value="Admin Teachers" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminTeachers" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<!-- S-DataTableLib -->
 			<add-attribute value="dt/dataTables.buttons.min" />
 			<add-attribute value="dt/buttons.flash.min" />
@@ -134,21 +134,21 @@
 		<put-attribute name="title" value="Admin ClassLevels" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminClassLevels" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminClassLevels" />
 		</put-list-attribute>
@@ -164,21 +164,21 @@
 		<put-attribute name="title" value="Admin ClassLevels" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminSchoolWeekDays" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminSchoolWeekDays" />
 		</put-list-attribute>
@@ -193,21 +193,21 @@
 		<put-attribute name="title" value="Admin ClassGroups" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminClassGroupTables" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminClassGroupTables" />
 		</put-list-attribute>
@@ -224,21 +224,21 @@
 			value="Admin ClassGroupTables" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminClassGroupTables" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminClassGroupTables" />
 		</put-list-attribute>
@@ -257,21 +257,21 @@
 			value="Admin teacherLecturePresents" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminTeacherLecturePresents" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializejson" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminTeacherLecturePresents" />
@@ -290,21 +290,21 @@
 			value="Admin teacherLecturePresents" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminTeacherPresents" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializejson" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminTeacherPresents" />
@@ -325,22 +325,22 @@
 			value="Admin ClassGroupTables" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="select.dataTables.min" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminEnrollments" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<!-- S-DataTableLib -->
 			<add-attribute value="dt/dataTables.select.min" />
 			<add-attribute value="dt/dataTables.buttons.min" />
@@ -368,21 +368,21 @@
 			value="Admin StudentPresents" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminStudentPresents" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<!-- S-DataTableLib -->
 			<add-attribute value="dt/dataTables.select.min" />
 			<add-attribute value="dt/dataTables.buttons.min" />
@@ -411,17 +411,17 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="classLevelSubjects" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="app" />
 			<add-attribute value="classLevelSubjects" />
@@ -438,17 +438,17 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="classLevelMarks" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="app" />
 			<add-attribute value="classLevelMarks" />
@@ -466,17 +466,17 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="classLevelGroups" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="app" />
 			<add-attribute value="classLevelGroups" />
@@ -495,17 +495,17 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="classLevelLessonTimes" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="angular" />
 			<add-attribute value="mask" />
@@ -527,20 +527,20 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery-ui" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="enrollmentPayments" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<!-- S-DataTableLib -->
 			<add-attribute value="dt/dataTables.buttons.min" />
 			<add-attribute value="dt/buttons.flash.min" />
@@ -568,18 +568,18 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="addClassGroupStudentPresent" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="app" />
@@ -598,15 +598,15 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminStudentStudentSubjectMarks" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="jquery.serializejson" />
 
@@ -624,21 +624,21 @@
 		<put-attribute name="title" value="Admin Expenses" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminExpenses" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<!-- S-DataTableLib -->
 			<add-attribute value="dt/dataTables.buttons.min" />
 			<add-attribute value="dt/buttons.flash.min" />
@@ -668,7 +668,7 @@
 			value="/WEB-INF/views/student/home.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
@@ -676,11 +676,11 @@
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 		</put-list-attribute>
@@ -697,14 +697,14 @@
 			value="Student ClassGroup Table" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 		</put-list-attribute>
@@ -723,20 +723,20 @@
 			value="Student ClassGroup Table" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 			<add-attribute value="studentClassGroupTable" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 			<add-attribute value="studentClassGroupTable" />
@@ -754,20 +754,20 @@
 			value="Student ClassGroup Table" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 			<add-attribute value="studentClassGroupTable" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 			<add-attribute value="studentClassGroupTable" />
@@ -786,20 +786,20 @@
 			value="Student StudentSubject Marks" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 			<add-attribute value="studentStudentSubjectMarks" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 			<add-attribute value="studentStudentSubjectMarks" />
@@ -819,9 +819,9 @@
 			value="studentSubjectNotifications" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 			<add-attribute
@@ -829,11 +829,11 @@
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 			<add-attribute
@@ -852,20 +852,20 @@
 		<put-attribute name="title" value="studentNotifications" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 			<add-attribute value="studentNotificaions" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 			<add-attribute value="studentNotificaions" />
@@ -884,20 +884,20 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery-ui" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="select.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="classGroupStudents" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.dataTables.min" />
 			<!-- S-DataTableLib -->
 			<add-attribute value="dt/dataTables.select.min" />
 			<add-attribute value="dt/dataTables.buttons.min" />
@@ -923,21 +923,21 @@
 		<put-attribute name="title" value="Admin ClassGroups" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery.dataTables" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminStudentNotifications" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminStudentNotifications" />
 		</put-list-attribute>
@@ -958,7 +958,7 @@
 			value="/WEB-INF/views/teacher/notification.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
@@ -966,11 +966,11 @@
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
 			<add-attribute value="teacherClassGroupTable" />
@@ -986,7 +986,7 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
@@ -994,8 +994,8 @@
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
 			<add-attribute value="teacherClassSubjectMarks" />
@@ -1021,7 +1021,7 @@
 			value="/WEB-INF/views/teacher/classSubjectMarks.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
@@ -1029,11 +1029,11 @@
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
 			<add-attribute value="teacherClassSubjectMarks" />
@@ -1051,20 +1051,20 @@
 			cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
 			<add-attribute value="teacherSubjectNotifications" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializeObject" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
 			<add-attribute value="teacherSubjectNotifications" />
@@ -1080,20 +1080,20 @@
 			value="/WEB-INF/views/teacher/studentLevels.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
 			<add-attribute value="teacherStudentLevels" />
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
-			<add-attribute value="jquery-ui" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializejson" />
-			<add-attribute value="jquery.dataTables" />
+			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
 			<add-attribute value="teacherStudentLevels" />
@@ -1138,7 +1138,7 @@
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="font-awesome" />
 			<add-attribute value="jquery.fancybox" />
 			<add-attribute value="webSite/webSite" />
@@ -1146,8 +1146,8 @@
 		</put-list-attribute>
 
 		<put-list-attribute name="requiredJSFiles">
-			<add-attribute value="jquery" />
-			<add-attribute value="bootstrap" />
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
 			<add-attribute value="jquery.fancybox" />
 		</put-list-attribute>
 

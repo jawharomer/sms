@@ -3,3 +3,4 @@ encoding//src/main/webapp/WEB-INF/views/admin/root.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/admin/students.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/student/home.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/student/root.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/tiles/template/defaultFooter.jsp=UTF-8
