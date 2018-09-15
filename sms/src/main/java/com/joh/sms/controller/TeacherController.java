@@ -1,6 +1,8 @@
 package com.joh.sms.controller;
 
+import java.nio.file.AccessDeniedException;
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -65,7 +67,7 @@ public class TeacherController {
 
 	@Autowired
 	private ClassGroupService classGroupService;
-	
+
 	@Autowired
 	private StudentLevelService studentLevelService;
 
@@ -99,8 +101,10 @@ public class TeacherController {
 	}
 
 	@GetMapping(path = "/marks")
-	public String getClassSubjectMarks(@RequestParam int classGroupId, @RequestParam int classSubjectId, Model model) {
+	public String getClassSubjectMarks(@RequestParam int classGroupId, @RequestParam int classSubjectId, Model model)
+			throws AccessDeniedException {
 		logger.info("getClassSubjectMarks->fired");
+		has(classGroupId, classSubjectId);
 
 		logger.info("classGroupId=" + classGroupId);
 		logger.info("classSubjectId=" + classSubjectId);
@@ -129,11 +133,12 @@ public class TeacherController {
 
 	@GetMapping(path = "/notifications")
 	public String getSubjectClassGroupNotifications(@RequestParam int classGroupId, @RequestParam int classSubjectId,
-			Model model) {
+			Model model) throws AccessDeniedException {
 		logger.info("getSubjectClassGroupNotifications->fired");
 
 		logger.info("classGroupId=" + classGroupId);
 		logger.info("classSubjectId=" + classSubjectId);
+		has(classGroupId, classSubjectId);
 
 		List<SubjectNotification> subjectNotifications = subjectNotificationSerivce
 				.findAllByClassSubjectIdAndClassGroupId(classSubjectId, classGroupId);
@@ -149,22 +154,23 @@ public class TeacherController {
 
 		return "teacherSubjectNotifications";
 	}
-	
-	
+
 	@GetMapping(path = "/studentLevels")
-	public String getAllSubjectStudentLevel(@RequestParam int classSubjectId,
-			@RequestParam int classGroupId,Model model) {
+	public String getAllSubjectStudentLevel(@RequestParam int classSubjectId, @RequestParam int classGroupId,
+			Model model) throws AccessDeniedException {
 		logger.info("getAllSubjectStudentLevel->fired");
 
 		logger.info("classSubjectId=" + classSubjectId);
+		has(classGroupId, classSubjectId);
 
-		List<StudentLevel> studentLevels = studentLevelService.findAllSubjectStudentLevel(classSubjectId,classGroupId);
+
+		List<StudentLevel> studentLevels = studentLevelService.findAllSubjectStudentLevel(classSubjectId, classGroupId);
 
 		logger.info("studentLevels=" + studentLevels);
 
 		model.addAttribute("studentLevels", studentLevels);
-		
-		model.addAttribute("classGroupId",classGroupId);
+
+		model.addAttribute("classGroupId", classGroupId);
 		model.addAttribute("classSubjectId", classSubjectId);
 		model.addAttribute("classGroup", classGroupService.findOne(classGroupId));
 		model.addAttribute("classSubject", classSubjectService.findOne(classSubjectId));
@@ -196,6 +202,7 @@ public class TeacherController {
 	public String addSubjectNotificaion(@RequestBody @Valid SubjectNotificationD subjectNotificationD,
 			BindingResult result, Model model) {
 		logger.info("addSubjectNotificaion->fired");
+
 
 		logger.info("subjectNotificationD=" + subjectNotificationD);
 
@@ -248,6 +255,22 @@ public class TeacherController {
 		model.addAttribute("classGroupTableDs", classGroupTableDs);
 
 		return "teacherClassGroupTable";
+	}
+
+	// Helper
+
+	private void has(int classGroupId, int classSubjectId) throws AccessDeniedException {
+
+		List<ClassGroupTableD> navClassGroupTableDs = classGroupTableService
+				.findAllTeacherClassGroupSubject(getTeacher().getId());
+
+		Optional<ClassGroupTableD> matching = navClassGroupTableDs.stream()
+				.filter(p -> p.getClassGroupId() == classGroupId && p.getClassSubjectId() == classSubjectId)
+				.findFirst();
+
+		if (!matching.isPresent())
+			throw new AccessDeniedException("ناتوانی ئەمکارە ئەنجام بدەیت");
+
 	}
 
 }

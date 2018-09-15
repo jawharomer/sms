@@ -31,10 +31,6 @@
 						<img class="d-block w-100" src="${imgDir}/carousel/2.jpg"
 							alt="Second slide">
 					</div>
-					<div class="carousel-item">
-						<img class="d-block w-100" src="${imgDir}/carousel/3.jpg"
-							alt="Third slide">
-					</div>
 				</div>
 				<a class="carousel-control-prev" href="#carousel" role="button"
 					data-slide="prev"> <span class="carousel-control-prev-icon"
@@ -122,16 +118,13 @@
 		<div id="address" class="col-12 col-md-4 d-flex align-items-stretch">
 			<div class="card card-body">
 				<h6>ناونیشان</h6>
-				<p>
-			هەولێر-سۆران،شەقامی سەرەکی هەولێر سۆران 
-				</p>
+				<p>هەولێر-سۆران،شەقامی سەرەکی هەولێر سۆران</p>
 			</div>
 		</div>
 		<div id="contact" class="col-12 col-md-4  d-flex align-items-stretch">
 			<div class="card  card-body">
 				<h6>پەیوەندی</h6>
-				korek.school@gmail.com<br> 07507081810 <br>
-				07507081810
+				korek.school@gmail.com<br> 07507081810 <br> 07507081810
 			</div>
 		</div>
 		<div id="related-site"

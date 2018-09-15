@@ -3,7 +3,7 @@
 
 
 <nav class="navbar navbar-dark bg-dark text-white">
-	<div class="p-1">قوتابخانەی کۆرەکی ئەهلی</div>
+	<div class="p-1">قوتابخانەی کۆرەکی ناحوکمی</div>
 	<div style="text-align: left" class="mr-auto">
 		<a class="btn bt-outline"> <i class="fa fa-facebook"></i>
 		</a>

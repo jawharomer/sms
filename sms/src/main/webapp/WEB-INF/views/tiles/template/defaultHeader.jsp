@@ -4,8 +4,6 @@
 <%@ taglib prefix="sec"
 	uri="http://www.springframework.org/security/tags"%>
 <nav class="navbar navbar-light bg-light">
-
-
 	<span class="navbar-brand">
 		<b>قوتابخانەی کۆرەکی ناحوکمی</b>
 	</span>
