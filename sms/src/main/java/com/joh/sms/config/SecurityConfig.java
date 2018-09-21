@@ -15,7 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.joh.sms.service.AppUserDetailService;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity(debug=true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
 
