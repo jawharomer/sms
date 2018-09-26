@@ -34,7 +34,7 @@
 							Integer classSubjectId = item.getClassSubjectId();
 							Integer classMarkId = item.getClassMarkId();
 
-							if (classSubjectId != oldClassSubjectId) {
+							if (classSubjectId.intValue() != oldClassSubjectId.intValue()) {
 								newRow = true;
 								oldClassSubjectId = classSubjectId;
 								System.out.println("New Row");
@@ -51,7 +51,8 @@
 				<td><%=item.getMark() == null ? "" : item.getMark()%></td>
 				<%
 					if (i < studentSubjectMarkDs.size() - 1) {
-								if (studentSubjectMarkDs.get(i + 1).getClassSubjectId() != oldClassSubjectId) {
+								if (studentSubjectMarkDs.get(i + 1).getClassSubjectId().intValue() != oldClassSubjectId
+										.intValue()) {
 									System.out.println("Close Row-></tr>");
 									out.write("</tr>");
 								}

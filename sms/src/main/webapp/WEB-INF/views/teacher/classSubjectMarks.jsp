@@ -6,7 +6,7 @@
 <div id="class-subject-marks-container">
 
 	<h5>نمرەی وانەکان</h5>
-	
+
 
 	<table class="table table-bordered">
 		<thead>
@@ -38,7 +38,7 @@
 					Integer classMarkId = item.getClassMarkId();
 					Integer studentId = item.getStudentId();
 
-					if (studentId != oldStudentId) {
+					if (studentId.intValue() != oldStudentId.intValue()) {
 						newRow = true;
 						oldStudentId = studentId;
 						System.out.println("New Row");
@@ -83,7 +83,7 @@
 			</td>
 			<%
 				if (i < studentSubjectMarkDs.size() - 1) {
-						if (studentSubjectMarkDs.get(i + 1).getStudentId() != oldStudentId) {
+						if (studentSubjectMarkDs.get(i + 1).getStudentId().intValue() != oldStudentId.intValue()) {
 							System.out.println("Close Row-></tr>");
 							out.write("</tr>");
 						}

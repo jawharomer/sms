@@ -17,4 +17,11 @@ public class Test {
 	private String te() {
 		return "sdfdsf";
 	}
+	
+	public static void main(String[] args) {
+		BCryptPasswordEncoder  b=new  BCryptPasswordEncoder();
+		System.out.println(b.encode("Koya2016"));
+	}
 }
+
+
