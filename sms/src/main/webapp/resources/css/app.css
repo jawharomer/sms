@@ -70,3 +70,9 @@ a {
 	overflow: hidden;
 	white-space: nowrap;
 }
+
+
+#modal-body{
+	overflow: auto;
+	max-height: 80vh;
+}
