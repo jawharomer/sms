@@ -10,12 +10,21 @@
 			<tbody>
 				<tr>
 					<td>ناوی</td>
-					<td><sf:input cssClass="form-control form-control-sm" path="name" /></td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="name" /></td>
 					<td><sf:errors path="name" /></td>
 				</tr>
+
 				<tr>
-					<td>نمرە</td>
-					<td><sf:input cssClass="form-control form-control-sm" path="limit" /></td>
+					<td>نمرە / <span>ئاست</span>
+						<div class="d-inline-block">
+							<sf:checkbox
+								cssClass="cus-inline-block form-control form-control-sm"
+								path="level" value="true" onchange="levelChanged(this)" />
+						</div>
+					</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="limit" /></td>
 					<td><sf:errors path="limit" /></td>
 				</tr>
 				<tr>
@@ -54,5 +63,19 @@
 						alert(errMsg);
 					}
 				});
+	}
+
+	function levelChanged(_this) {
+		console.log("levelChanged->fired");
+		var level = _this.checked
+		console.log("level=", level);
+		if(level){
+			$("#limit").val(6);
+			$("#limit").hide();
+		}
+		else{
+			$("#limit").val(0);
+			$("#limit").show();
+		}
 	}
 </script>

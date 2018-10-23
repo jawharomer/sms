@@ -48,7 +48,43 @@
 								out.write("<td>" + item.getSubjectName() + "</td>");
 							}
 				%>
-				<td><%=item.getMark() == null ? "" : item.getMark()%></td>
+				<td>
+					<%
+						if (item.getMark() != null) {
+									if (item.isLevel()) {
+										String level = "";
+										switch (item.getMark().intValue()) {
+										case 0:
+											level = "خراپە";
+											break;
+										case 1:
+											level = "پەسەندە";
+											break;
+										case 2:
+											level = "ناوەندە";
+											break;
+										case 3:
+											level = "باشە";
+											break;
+										case 4:
+											level = "زۆرباشە";
+											break;
+										case 5:
+											level = "خراپە";
+											break;
+										case 6:
+											level = "نایابە";
+											break;
+										}
+										out.write(level);
+									} else {
+										out.write("" + item.getMark());
+									}
+								} else {
+									out.write("");
+								}
+					%>
+				</td>
 				<%
 					if (i < studentSubjectMarkDs.size() - 1) {
 								if (studentSubjectMarkDs.get(i + 1).getClassSubjectId().intValue() != oldClassSubjectId

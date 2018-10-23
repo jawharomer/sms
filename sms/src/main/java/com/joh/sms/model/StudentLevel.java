@@ -1,7 +1,5 @@
 package com.joh.sms.model;
 
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,16 +8,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-
-import org.springframework.format.annotation.DateTimeFormat;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name = "STUDENT_LEVELS", uniqueConstraints = {
@@ -39,12 +31,15 @@ public class StudentLevel {
 	@JoinColumn(name = "I_STUDENT", nullable = false)
 	private Student student;
 
-	
-	@NotNull(message="{studentLevel.level.null}")
-	@Min(value = 0,message="{studentLevel.level.min}")
-	@Max(value = 10,message="{studentLevel.level.max}")
+	@NotNull(message = "{studentLevel.level.null}")
+	@Min(value = 0, message = "{studentLevel.level.min}")
+	@Max(value = 6, message = "{studentLevel.level.max}")
 	@Column(name = "LEVEL")
 	private Integer level;
+
+	@ManyToOne()
+	@JoinColumn(name = "I_STUDENT_LEVEL_DATE", nullable = false)
+	private StudentLevelDate studentLevelDate;
 
 	public Integer getId() {
 		return id;
@@ -78,10 +73,18 @@ public class StudentLevel {
 		this.level = level;
 	}
 
+	public StudentLevelDate getStudentLevelDate() {
+		return studentLevelDate;
+	}
+
+	public void setStudentLevelDate(StudentLevelDate studentLevelDate) {
+		this.studentLevelDate = studentLevelDate;
+	}
+
 	@Override
 	public String toString() {
 		return "StudentLevel [id=" + id + ", classSubject=" + classSubject + ", student=" + student + ", level=" + level
-				+ "]";
+				+ ", studentLevelDate=" + studentLevelDate + "]";
 	}
 
 }

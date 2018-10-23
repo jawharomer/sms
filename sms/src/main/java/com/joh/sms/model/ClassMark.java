@@ -27,8 +27,7 @@ public class ClassMark {
 	@Column(name = "MARK_NAME")
 	private String name;
 
-	
-	@Min(value=1,message="{classMark.limit.min}")
+	@Min(value = 1, message = "{classMark.limit.min}")
 	@NotNull(message = "{classMark.limit.null}")
 	@Column(name = "MARK_LIMIT")
 	private Integer limit;
@@ -36,6 +35,9 @@ public class ClassMark {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "I_CLASS_LEVEL", updatable = false)
 	private ClassLevel classLevel;
+
+	@Column(name = "LEVEL")
+	private boolean level;
 
 	public int getId() {
 		return id;
@@ -69,9 +71,18 @@ public class ClassMark {
 		this.limit = limit;
 	}
 
+	public boolean isLevel() {
+		return level;
+	}
+
+	public void setLevel(boolean level) {
+		this.level = level;
+	}
+
 	@Override
 	public String toString() {
-		return "ClassMark [id=" + id + ", name=" + name + ", limit=" + limit + ", classLevel=" + classLevel + "]";
+		return "ClassMark [id=" + id + ", name=" + name + ", limit=" + limit + ", classLevel=" + classLevel + ", level="
+				+ level + "]";
 	}
 
 }

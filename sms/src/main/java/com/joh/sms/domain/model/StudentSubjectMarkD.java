@@ -9,6 +9,7 @@ public class StudentSubjectMarkD {
 	private String subjectName;
 	private String markName;
 	private Integer markLimit;
+	private boolean level;
 
 	@NotNull(message = "{studentSubjectMark.mark.null}")
 	private Double mark;
@@ -94,12 +95,20 @@ public class StudentSubjectMarkD {
 		this.classSubjectId = classSubjectId;
 	}
 
+	public boolean isLevel() {
+		return level;
+	}
+
+	public void setLevel(boolean level) {
+		this.level = level;
+	}
+
 	@Override
 	public String toString() {
 		return "StudentSubjectMarkD [studentSubjectMarkId=" + studentSubjectMarkId + ", studentName=" + studentName
-				+ ", subjectName=" + subjectName + ", markName=" + markName + ", markLimit=" + markLimit + ", mark="
-				+ mark + ", studentId=" + studentId + ", classMarkId=" + classMarkId + ", classSubjectId="
-				+ classSubjectId + "]";
+				+ ", subjectName=" + subjectName + ", markName=" + markName + ", markLimit=" + markLimit + ", level="
+				+ level + ", mark=" + mark + ", studentId=" + studentId + ", classMarkId=" + classMarkId
+				+ ", classSubjectId=" + classSubjectId + "]";
 	}
 
 }

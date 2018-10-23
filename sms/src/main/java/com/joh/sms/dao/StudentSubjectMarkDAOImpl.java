@@ -19,7 +19,7 @@ public class StudentSubjectMarkDAOImpl implements StudentSubjectMarkDAOExt {
 		List<StudentSubjectMarkD> studentSubjectMarkDs = new ArrayList<>();
 		Query query = em.createNativeQuery(
 				"SELECT CONCAT(IFNULL(S.FIRST_NAME, ''),' ',IFNULL(S.MIDDLE_NAME, ''),' ',IFNULL(S.LAST_NAME, '')) AS STUDENT_NAME,CS.SUBJECT_NAME,CM.MARK_NAME,CM.MARK_LIMIT,SSM.MARK \n"
-						+ ",S.I_STUDENT,CM.I_CLASS_MARK,CS.I_CLASS_SUBJECT,SSM.I_STUDENT_SUBJECT_MARK\n"
+						+ ",CM.LEVEL,S.I_STUDENT,CM.I_CLASS_MARK,CS.I_CLASS_SUBJECT,SSM.I_STUDENT_SUBJECT_MARK\n"
 						+ "FROM STUDENTS S \n" + "INNER JOIN ENROLLMENTS E USING(I_STUDENT)\n"
 						+ "INNER JOIN CLASS_GROUPS CG USING(I_CLASS_GROUP)\n"
 						+ "INNER JOIN CLASS_SUBJECTS CS USING(I_CLASS_LEVEL)\n"
@@ -38,10 +38,11 @@ public class StudentSubjectMarkDAOImpl implements StudentSubjectMarkDAOExt {
 			studentSubjectMarkD.setMarkName((String) row[2]);
 			studentSubjectMarkD.setMarkLimit((Integer) row[3]);
 			studentSubjectMarkD.setMark((Double) row[4]);
-			studentSubjectMarkD.setStudentId((Integer) row[5]);
-			studentSubjectMarkD.setClassMarkId((Integer) row[6]);
-			studentSubjectMarkD.setClassSubjectId((Integer) row[7]);
-			studentSubjectMarkD.setStudentSubjectMarkId((Integer) row[8]);
+			studentSubjectMarkD.setLevel((boolean) row[5]);
+			studentSubjectMarkD.setStudentId((Integer) row[6]);
+			studentSubjectMarkD.setClassMarkId((Integer) row[7]);
+			studentSubjectMarkD.setClassSubjectId((Integer) row[8]);
+			studentSubjectMarkD.setStudentSubjectMarkId((Integer) row[9]);
 
 			studentSubjectMarkDs.add(studentSubjectMarkD);
 		}
@@ -53,7 +54,7 @@ public class StudentSubjectMarkDAOImpl implements StudentSubjectMarkDAOExt {
 		List<StudentSubjectMarkD> studentSubjectMarkDs = new ArrayList<>();
 		Query query = em.createNativeQuery(
 				"SELECT CONCAT(IFNULL(S.FIRST_NAME, ''),' ',IFNULL(S.MIDDLE_NAME, ''),' ',IFNULL(S.LAST_NAME, '')) AS STUDENT_NAME,CS.SUBJECT_NAME,CM.MARK_NAME,CM.MARK_LIMIT,SSM.MARK \n"
-						+ ",S.I_STUDENT,CM.I_CLASS_MARK,CS.I_CLASS_SUBJECT,SSM.I_STUDENT_SUBJECT_MARK\n"
+						+ ",CM.LEVEL,S.I_STUDENT,CM.I_CLASS_MARK,CS.I_CLASS_SUBJECT,SSM.I_STUDENT_SUBJECT_MARK\n"
 						+ "FROM STUDENTS S \n" + "INNER JOIN ENROLLMENTS E USING(I_STUDENT)\n"
 						+ "INNER JOIN CLASS_GROUPS CG USING(I_CLASS_GROUP)\n"
 						+ "INNER JOIN CLASS_SUBJECTS CS USING(I_CLASS_LEVEL)\n"
@@ -73,10 +74,11 @@ public class StudentSubjectMarkDAOImpl implements StudentSubjectMarkDAOExt {
 			studentSubjectMarkD.setMarkName((String) row[2]);
 			studentSubjectMarkD.setMarkLimit((Integer) row[3]);
 			studentSubjectMarkD.setMark((Double) row[4]);
-			studentSubjectMarkD.setStudentId((Integer) row[5]);
-			studentSubjectMarkD.setClassMarkId((Integer) row[6]);
-			studentSubjectMarkD.setClassSubjectId((Integer) row[7]);
-			studentSubjectMarkD.setStudentSubjectMarkId((Integer) row[8]);
+			studentSubjectMarkD.setLevel((boolean) row[5]);
+			studentSubjectMarkD.setStudentId((Integer) row[6]);
+			studentSubjectMarkD.setClassMarkId((Integer) row[7]);
+			studentSubjectMarkD.setClassSubjectId((Integer) row[8]);
+			studentSubjectMarkD.setStudentSubjectMarkId((Integer) row[9]);
 
 			studentSubjectMarkDs.add(studentSubjectMarkD);
 		}
