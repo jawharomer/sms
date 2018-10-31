@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "STUDENT_LEVELS", uniqueConstraints = {
-		@UniqueConstraint(columnNames = { "I_CLASS_SUBJECT", "I_STUDENT" }) })
+		@UniqueConstraint(columnNames = { "I_CLASS_SUBJECT", "I_STUDENT", "I_STUDENT_LEVEL_DATE" }) })
 public class StudentLevel {
 
 	@Id

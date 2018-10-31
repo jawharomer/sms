@@ -23,7 +23,7 @@ public class TeacherPresentServiceImpl implements TeacherPresentService {
 	public List<TeacherPresent> findAllByDateBetweenOrderByDateDesc(Date from, Date to) {
 		return teacherPresentDAO.findAllByDateBetweenOrderByDateDesc(from, to);
 	}
-
+	
 	@Override
 	public void delete(int id) {
 		teacherPresentDAO.delete(id);
