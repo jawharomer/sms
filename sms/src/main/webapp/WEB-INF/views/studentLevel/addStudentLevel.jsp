@@ -7,6 +7,9 @@
 	<sf:form id="add-student-level-form" method="POST"
 		commandName="studentLevel" onsubmit="addStudentLevel(event)">
 		<sf:input type="hidden" path="id" />
+		<input type="hidden" name="studentLevelDate[id]"
+			value="${studentLevel.studentLevelDate.id}" />
+
 		<input type="hidden" name="student[id]"
 			value="${studentLevel.student.id}" />
 		<input type="hidden" name="classSubject[id]"

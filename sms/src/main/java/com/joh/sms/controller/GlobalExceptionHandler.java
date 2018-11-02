@@ -73,6 +73,7 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler({ Exception.class })
 	public String handleNoResultException(HttpServletRequest request, Exception ex) {
 		logger.info("NoResultException occured:: URL=" + request.getRequestURL());
+		ex.printStackTrace();
 		return "internalServerError";
 	}
 

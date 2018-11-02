@@ -156,6 +156,37 @@
 	</definition>
 
 
+	<!-- Admin StudentLevelDates -->
+	<definition name="adminStudentLevelDates"
+		extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/studentLevelDates.jsp" cascade="true" />
+
+		<put-attribute name="title" value="Admin Teachers" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminStudentLevelDates" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="app" />
+			<add-attribute value="adminStudentLevelDates" />
+		</put-list-attribute>
+
+	</definition>
+
+
 	<!-- Admin SchoolWeekDays page -->
 	<definition name="adminSchoolWeekDays" extends="adminRoot">
 		<put-attribute name="adminBody"
@@ -1070,6 +1101,36 @@
 			<add-attribute value="teacherSubjectNotifications" />
 		</put-list-attribute>
 	</definition>
+
+
+	<definition name="teacherStudentLevelDates"
+		extends="teacherClassSubject">
+		<put-attribute name="title"
+			value="teacherClassSubjectMarks" />
+		<put-attribute name="classSubjectBody"
+			value="/WEB-INF/views/teacher/studentLevelDates.jsp" cascade="true" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="app" />
+			<add-attribute value="teacher" />
+			<add-attribute value="teacherStudentLevelDates" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="app" />
+			<add-attribute value="teacher" />
+			<add-attribute value="teacherStudentLevelDates" />
+		</put-list-attribute>
+	</definition>
+
 
 
 	<definition name="teacherStudentLevels"

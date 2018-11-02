@@ -15,8 +15,8 @@ public class StudentLevelServiceImpl implements StudentLevelService {
 	private StudentLevelDAO studentLevelDAO;
 
 	@Override
-	public List<StudentLevel> findAllSubjectStudentLevel(int classSubjectId,int classGroupId) {
-		return studentLevelDAO.findAllSubjectStudentLevel(classSubjectId,classGroupId);
+	public List<StudentLevel> findAllSubjectStudentLevel(int studentLevelDateId,int classSubjectId,int classGroupId) {
+		return studentLevelDAO.findAllSubjectStudentLevel(studentLevelDateId,classSubjectId,classGroupId);
 	}
 
 	@Override

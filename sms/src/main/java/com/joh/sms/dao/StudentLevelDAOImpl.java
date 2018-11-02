@@ -11,6 +11,7 @@ import com.joh.sms.domain.model.StudentPresentD;
 import com.joh.sms.model.ClassSubject;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentLevel;
+import com.sun.media.jfxmedia.logging.Logger;
 
 public class StudentLevelDAOImpl implements StudentLevelDAOExt {
 
@@ -18,17 +19,17 @@ public class StudentLevelDAOImpl implements StudentLevelDAOExt {
 	private EntityManager em;
 
 	@Override
-	public List<StudentLevel> findAllSubjectStudentLevel(int classSubjectId,int classGroupId) {
+	public List<StudentLevel> findAllSubjectStudentLevel(int studentLeveDateId,int classSubjectId,int classGroupId) {
 
 		List<StudentLevel> studentLevels = new ArrayList<>();
 		Query query = em.createNativeQuery(
 				"SELECT S.I_STUDENT,S.FIRST_NAME,S.MIDDLE_NAME,S.LAST_NAME,CS.I_CLASS_SUBJECT,CS.SUBJECT_NAME,SL.I_STUDENT_LEVEL,LEVEL FROM CLASS_SUBJECTS CS\n"
 						+ "INNER JOIN CLASS_GROUPS CG USING(I_CLASS_LEVEL)\n"
 						+ "INNER JOIN ENROLLMENTS E USING(I_CLASS_GROUP)\n" + "INNER JOIN STUDENTS S USING(I_STUDENT)\n"
-						+ "LEFT OUTER JOIN STUDENT_LEVELS SL  ON S.I_STUDENT=SL.I_STUDENT AND CS.I_CLASS_SUBJECT=SL.I_CLASS_SUBJECT\n" + "WHERE CS.I_CLASS_SUBJECT=?1  AND CG.I_CLASS_GROUP=?2 ORDER BY S.I_STUDENT ;");
-
-		query.setParameter(1, classSubjectId);
-		query.setParameter(2, classGroupId);
+						+ "LEFT OUTER JOIN STUDENT_LEVELS SL  ON S.I_STUDENT=SL.I_STUDENT AND SL.I_STUDENT_LEVEL_DATE=?1 AND CS.I_CLASS_SUBJECT=SL.I_CLASS_SUBJECT\n" + "WHERE CS.I_CLASS_SUBJECT=?2  AND CG.I_CLASS_GROUP=?3 ORDER BY S.I_STUDENT ;");
+		query.setParameter(1, studentLeveDateId);
+		query.setParameter(2, classSubjectId);
+		query.setParameter(3, classGroupId);
 
 		List<Object[]> rows = query.getResultList();
 

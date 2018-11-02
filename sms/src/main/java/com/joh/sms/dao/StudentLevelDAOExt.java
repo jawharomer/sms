@@ -7,5 +7,5 @@ import com.joh.sms.model.StudentLevel;
 public interface StudentLevelDAOExt {
 
 
-	List<StudentLevel> findAllSubjectStudentLevel(int classSubjectId, int classGroupId);
+	List<StudentLevel> findAllSubjectStudentLevel(int studentLeveDateId, int classSubjectId, int classGroupId);
 }

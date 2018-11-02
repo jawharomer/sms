@@ -18,6 +18,7 @@ import com.joh.sms.model.ClassSubject;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentLevel;
 import com.joh.sms.service.ClassGroupService;
+import com.joh.sms.service.StudentLevelDateService;
 import com.joh.sms.service.StudentLevelService;
 
 @Controller
@@ -29,11 +30,15 @@ public class StudentLevelController {
 	@Autowired
 	private StudentLevelService studentLevelService;
 
-	@GetMapping(path = "/add")
-	public String getAddingStudentLevel(@RequestParam(required = false) Integer studentLevelId,
-			@RequestParam Integer classSubjectId, @RequestParam Integer studentId, Model model) {
+	@Autowired
+	private StudentLevelDateService studentLevelDateService;
 
+	@GetMapping(path = "/add/{studentLevelDateId}")
+	public String getAddingStudentLevel(@PathVariable int studentLevelDateId,
+			@RequestParam(required = false) Integer studentLevelId, @RequestParam Integer classSubjectId,
+			@RequestParam Integer studentId, Model model) {
 		logger.info("getAddingStudentLevel->fired");
+		logger.info("studentLevelDateId=" + studentLevelDateId);
 		logger.info("studentLevelId=" + studentLevelId);
 		logger.info("classSubjectId=" + classSubjectId);
 		logger.info("studentId=" + studentId);
@@ -52,7 +57,6 @@ public class StudentLevelController {
 			studentLevel.setStudent(student);
 			studentLevel.setClassSubject(classSubject);
 		}
-
 		model.addAttribute("studentLevel", studentLevel);
 
 		return "studentLevel/addStudentLevel";
@@ -75,7 +79,5 @@ public class StudentLevelController {
 		}
 
 	}
-
-	
 
 }

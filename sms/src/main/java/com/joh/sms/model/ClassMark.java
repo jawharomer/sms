@@ -37,7 +37,7 @@ public class ClassMark {
 	private ClassLevel classLevel;
 
 	@Column(name = "LEVEL")
-	private boolean level;
+	private Boolean level;
 
 	public int getId() {
 		return id;
@@ -71,11 +71,11 @@ public class ClassMark {
 		this.limit = limit;
 	}
 
-	public boolean isLevel() {
+	public Boolean getLevel() {
 		return level;
 	}
 
-	public void setLevel(boolean level) {
+	public void setLevel(Boolean level) {
 		this.level = level;
 	}
 

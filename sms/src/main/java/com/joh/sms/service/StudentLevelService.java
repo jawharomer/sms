@@ -12,5 +12,5 @@ public interface StudentLevelService {
 
 	Iterable<StudentLevel> findAllByStudentId(int id);
 
-	List<StudentLevel> findAllSubjectStudentLevel(int classSubjectId, int classGroupId);
+	List<StudentLevel> findAllSubjectStudentLevel(int studentLevelDateId, int classSubjectId, int classGroupId);
 }

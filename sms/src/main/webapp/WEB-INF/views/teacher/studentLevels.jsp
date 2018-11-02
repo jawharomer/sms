@@ -6,7 +6,10 @@
 
 
 <div>
-	<h5>ئاستی زانستی</h5>
+	<h5>
+		ئاستی زانستی
+		<fmt:formatDate value="${studentLevelDate.date}" pattern="yyy-MM-dd" />
+	</h5>
 
 	<table class="table table-bordered">
 		<thead>
@@ -26,7 +29,7 @@
 						</c:if></td>
 					<td>
 						<button class="btn btn-success btn-sm"
-							onclick="getAddingStudentLevel(${item.id==null?'null':item.id},${item.student.id},${item.classSubject.id})">
+							onclick="getAddingStudentLevel(${item.id==null?'null':item.id},${item.student.id},${item.classSubject.id},${studentLevelDate.id})">
 							<i class="fa fa-plus"></i>
 						</button>
 					</td>

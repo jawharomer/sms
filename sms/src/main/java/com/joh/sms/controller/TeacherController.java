@@ -26,6 +26,7 @@ import com.joh.sms.model.ClassGroup;
 import com.joh.sms.model.ClassMark;
 import com.joh.sms.model.ClassSubject;
 import com.joh.sms.model.StudentLevel;
+import com.joh.sms.model.StudentLevelDate;
 import com.joh.sms.model.SubjectNotification;
 import com.joh.sms.model.Teacher;
 import com.joh.sms.service.AuthenticationFacadeService;
@@ -33,6 +34,7 @@ import com.joh.sms.service.ClassGroupService;
 import com.joh.sms.service.ClassGroupTableService;
 import com.joh.sms.service.ClassMarkService;
 import com.joh.sms.service.ClassSubjectService;
+import com.joh.sms.service.StudentLevelDateService;
 import com.joh.sms.service.StudentLevelService;
 import com.joh.sms.service.StudentSubjectMarkService;
 import com.joh.sms.service.SubjectNotificationSerivce;
@@ -70,6 +72,9 @@ public class TeacherController {
 
 	@Autowired
 	private StudentLevelService studentLevelService;
+
+	@Autowired
+	private StudentLevelDateService studentLevelDateService;
 
 	private Teacher getTeacher() {
 		return teacherService.findOne(authenticationFacadeService.getAppUserDetail().getReference());
@@ -155,27 +160,24 @@ public class TeacherController {
 		return "teacherSubjectNotifications";
 	}
 
-	@GetMapping(path = "/studentLevels")
-	public String getAllSubjectStudentLevel(@RequestParam int classSubjectId, @RequestParam int classGroupId,
-			Model model) throws AccessDeniedException {
-		logger.info("getAllSubjectStudentLevel->fired");
+	
 
+	@GetMapping(path = "/studentLevelDates")
+	public String getAllStudentLevelDate(@RequestParam int classSubjectId, @RequestParam int classGroupId, Model model)
+			throws AccessDeniedException {
+		logger.info("getAllStudentLevelDate->fired");
 		logger.info("classSubjectId=" + classSubjectId);
-		has(classGroupId, classSubjectId);
+		logger.info("classGroupId=" + classGroupId);
 
+		Iterable<StudentLevelDate> studentLevelDates = studentLevelDateService.findAll();
 
-		List<StudentLevel> studentLevels = studentLevelService.findAllSubjectStudentLevel(classSubjectId, classGroupId);
+		logger.info("studentLevelDates=" + studentLevelDates);
+		model.addAttribute("studentLevelDates", studentLevelDates);
 
-		logger.info("studentLevels=" + studentLevels);
-
-		model.addAttribute("studentLevels", studentLevels);
-
-		model.addAttribute("classGroupId", classGroupId);
 		model.addAttribute("classSubjectId", classSubjectId);
-		model.addAttribute("classGroup", classGroupService.findOne(classGroupId));
-		model.addAttribute("classSubject", classSubjectService.findOne(classSubjectId));
+		model.addAttribute("classGroupId", classGroupId);
 
-		return "teacherStudentLevels";
+		return "teacherStudentLevelDates";
 	}
 
 	@GetMapping(path = "/notifications/add")
@@ -197,12 +199,38 @@ public class TeacherController {
 
 		return "teacher/addSubjectNotification";
 	}
+	
+	@GetMapping(path = "/studentLevels/{studentLevelDateId}")
+	public String getAllSubjectStudentLevel(@PathVariable int studentLevelDateId, @RequestParam int classSubjectId,
+			@RequestParam int classGroupId, Model model) throws AccessDeniedException {
+		logger.info("getAllSubjectStudentLevel->fired");
+		logger.info("studentLevelDateId=" + studentLevelDateId);
+
+		StudentLevelDate studentLevelDate = studentLevelDateService.findOne(studentLevelDateId);
+		logger.info("studentLevelDate=" + studentLevelDate);
+
+		logger.info("classSubjectId=" + classSubjectId);
+		has(classGroupId, classSubjectId);
+
+		List<StudentLevel> studentLevels = studentLevelService.findAllSubjectStudentLevel(studentLevelDateId,classSubjectId, classGroupId);
+
+		logger.info("studentLevels=" + studentLevels);
+
+		model.addAttribute("studentLevels", studentLevels);
+
+		model.addAttribute("classGroupId", classGroupId);
+		model.addAttribute("classSubjectId", classSubjectId);
+		model.addAttribute("classGroup", classGroupService.findOne(classGroupId));
+		model.addAttribute("classSubject", classSubjectService.findOne(classSubjectId));
+		model.addAttribute("studentLevelDate", studentLevelDate);
+
+		return "teacherStudentLevels";
+	}
 
 	@PostMapping(path = "/notifications/add")
 	public String addSubjectNotificaion(@RequestBody @Valid SubjectNotificationD subjectNotificationD,
 			BindingResult result, Model model) {
 		logger.info("addSubjectNotificaion->fired");
-
 
 		logger.info("subjectNotificationD=" + subjectNotificationD);
 

@@ -9,7 +9,7 @@ public class StudentSubjectMarkD {
 	private String subjectName;
 	private String markName;
 	private Integer markLimit;
-	private boolean level;
+	private Boolean level;
 
 	@NotNull(message = "{studentSubjectMark.mark.null}")
 	private Double mark;
@@ -95,11 +95,11 @@ public class StudentSubjectMarkD {
 		this.classSubjectId = classSubjectId;
 	}
 
-	public boolean isLevel() {
+	public Boolean getLevel() {
 		return level;
 	}
 
-	public void setLevel(boolean level) {
+	public void setLevel(Boolean level) {
 		this.level = level;
 	}
 

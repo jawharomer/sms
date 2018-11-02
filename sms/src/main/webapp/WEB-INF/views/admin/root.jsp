@@ -23,6 +23,8 @@
 			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/schoolWeekDays" />'>رۆژانی هەفتە</a></li>
 			<li class="list-group-item list-group-item-action"><a
+				href='<c:url value="/studentLevelDates" />'>رۆژانی هەلسەنگاند</a></li>
+			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/classLevels" />'>هۆبەکان</a></li>
 			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/classGroups" />'>پۆلەکان</a></li>

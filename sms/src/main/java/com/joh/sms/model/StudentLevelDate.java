@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -22,6 +23,7 @@ public class StudentLevelDate {
 	@Column(name = "I_STUDENT_LEVEL_DATE")
 	private Integer id;
 
+	@NotNull(message = "{StudentLevelDate.date.null}")
 	@Column(name = "STUDENT_LEVEL_DATE")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
@@ -42,6 +44,10 @@ public class StudentLevelDate {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "StudentLevelDate [id=" + id + ", date=" + date + "]";
+	}
+
 }
