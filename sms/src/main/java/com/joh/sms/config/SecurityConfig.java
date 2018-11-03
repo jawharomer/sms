@@ -39,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 						"/classMarks/**", "/classSubjects/**", "/enrollments/**", "/enrollmentPayments/**",
 						"/expenses/**", "/lessonTimes/**", "/schoolWeekDays/**")
 				.hasRole("ADMIN").antMatchers(HttpMethod.POST, "/studentPresents/**").hasRole("ADMIN")
-				.antMatchers("/teachers/**").hasAnyRole("TEACHER","PARENT").antMatchers("/students/**").hasRole("STUDENT")
+				.antMatchers("/teachers/**").hasRole("TEACHER").antMatchers("/students/**").hasAnyRole("STUDENT","PARENT")
 				.anyRequest().authenticated().and().formLogin().loginPage("/login").defaultSuccessUrl("/app").and()
 				.logout().logoutUrl("/logout").logoutSuccessUrl("/login").permitAll().and().exceptionHandling()
 				.accessDeniedPage("/WEB-INF/views/accessDenied.jsp").and().csrf().disable();
