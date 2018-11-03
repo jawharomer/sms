@@ -140,6 +140,7 @@ public class TeacherController {
 	public String getSubjectClassGroupNotifications(@RequestParam int classGroupId, @RequestParam int classSubjectId,
 			Model model) throws AccessDeniedException {
 		logger.info("getSubjectClassGroupNotifications->fired");
+		has(classGroupId, classSubjectId);
 
 		logger.info("classGroupId=" + classGroupId);
 		logger.info("classSubjectId=" + classSubjectId);
@@ -160,12 +161,11 @@ public class TeacherController {
 		return "teacherSubjectNotifications";
 	}
 
-	
-
 	@GetMapping(path = "/studentLevelDates")
 	public String getAllStudentLevelDate(@RequestParam int classSubjectId, @RequestParam int classGroupId, Model model)
 			throws AccessDeniedException {
 		logger.info("getAllStudentLevelDate->fired");
+		has(classGroupId, classSubjectId);
 		logger.info("classSubjectId=" + classSubjectId);
 		logger.info("classGroupId=" + classGroupId);
 
@@ -182,8 +182,9 @@ public class TeacherController {
 
 	@GetMapping(path = "/notifications/add")
 	public String getAddingSubjectNotification(@RequestParam int classGroupId, @RequestParam int classSubjectId,
-			Model model) {
+			Model model) throws AccessDeniedException {
 		logger.info("getAddingSubjectNotification->fired");
+		has(classGroupId, classSubjectId);
 
 		logger.info("classGroupId=" + classGroupId);
 		logger.info("classSubjectId=" + classSubjectId);
@@ -199,11 +200,12 @@ public class TeacherController {
 
 		return "teacher/addSubjectNotification";
 	}
-	
+
 	@GetMapping(path = "/studentLevels/{studentLevelDateId}")
 	public String getAllSubjectStudentLevel(@PathVariable int studentLevelDateId, @RequestParam int classSubjectId,
 			@RequestParam int classGroupId, Model model) throws AccessDeniedException {
 		logger.info("getAllSubjectStudentLevel->fired");
+		has(classGroupId, classSubjectId);
 		logger.info("studentLevelDateId=" + studentLevelDateId);
 
 		StudentLevelDate studentLevelDate = studentLevelDateService.findOne(studentLevelDateId);
@@ -212,7 +214,8 @@ public class TeacherController {
 		logger.info("classSubjectId=" + classSubjectId);
 		has(classGroupId, classSubjectId);
 
-		List<StudentLevel> studentLevels = studentLevelService.findAllSubjectStudentLevel(studentLevelDateId,classSubjectId, classGroupId);
+		List<StudentLevel> studentLevels = studentLevelService.findAllSubjectStudentLevel(studentLevelDateId,
+				classSubjectId, classGroupId);
 
 		logger.info("studentLevels=" + studentLevels);
 
@@ -229,8 +232,9 @@ public class TeacherController {
 
 	@PostMapping(path = "/notifications/add")
 	public String addSubjectNotificaion(@RequestBody @Valid SubjectNotificationD subjectNotificationD,
-			BindingResult result, Model model) {
+			BindingResult result, Model model) throws AccessDeniedException {
 		logger.info("addSubjectNotificaion->fired");
+		has(subjectNotificationD.getClassGroupId(), subjectNotificationD.getClassSubjectId());
 
 		logger.info("subjectNotificationD=" + subjectNotificationD);
 

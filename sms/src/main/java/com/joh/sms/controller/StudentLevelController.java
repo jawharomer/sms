@@ -57,6 +57,8 @@ public class StudentLevelController {
 			studentLevel.setStudent(student);
 			studentLevel.setClassSubject(classSubject);
 		}
+		studentLevel.setStudentLevelDate(studentLevelDateService.findOne(studentLevelDateId));
+		logger.info("studentLevel=" + studentLevel);
 		model.addAttribute("studentLevel", studentLevel);
 
 		return "studentLevel/addStudentLevel";

@@ -34,6 +34,7 @@ import com.joh.sms.model.ClassMark;
 import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentLevel;
+import com.joh.sms.model.StudentLevelDate;
 import com.joh.sms.model.StudentNotification;
 import com.joh.sms.model.Teacher;
 import com.joh.sms.model.TeacherPresent;
@@ -41,6 +42,7 @@ import com.joh.sms.service.AppUserService;
 import com.joh.sms.service.AttachedFileService;
 import com.joh.sms.service.ClassMarkService;
 import com.joh.sms.service.EnrollmentService;
+import com.joh.sms.service.StudentLevelDateService;
 import com.joh.sms.service.StudentLevelService;
 import com.joh.sms.service.StudentNotificationSerivce;
 import com.joh.sms.service.StudentService;
@@ -81,9 +83,12 @@ public class AdminController {
 
 	@Autowired
 	private AttachedFileService attachedFileService;
-	
+
 	@Autowired
 	private StudentLevelService studentLevelService;
+
+	@Autowired
+	private StudentLevelDateService studentLevelDateService;
 
 	@GetMapping()
 	public String getAmdinPage() {
@@ -175,7 +180,7 @@ public class AdminController {
 
 			studentService.update(student);
 
-			// Remove Old Image 
+			// Remove Old Image
 			if (oldAttachedFile != null && newAttachedFileExists) {
 				attachedFileService.delete(oldAttachedFile);
 			}
@@ -278,20 +283,37 @@ public class AdminController {
 		model.addAttribute("students", students);
 		return "notification/notificaionStudents";
 	}
-	
-	
-	@GetMapping(path = "/students/{id}/studentLevel")
-	public String getAllStudentStudenLevel(@PathVariable int id,Model model) {
-		logger.info("getAllStudentStudenLevel->fired");
-		logger.info("studentId="+id);
 
-		Iterable<StudentLevel> studentLevels = studentLevelService.findAllByStudentId(id);
+	@GetMapping(path = "/students/{id}/studentLevelDates")
+	public String getAllStudentLevelDates(@PathVariable int id, Model model) {
+		logger.info("getAllStudentLevelDates->fired");
+		logger.info("id=" + id);
+		Iterable<StudentLevelDate> studentLevelDates = studentLevelDateService.findAll();
+
+		model.addAttribute("studentLevelDates", studentLevelDates);
+		model.addAttribute("id", id);
+
+		return "admin/studentStudentLevelDates";
+	}
+
+	@GetMapping(path = "/students/{id}/studentLevel")
+	public String getAllStudentStudenLevel(@PathVariable int id, @RequestParam int studentLevelDateId, Model model) {
+		logger.info("getAllStudentStudenLevel->fired");
+		logger.info("studentId=" + id);
+		logger.info("studentLevelDateId=" + studentLevelDateId);
+
+		StudentLevelDate studentLevelDate = studentLevelDateService.findOne(studentLevelDateId);
+
+		Student student = studentService.findOne(id);
+
+		Iterable<StudentLevel> studentLevels = studentLevelService.findAllByStudentIdAndDateId(id, studentLevelDateId);
 		logger.info("studentLevels=" + studentLevels);
 
 		model.addAttribute("studentLevels", studentLevels);
-		return "studentLevel/studentStudentLevel";
+		model.addAttribute("studentLevelDate", studentLevelDate);
+		model.addAttribute("student", student);
+		return "adminStudentStudentLevel";
 	}
-
 
 	// Teachers
 

@@ -51,7 +51,7 @@
 				<td>
 					<%
 						if (item.getMark() != null) {
-									if (item.isLevel()) {
+									if (item.getLevel() != null && item.getLevel() == true) {
 										String level = "";
 										switch (item.getMark().intValue()) {
 										case 0:

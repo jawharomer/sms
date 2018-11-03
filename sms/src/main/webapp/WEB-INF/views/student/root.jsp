@@ -8,7 +8,7 @@
 				href="<c:url value="/students/notifications" />${item.id}">
 					ئاگادارکردنەوەکان</a></li>
 			<li class="list-group-item list-group-item-action"><a
-				href="<c:url value="/students/studentLevel" />"> ئاستی زانستی</a></li>
+				href="<c:url value="/students/studentLevelDates" />"> ئاستی زانستی</a></li>
 			<li class="list-group-item list-group-item-action">
 				<button style="background: transparent;" class="btn"
 					data-student-id="${student.id}"

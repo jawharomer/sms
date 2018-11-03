@@ -91,14 +91,13 @@ function getStudentStudnetPresents(_this) {
 
 }
 
-
-function getStudentStudnetLevel(_this) {
-	console.log("getStudentStudnetLevel->fired");
+function getStudentStudnetLevelDates(_this) {
+	console.log("getStudentStudnetLevelDates->fired");
 	console.log(_this);
 	var id = $(_this).data("student-id");
 	console.log("id=", id);
 	$.ajax({
-		url : $$ContextURL + '/admin/students/' + id+"/studentLevel",
+		url : $$ContextURL + '/admin/students/' + id + "/studentLevelDates",
 		type : 'GET',
 		success : function(response) {
 			console.log(response);
@@ -113,14 +112,13 @@ function getStudentStudnetLevel(_this) {
 
 }
 
-
 function getStudentStudnetSubjectMarks(_this) {
 	console.log("getStudentStudnetSubjectMarks->fired");
 	console.log(_this);
 	var id = $(_this).data("student-id");
 	console.log("id=", id);
 	$.ajax({
-		url : $$ContextURL + '/admin/students/' + id+"/marks",
+		url : $$ContextURL + '/admin/students/' + id + "/marks",
 		type : 'GET',
 		success : function(response) {
 			console.log(response);

@@ -743,6 +743,30 @@
 	</definition>
 
 
+	<!-- studentStudentLevelDates -->
+	<definition name="studentStudentLevelDates" extends="studentRoot">
+		<put-attribute name="studentBody"
+			value="/WEB-INF/views/student/studentLevelDates.jsp" cascade="true" />
+
+		<put-attribute name="title"
+			value="Student ClassGroup Table" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="app" />
+			<add-attribute value="student" />
+		</put-list-attribute>
+
+	</definition>
+
+
 	<!-- studentNullPointerException -->
 	<definition name="studentNullPointerException"
 		extends="studentRoot">
@@ -942,6 +966,36 @@
 			<add-attribute value="jquery.serializeObject" />
 			<add-attribute value="app" />
 			<add-attribute value="classGroupStudents" />
+		</put-list-attribute>
+	</definition>
+
+
+	<!-- AdminStudentStudentLevel -->
+	<definition name="adminStudentStudentLevel"
+		extends="base-definition">
+		<put-attribute name="title" value="ClassLevelMarks" />
+		<put-attribute name="pageCSS" value="admin"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/admin/studentStudentLevel.jsp" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="select.dataTables.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminStudentStudentLevel" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="app" />
+			<add-attribute value="adminStudentStudentLevel" />
 		</put-list-attribute>
 	</definition>
 

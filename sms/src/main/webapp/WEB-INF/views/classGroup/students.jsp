@@ -26,7 +26,7 @@
 						<td>${item.lastName}</td>
 						<td>
 							<button class="btn btn-sm btn-info" data-student-id="${item.id}"
-								onclick="getStudentStudnetLevel(this)">
+								onclick="getStudentStudnetLevelDates(this)">
 								<i class="fa fa-line-chart"></i>
 							</button>
 						</td>

@@ -20,7 +20,6 @@ body {
 	z-index: -1;
 }
 
-
 /*S-JQuery UI*/
 .ui-widget {
 	font-family: "Noto Kufi Arabic", Verdana, Arial, sans-serif;
@@ -75,8 +74,16 @@ a {
 	white-space: nowrap;
 }
 
-
-#modal-body{
+#modal-body {
 	overflow: auto;
 	max-height: 80vh;
+}
+
+@media print {
+	@page {
+		margin: 0;
+	}
+	body {
+		margin: 1.6cm;
+	}
 }

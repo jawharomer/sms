@@ -15,24 +15,23 @@ public class StudentLevelServiceImpl implements StudentLevelService {
 	private StudentLevelDAO studentLevelDAO;
 
 	@Override
-	public List<StudentLevel> findAllSubjectStudentLevel(int studentLevelDateId,int classSubjectId,int classGroupId) {
-		return studentLevelDAO.findAllSubjectStudentLevel(studentLevelDateId,classSubjectId,classGroupId);
+	public List<StudentLevel> findAllSubjectStudentLevel(int studentLevelDateId, int classSubjectId, int classGroupId) {
+		return studentLevelDAO.findAllSubjectStudentLevel(studentLevelDateId, classSubjectId, classGroupId);
 	}
 
 	@Override
 	public StudentLevel findOne(int id) {
 		return studentLevelDAO.findOne(id);
 	}
-	
+
 	@Override
 	public StudentLevel save(StudentLevel studentLevel) {
 		return studentLevelDAO.save(studentLevel);
 	}
-	
-	
+
 	@Override
-	public Iterable<StudentLevel> findAllByStudentId(int id) {
-		return studentLevelDAO.findAllByStudentIdOrderByClassSubjectId(id);
+	public Iterable<StudentLevel> findAllByStudentIdAndDateId(int id, int studentLevelDateId) {
+		return studentLevelDAO.findAllByStudentIdAndStudentLevelDateIdOrderByClassSubjectId(id, studentLevelDateId);
 	}
 
 }

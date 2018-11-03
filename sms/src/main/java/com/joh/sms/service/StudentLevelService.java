@@ -10,7 +10,8 @@ public interface StudentLevelService {
 
 	StudentLevel save(StudentLevel studentLevel);
 
-	Iterable<StudentLevel> findAllByStudentId(int id);
 
 	List<StudentLevel> findAllSubjectStudentLevel(int studentLevelDateId, int classSubjectId, int classGroupId);
+
+	Iterable<StudentLevel> findAllByStudentIdAndDateId(int id, int studentLevelDateId);
 }

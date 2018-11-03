@@ -22,6 +22,7 @@ import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.LessonTime;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentLevel;
+import com.joh.sms.model.StudentLevelDate;
 import com.joh.sms.model.StudentNotification;
 import com.joh.sms.model.SubjectNotification;
 import com.joh.sms.service.AuthenticationFacadeService;
@@ -32,6 +33,7 @@ import com.joh.sms.service.ClassMarkService;
 import com.joh.sms.service.ClassSubjectService;
 import com.joh.sms.service.EnrollmentService;
 import com.joh.sms.service.LessonTimeService;
+import com.joh.sms.service.StudentLevelDateService;
 import com.joh.sms.service.StudentLevelService;
 import com.joh.sms.service.StudentNotificationSerivce;
 import com.joh.sms.service.StudentPresentService;
@@ -86,6 +88,8 @@ public class StudentController {
 
 	@Autowired()
 	private StudentLevelService studentLevelService;
+	@Autowired()
+	private StudentLevelDateService studentLevelDateService;
 
 	private Student getStudent() {
 		return studentService.findOne(authenticationFacadeService.getAppUserDetail().getReference());
@@ -197,12 +201,22 @@ public class StudentController {
 
 		return "studentNotifications";
 	}
+	
+	@GetMapping(path = "/studentLevelDates")
+	public String getAllStudentStudenLevelDate(Model model) {
+		logger.info("getAllStudentStudenLevelDate->fired");
+		
+		Iterable<StudentLevelDate> studentLevelDates = studentLevelDateService.findAll();
 
-	@GetMapping(path = "/studentLevel")
-	public String getAllStudentStudenLevel(Model model) {
+		model.addAttribute("studentLevelDates", studentLevelDates);
+		return "studentStudentLevelDates";
+	}
+
+	@GetMapping(path = "/studentLevel/{studentLevelDateId}")
+	public String getAllStudentStudenLevel(@PathVariable int studentLevelDateId,Model model) {
 		logger.info("getAllStudentStudenLevel->fired");
 
-		Iterable<StudentLevel> studentLevels = studentLevelService.findAllByStudentId(getStudent().getId());
+		Iterable<StudentLevel> studentLevels = studentLevelService.findAllByStudentIdAndDateId(getStudent().getId(), studentLevelDateId);
 		logger.info("studentLevels=" + studentLevels);
 
 		model.addAttribute("studentLevels", studentLevels);
