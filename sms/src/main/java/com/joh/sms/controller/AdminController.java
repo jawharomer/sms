@@ -446,6 +446,36 @@ public class AdminController {
 
 	}
 
+	@GetMapping(path = "/teacherPresents/edit/{id}")
+	public String getEditingTeacherPresent(@PathVariable int id,Model model) {
+		logger.info("getEditingTeacherPresent->fired");
+
+		TeacherPresent teacherPresent = teacherPresentService.findOne(id);
+
+		model.addAttribute("teacherPresent",teacherPresent);
+
+		return "admin/editTeacherPresent";
+	}
+	
+	@PostMapping(path = "/teacherPresents/update")
+	public String updateTeacherPresent(
+			@RequestBody @Validated(TeacherPresentValidator.insert.class) TeacherPresent teacherPresent,
+			BindingResult result, Model model) {
+		logger.info("updateTeacherPresent->fired");
+
+		logger.info("errors=" + result.getAllErrors());
+
+		if (result.hasErrors()) {
+			model.addAttribute("teacherPresent",teacherPresent);
+
+			return "admin/editTeacherPresent";
+		} else {
+			teacherPresentService.update(teacherPresent);
+			return "success";
+		}
+
+	}
+
 	@PostMapping(path = "/teacherPresents/delete/{id}")
 	public String deleteTeacherPresent(@PathVariable int id) {
 		logger.info("deleteTeacherPresent->fired");

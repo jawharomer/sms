@@ -49,3 +49,23 @@ function deleteTeacherPresent(_this) {
 	});
 
 }
+
+function editTeacherPresent(_this) {
+	console.log("editTeacherPresent->fired");
+	var id = $(_this).data("teacher-present-id");
+	console.log("id=", id);
+	$.ajax({
+		type : "GET",
+		url : $$ContextURL + "/admin/teacherPresents/edit/" + id,
+		contentType : "application/json",
+		success : function(response) {
+			$("#modal-body").html(response);
+			$("#modal").modal("show");
+		},
+		error : function(response) {
+			$("#modal-body").html(response.responseText);
+			$("#modal").modal("show");
+		}
+	});
+
+}

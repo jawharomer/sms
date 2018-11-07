@@ -39,9 +39,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 						"/classMarks/**", "/classSubjects/**", "/enrollments/**", "/enrollmentPayments/**",
 						"/expenses/**", "/lessonTimes/**", "/schoolWeekDays/**")
 				.hasRole("ADMIN").antMatchers(HttpMethod.POST, "/studentPresents/**").hasRole("ADMIN")
-				.antMatchers("/teachers/**").hasRole("TEACHER").antMatchers("/students/**").hasAnyRole("STUDENT","PARENT")
-				.anyRequest().authenticated().and().formLogin().loginPage("/login").defaultSuccessUrl("/app").and()
-				.logout().logoutUrl("/logout").logoutSuccessUrl("/login").permitAll().and().exceptionHandling()
+				.antMatchers("/teachers/**").hasRole("TEACHER").antMatchers("/students/**")
+				.hasAnyRole("STUDENT", "PARENT").anyRequest().authenticated().and().formLogin().loginPage("/login")
+				.defaultSuccessUrl("/app").and().logout().deleteCookies("JSESSIONID").logoutUrl("/logout")
+				.logoutSuccessUrl("/login").permitAll().and().rememberMe().key("@#$j232Kdf19)__")
+				.tokenValiditySeconds(86400).and().exceptionHandling()
 				.accessDeniedPage("/WEB-INF/views/accessDenied.jsp").and().csrf().disable();
 	}
 

@@ -12,4 +12,8 @@ public interface TeacherPresentService {
 	List<TeacherPresent> findAllByDateBetweenOrderByDateDesc(Date from, Date to);
 
 	void delete(int id);
+
+	TeacherPresent findOne(int id);
+
+	void update(TeacherPresent teacherPresent);
 }

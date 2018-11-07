@@ -3,6 +3,8 @@ package com.joh.sms.service;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,10 +25,25 @@ public class TeacherPresentServiceImpl implements TeacherPresentService {
 	public List<TeacherPresent> findAllByDateBetweenOrderByDateDesc(Date from, Date to) {
 		return teacherPresentDAO.findAllByDateBetweenOrderByDateDesc(from, to);
 	}
-	
+
 	@Override
 	public void delete(int id) {
 		teacherPresentDAO.delete(id);
+	}
+
+	@Override
+	public TeacherPresent findOne(int id) {
+		return teacherPresentDAO.findOne(id);
+	}
+
+	@Override
+	public void update(TeacherPresent teacherPresent) {
+		if (teacherPresentDAO.findOne(teacherPresent.getId()) == null) {
+			throw new EntityNotFoundException();
+		}
+
+		teacherPresentDAO.save(teacherPresent);
+
 	}
 
 }

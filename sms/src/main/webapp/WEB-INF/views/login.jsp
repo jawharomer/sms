@@ -60,6 +60,10 @@ body {
 						name="password" type="password"></td>
 				</tr>
 				<tr>
+					<td>مانەوە</td>
+					<td><input type="checkbox" name="remember-me" /></td>
+				</tr>
+				<tr>
 					<td>&nbsp;</td>
 					<td id="cus-submit-td">
 						<button id="cus-login-btn" class="btn btn-lg btn-outline-success">

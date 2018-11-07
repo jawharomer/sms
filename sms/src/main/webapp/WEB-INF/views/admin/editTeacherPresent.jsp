@@ -5,6 +5,7 @@
 <div id="add-teacher-container">
 	<sf:form id="addTeacherForm" method="POST" commandName="teacherPresent"
 		onsubmit="addTeacher(event)">
+		<sf:input path="id" type="hidden"/>
 		<table class="w-100">
 			<tbody>
 				<tr>
@@ -15,13 +16,10 @@
 				</tr>
 				<tr>
 					<td>مامۆستا</td>
-					<td><select class="form-control form-control-sm"
-						name="teacher[id]">
-							<option selected="selected" value="">هەلبژێرە</option>
-							<c:forEach items="${teachers}" var="item">
-								<option value="${item.id}">${item.firstName}</option>
-							</c:forEach>
-					</select></td>
+					<td><input type="hidden" name="teacher[id]"
+						value="${teacherPresent.teacher.id}">
+						${teacherPresent.teacher.middleName}
+						${teacherPresent.teacher.firstName}</td>
 					<td><sf:errors path="teacher" /> <sf:errors path="teacher.id" />
 					</td>
 				</tr>
@@ -39,8 +37,8 @@
 				</tr>
 				<tr>
 					<td>
-						<button class="btn btn-sm btn-primary">
-							<i class="fa fa-plus"></i>
+						<button class="btn btn-sm btn-warning">
+							<i class="fa fa-edit"></i>
 						</button>
 					</td>
 				</tr>
@@ -61,7 +59,7 @@
 		$("#date").datepicker({
 			dateFormat : "yy-mm-dd"
 		});
-		
+
 		$("#modal").prepend($("#ui-datepicker-div"));
 	}
 	function addTeacher(event) {
@@ -72,7 +70,7 @@
 		console.log("data=", JSON.stringify(data));
 		var data = $.ajax({
 			type : "POST",
-			url : "<c:url value="/admin/teacherPresents/add"/>",
+			url : "<c:url value="/admin/teacherPresents/update"/>",
 			data : JSON.stringify(data),
 			contentType : "application/json",
 			success : function(data) {

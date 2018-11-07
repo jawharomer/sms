@@ -70,6 +70,10 @@
 						<td class="cus-note-td">${item.note}</td>
 						<td>
 							<button data-teacher-present-id="${item.id}"
+								class="btn btn-sm btn-warning" onclick="editTeacherPresent(this)">
+								<i class="fa fa-edit"></i>
+							</button>
+							<button data-teacher-present-id="${item.id}"
 								class="btn btn-sm btn-danger"
 								onclick="deleteTeacherPresent(this)">
 								<i class="fa fa-times"></i>
