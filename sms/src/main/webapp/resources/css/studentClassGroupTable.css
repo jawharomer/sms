@@ -1,8 +1,14 @@
-#class-group-table-container{
+#class-group-table-container {
 	padding: 5px;
 }
 
 .cus-p-100 {
 	max-width: 150px;
 	overflow: auto;
+}
+
+@media print {
+	@page {
+		size: landscape;
+	}
 }
