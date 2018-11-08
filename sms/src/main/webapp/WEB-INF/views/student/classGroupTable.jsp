@@ -51,7 +51,9 @@
 
 					<div class="td-container-div">
 						<div class="cus-p-100 td-inline-div"><%=item.getSubjectName() == null ? "" : item.getSubjectName()%></div>
-						<div class="mt-1 border-top cus-p-100  td-inline-div"><%=item.getTeacherName() == null ? "" : item.getTeacherName()%></div>
+						<div class="d-print-none border-top"></div>
+						<div class="d-none d-print-block border-right"></div>
+						<div class="mt-1  cus-p-100  td-inline-div"><%=item.getTeacherName() == null ? "" : item.getTeacherName()%></div>
 					</div>
 
 				</td>
