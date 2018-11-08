@@ -19,5 +19,9 @@
 	}
 	body {
 		writing-mode: tb-rl;
+		zoom: 70%;
+	}
+	*::-webkit-scrollbar {
+		width: 0 !important
 	}
 }

@@ -83,8 +83,8 @@ a {
 	@page {
 		margin: 0;
 	}
-	body {
-		margin: 1.6cm;
+	body{
+	margin: 1.3cm;
 	}
 }
 
@@ -96,10 +96,6 @@ a {
 		visibility: visible;
 	}
 	#section-to-print {
-		position: absolute;
-		left: 0;
-		top: 0;
-		bottom: 0;
-		right: 0;
+		
 	}
 }
