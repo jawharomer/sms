@@ -7,7 +7,7 @@
 		href="<c:url value="/studentPresents/add/classGroup/" />${classGroup.id}"
 		target="_blank"> <i class="fa fa-plus"></i>
 	</a> <a class="btn btn-warning"
-		href="<c:url value="/studentPresents/add/classGroup/" />${classGroup.id}/all"
+		href="<c:url value="/studentPresents/classGroup/" />${classGroup.id}/all"
 		target="_blank"> <i class="fa fa-edit"></i>
 	</a>
 
