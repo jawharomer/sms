@@ -1,7 +1,7 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <div>
-	<h3>خشتەی هەفتانە</h3>
+	<h3>رۆژانی زیادکراو</h3>
 	<table class="table table-bordered">
 		<c:forEach items="${dates}" var="item">
 			<tr>
