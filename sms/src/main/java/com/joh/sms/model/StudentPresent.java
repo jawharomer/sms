@@ -13,19 +13,21 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.UniqueConstraint;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
-@Table(name = "STUDENT_PRESENTS")
+@Table(name = "STUDENT_PRESENTS", uniqueConstraints = {
+		@UniqueConstraint(columnNames = { "I_STUDENT", "PRESENT_DATE" }) })
 public class StudentPresent {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "I_STUDENT_PRESENT")
-	private int id;
+	private Integer id;
 
 	@JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-mm-dd")
 	@DateTimeFormat(pattern = "yyyy-mm-dd")
@@ -48,11 +50,11 @@ public class StudentPresent {
 	@JoinColumn(name = "I_STUDENT", updatable = false)
 	private Student student;
 
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 

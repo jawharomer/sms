@@ -1,12 +1,20 @@
 package com.joh.sms.domain.model;
 
 public class StudentPresentD {
-
+	private Integer studentPresentId;
 	private Integer studentId;
 	private String studentName;
 	private Integer attendDays;
 	private Integer absentDays;
-	private boolean attent;
+	private boolean attend;
+
+	public Integer getStudentPresentId() {
+		return studentPresentId;
+	}
+
+	public void setStudentPresentId(Integer studentPresentId) {
+		this.studentPresentId = studentPresentId;
+	}
 
 	public Integer getStudentId() {
 		return studentId;
@@ -40,18 +48,19 @@ public class StudentPresentD {
 		this.absentDays = absentDays;
 	}
 
-	public boolean isAttent() {
-		return attent;
+	public boolean isAttend() {
+		return attend;
 	}
 
-	public void setAttent(boolean attent) {
-		this.attent = attent;
+	public void setAttend(boolean attend) {
+		this.attend = attend;
 	}
 
 	@Override
 	public String toString() {
-		return "StudentPresentD [studentId=" + studentId + ", studentName=" + studentName + ", attendDays=" + attendDays
-				+ ", absentDays=" + absentDays + ", attent=" + attent + "]";
+		return "StudentPresentD [studentPresentId=" + studentPresentId + ", studentId=" + studentId + ", studentName="
+				+ studentName + ", attendDays=" + attendDays + ", absentDays=" + absentDays + ", attend=" + attend
+				+ "]";
 	}
 
 }

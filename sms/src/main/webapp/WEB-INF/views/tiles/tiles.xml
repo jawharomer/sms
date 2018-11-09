@@ -244,6 +244,36 @@
 		</put-list-attribute>
 
 	</definition>
+	
+	
+	<!-- Admin ClasGroupTables page -->
+	<definition name="adminClassGroupPresents" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/classGroupPresents.jsp" cascade="true" />
+
+		<put-attribute name="title" value="Admin ClassGroups" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminClassGroupPresents" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="app" />
+			<add-attribute value="adminClassGroupPresents" />
+		</put-list-attribute>
+
+	</definition>
 
 
 	<!-- Admin ClasGroupTables page -->
@@ -303,6 +333,15 @@
 			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminTeacherLecturePresents" />
@@ -336,6 +375,15 @@
 			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="jquery.dataTables.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminTeacherPresents" />
@@ -429,8 +477,9 @@
 		</put-list-attribute>
 
 	</definition>
-
-
+	
+	
+	
 
 	<!-- ClassLevelSubjects -->
 	<definition name="classLevelSubjects"
@@ -615,6 +664,37 @@
 			<add-attribute value="jquery.serializejson" />
 			<add-attribute value="app" />
 			<add-attribute value="addClassGroupStudentPresent" />
+		</put-list-attribute>
+	</definition>
+	
+	
+	<!-- AddClassGroupStudentPresent -->
+	<definition name="editClassGroupStudentPresent"
+		extends="base-definition">
+		<put-attribute name="title"
+			value="addClassGroupStudentPresent" />
+		<put-attribute name="pageCSS" value="admin"></put-attribute>
+		<put-attribute name="body"
+			value="/WEB-INF/views/studentPresent/editClassGroupStudentPresent.jsp" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="editClassGroupStudentPresent" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="app" />
+			<add-attribute value="editClassGroupStudentPresent" />
 		</put-list-attribute>
 	</definition>
 

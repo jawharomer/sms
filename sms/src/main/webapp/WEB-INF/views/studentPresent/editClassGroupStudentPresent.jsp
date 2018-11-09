@@ -2,14 +2,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="sf"%>
 <div id="add-class-group-presents-container">
-	<h3>زیادکردنی تۆماری نەهاتنی قوتابیان</h3>
-
-	<div class="py-1">
-		<input class="w-50 form-control form-control-sm" id="presentDate" />
-	</div>
+	<h3 class="text-warning">گۆران تۆماری نەهاتنی قوتابیان</h3>
 	<form method="post"
 		action="<c:url value="/studentPresents/add/classGroup" />"
-		onsubmit="addClassGroupStudentPresent(event,this)">
+		onsubmit="updateClassGroupStudentPresent(event,this)">
 
 		<table id="studentTable" class="table table-bordered">
 			<thead>
@@ -21,18 +17,24 @@
 			<tbody>
 				<c:forEach items="${studentPresentDs}" var="item" varStatus="i"
 					begin="0">
+					<input type="hidden"
+						name="studentPresentDs[${i.index}][studentPresentId]"
+						value="${item.studentPresentId}" />
 					<tr>
 						<td><input type="hidden"
 							name="studentPresentDs[${i.index}][studentId]"
 							value="${item.studentId}" /> ${item.studentName}</td>
-						<td><input type="checkbox"
-							name="studentPresentDs[${i.index}][attend]" value="true" /></td>
+						<td><c:set var="isCheck" /> <c:if test="${item.attend}">
+								<c:set var="isCheck" value="checked='checked'" />
+							</c:if><input type="checkbox"
+							name="studentPresentDs[${i.index}][attend]" ${isCheck}
+							value="true" /></td>
 					</tr>
 				</c:forEach>
 				<tr>
 					<td>
-						<button class="btn btn-success" type="submit">
-						<i class="fa fa-plus"></i>
+						<button class="btn btn-warning" type="submit">
+							<i class="fa fa-edit"></i>
 						</button>
 					</td>
 				</tr>

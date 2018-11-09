@@ -15,7 +15,7 @@
 
 	<div class="p-1">
 		<form action="<c:url value="/admin/teacherPresents" />">
-			<table class="w-100">
+			<table  class="w-100">
 				<tr>
 					<td>
 						<div class="d-flex">
@@ -51,14 +51,14 @@
 
 	<div id="teacher-table-div">
 
-		<table id="teacher-lecture-present-table" class="table tabl-bordered">
+		<table id="teacher-present-table" class="display nowrap">
 			<thead>
 				<tr>
 					<td>مامۆستا</td>
 					<td>بەروار</td>
 					<td>ژ.وانەکان</td>
 					<td>تێبینی</td>
-					<td>کردارەکان</td>
+					<td class="cus-not-export">کردارەکان</td>
 				</tr>
 			</thead>
 			<tbody>

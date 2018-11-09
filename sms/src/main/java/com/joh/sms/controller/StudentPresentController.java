@@ -55,8 +55,41 @@ public class StudentPresentController {
 		return "adminStudentPresents";
 	}
 
-	@GetMapping(path = "/add/classGroup/{id}")
+	@GetMapping(path = "/classGroup/{id}/all")
+	public String getAllClassGroupPresents(@PathVariable int id, Model model) {
+		logger.info("getAllClassGroupPresents->fired");
+		logger.info("classGroupId=" + id);
 
+		ClassGroup classGroup = classGroupService.findOne(id);
+
+		List<Date> dates = studentPresentService.findAllClassGroupPresents(id);
+
+		model.addAttribute("dates", dates);
+		model.addAttribute("classGroup", classGroup);
+		model.addAttribute("id", id);
+
+		return "adminClassGroupPresents";
+	}
+
+	@GetMapping(path = "/classGroup/{id}/{date}")
+	public String getEditingClassGroupPresents(@PathVariable int id,
+			@PathVariable @DateTimeFormat(iso = ISO.DATE) Date date, Model model) {
+		logger.info("getEditingClassGroupPresents->fired");
+		logger.info("classGroupId=" + id);
+		logger.info("date=" + date);
+
+		ClassGroup classGroup = classGroupService.findOne(id);
+
+		List<StudentPresentD> studentPresentDs = studentPresentService
+				.findAllStudentPresentByClassGroupIdAndPresentDate(id, date);
+
+		model.addAttribute("studentPresentDs", studentPresentDs);
+		model.addAttribute("classGroup", classGroup);
+
+		return "editClassGroupStudentPresent";
+	}
+
+	@GetMapping(path = "/add/classGroup/{id}")
 	public String getAddClassGroupStudentPresents(@PathVariable int id, Model model) {
 		logger.info("getAddClassGroupStudentPresents->fired");
 
@@ -67,6 +100,38 @@ public class StudentPresentController {
 		model.addAttribute("studentPresentDs", studentPresentDs);
 
 		return "addClassGroupStudentPresent";
+	}
+
+	@PostMapping(path = "/update")
+	public String updateStudentPresents(@RequestBody List<StudentPresentD> studentPresentDs, Model model) {
+		logger.info("updateStudentPresents->fired");
+		logger.info("studentPresentDs=" + studentPresentDs);
+
+		List<StudentPresent> studentPresents = new ArrayList<>();
+
+		studentPresentDs.stream().forEach(e -> {
+			StudentPresent studentPresent = new StudentPresent();
+			studentPresent.setId(e.getStudentPresentId());
+			studentPresent.setAttend(e.isAttend());
+			studentPresents.add(studentPresent);
+		});
+		logger.debug("studentPresents=" + studentPresents);
+
+		studentPresentService.update(studentPresents);
+
+		return "success";
+	}
+
+	@PostMapping(path = "/delete/classGroup/{id}/{date}")
+	public String deleteClassGroupPresents(@PathVariable int id,
+			@PathVariable @DateTimeFormat(iso = ISO.DATE) Date date, Model model) {
+		logger.info("deleteClassGroupPresents->fired");
+		logger.info("classGroupId=" + id);
+		logger.info("date=" + date);
+
+		studentPresentService.deleteClassGroupPresent(id, date);
+
+		return "success";
 	}
 
 	@PostMapping(path = "/add/classGroup/{date}")
@@ -87,7 +152,7 @@ public class StudentPresentController {
 
 			studentPresent.setStudent(student);
 			studentPresent.setDate(date);
-			studentPresent.setAttend(studentPresentD.isAttent());
+			studentPresent.setAttend(studentPresentD.isAttend());
 
 			studentPresents.add(studentPresent);
 		}

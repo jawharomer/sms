@@ -12,9 +12,8 @@
 		</button>
 
 	</div>
-
-	<div class="py-2">
-	<h6>قوتابخانەی کۆرەکی ناحوکمی</h6>
+	<div id="section-to-print" class="py-2">
+		<h6>قوتابخانەی کۆرەکی ناحوکمی</h6>
 		<table class="w-100">
 			<tr>
 				<td>ناوی قوتابی</td>

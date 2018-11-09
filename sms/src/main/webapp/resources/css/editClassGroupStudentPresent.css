@@ -1,0 +1,10 @@
+#site-content{
+	flex: 1;
+}
+#add-class-group-presents-container{
+	padding: 5px;
+	flex: 1;
+	max-width: 100%;
+	overflow: auto;
+}
+

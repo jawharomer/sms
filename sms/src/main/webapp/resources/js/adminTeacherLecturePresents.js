@@ -8,6 +8,7 @@ $(document).ready(function() {
 		dateFormat : "yy-mm-dd"
 	}).datepicker("setDate", $("#to").val());
 
+	// S-Table
 	console.log("Activate data table");
 	var table = $('#teacher-lecture-present-table').DataTable({
 		paginate : false,
@@ -29,4 +30,6 @@ $(document).ready(function() {
 		} ],
 		bInfo : false,
 	});
+	// E-Table
+	
 });
