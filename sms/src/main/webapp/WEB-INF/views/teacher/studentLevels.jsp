@@ -25,7 +25,15 @@
 				<tr>
 					<td>${item.student.firstName}&nbsp;${item.student.middleName}&nbsp;${item.student.lastName}</td>
 					<td><c:if test="${item.level!=null}">
-								${item.level} 
+							<c:choose>
+								<c:when test="${item.level==0}">زۆرلاوازە</c:when>
+								<c:when test="${item.level==1}">لاوازە</c:when>
+								<c:when test="${item.level==2}">پەسەندە</c:when>
+								<c:when test="${item.level==3}">ناوەندە</c:when>
+								<c:when test="${item.level==4}">باشە</c:when>
+								<c:when test="${item.level==5}">زۆرباشە</c:when>
+								<c:when test="${item.level==6}">نایابە</c:when>
+							</c:choose>
 						</c:if></td>
 					<td>
 						<button class="btn btn-success btn-sm"

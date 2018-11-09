@@ -40,20 +40,15 @@
 				<tr>
 					<td>${item.classSubject.name}</td>
 					<td><c:choose>
-							<c:when test="${item.level==0}">زۆرخراپە</c:when>
-							<c:when test="${item.level==1}">زۆرخراپە</c:when>
-							<c:when test="${item.level==2}">زۆرخراپە</c:when>
-							<c:when test="${item.level==3}">لاوازە</c:when>
-							<c:when test="${item.level==4}">لاوازە</c:when>
-							<c:when test="${item.level==5}">پەسەندە</c:when>
-							<c:when test="${item.level==6}">ناوەندە</c:when>
-							<c:when test="${item.level==7}">باشە</c:when>
-							<c:when test="${item.level==8}">زۆرباشە</c:when>
-							<c:when test="${item.level==9}">زۆرباشە</c:when>
-							<c:when test="${item.level==10}">نایابە</c:when>
+							<c:when test="${item.level==0}">زۆرلاوازە</c:when>
+							<c:when test="${item.level==1}">لاوازە</c:when>
+							<c:when test="${item.level==2}">پەسەندە</c:when>
+							<c:when test="${item.level==3}">ناوەندە</c:when>
+							<c:when test="${item.level==4}">باشە</c:when>
+							<c:when test="${item.level==5}">زۆرباشە</c:when>
+							<c:when test="${item.level==6}">نایابە</c:when>
 						</c:choose></td>
 				</tr>
-
 			</c:forEach>
 		</tbody>
 	</table>

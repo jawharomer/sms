@@ -18,8 +18,14 @@
 			<tbody>
 				<tr>
 					<td>ئاست</td>
-					<td><sf:input cssClass="form-control form-control-sm"
-							path="level" /></td>
+					<td><sf:radiobutton path="level" value="${0}"
+							label="زۆرلاوازە" /> <sf:radiobutton path="level" value="${1}"
+							label="لاوازە" /> <sf:radiobutton path="level" value="${2}"
+							label="پەسەندە" /> <br>
+					<sf:radiobutton path="level" value="${3}" label="ناوەندە" /> <sf:radiobutton
+							path="level" value="${4}" label="باشە" /> <sf:radiobutton
+							path="level" value="${5}" label="زۆرباشە" /> <sf:radiobutton
+							path="level" value="${6}" label="نایابە" /></td>
 					<td><sf:errors path="level" /></td>
 				</tr>
 				<tr>
