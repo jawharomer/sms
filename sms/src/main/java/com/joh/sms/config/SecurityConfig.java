@@ -19,6 +19,9 @@ import com.joh.sms.service.AppUserDetailService;
 @EnableWebSecurity(debug = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	private static final Logger logger = LoggerFactory.getLogger(SecurityConfig.class);
+	
+	@Autowired
+	private AppUserDetailService appUserDetailService;
 
 	public SecurityConfig() {
 		logger.info("SecurityConfig->fired");
@@ -29,8 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		web.ignoring().antMatchers("/resources/**");
 	}
 
-	@Autowired
-	private AppUserDetailService appUserDetailService;
+	
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
@@ -38,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.antMatchers("/admin/**", "/classGroups/**", "/classGroupTables/**", "/classLevels/**",
 						"/classMarks/**", "/classSubjects/**", "/enrollments/**", "/enrollmentPayments/**",
 						"/expenses/**", "/lessonTimes/**", "/schoolWeekDays/**")
-				.hasRole("ADMIN").antMatchers(HttpMethod.POST, "/studentPresents/**").hasRole("ADMIN")
+				.hasRole("ADMIN").antMatchers(HttpMethod.POST, "/studentPresents/**","/webSite/**").hasRole("ADMIN")
 				.antMatchers("/teachers/**").hasRole("TEACHER").antMatchers("/students/**")
 				.hasAnyRole("STUDENT", "PARENT").anyRequest().authenticated().and().formLogin().loginPage("/login")
 				.defaultSuccessUrl("/app").and().logout().deleteCookies("JSESSIONID").logoutUrl("/logout")

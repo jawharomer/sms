@@ -244,10 +244,11 @@
 		</put-list-attribute>
 
 	</definition>
-	
-	
+
+
 	<!-- Admin ClasGroupTables page -->
-	<definition name="adminClassGroupPresents" extends="adminRoot">
+	<definition name="adminClassGroupPresents"
+		extends="adminRoot">
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/classGroupPresents.jsp" cascade="true" />
 
@@ -477,9 +478,9 @@
 		</put-list-attribute>
 
 	</definition>
-	
-	
-	
+
+
+
 
 	<!-- ClassLevelSubjects -->
 	<definition name="classLevelSubjects"
@@ -666,8 +667,8 @@
 			<add-attribute value="addClassGroupStudentPresent" />
 		</put-list-attribute>
 	</definition>
-	
-	
+
+
 	<!-- AddClassGroupStudentPresent -->
 	<definition name="editClassGroupStudentPresent"
 		extends="base-definition">
@@ -1348,6 +1349,35 @@
 			<add-attribute value="jquery.fancybox" />
 		</put-list-attribute>
 
+	</definition>
+
+
+	<definition name="editWebSite" extends="base-definition">
+		<put-attribute name="title"
+			value="teacherClassSubjectMarks" />
+
+		<put-attribute name="body"
+			value="/WEB-INF/views/webSite/editWebSite.jsp" />
+
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="app" />
+			<add-attribute value="editWebSite" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.serializejson" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="tinymce/tinymce.min" />
+			<add-attribute value="app" />
+			<add-attribute value="editWebSite" />
+		</put-list-attribute>
 	</definition>
 
 </tiles-definitions>

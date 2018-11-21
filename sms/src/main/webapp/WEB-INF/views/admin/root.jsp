@@ -11,6 +11,8 @@
 	<section id="section-right" class="card">
 
 		<ul class="list-group  cus-right-nav">
+			<li class="list-group-item list-group-item-action text-warning"><a
+				href='<c:url value="/webSite/edit" />'> سایت</a></li>
 			<li class="list-group-item list-group-item-action"><a
 				href='<c:url value="/admin/students" />'>قوتابیەکان</a></li>
 			<li class="list-group-item list-group-item-action"><a
