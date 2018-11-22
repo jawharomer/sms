@@ -1,5 +1,6 @@
 package com.joh.sms.controller;
 
+import java.io.IOException;
 import java.nio.file.AccessDeniedException;
 import java.util.List;
 import java.util.Optional;
@@ -18,10 +19,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.joh.sms.domain.model.ClassGroupTableD;
 import com.joh.sms.domain.model.StudentSubjectMarkD;
 import com.joh.sms.domain.model.SubjectNotificationD;
+import com.joh.sms.model.AttachedFile;
 import com.joh.sms.model.ClassGroup;
 import com.joh.sms.model.ClassMark;
 import com.joh.sms.model.ClassSubject;
@@ -29,6 +32,7 @@ import com.joh.sms.model.StudentLevel;
 import com.joh.sms.model.StudentLevelDate;
 import com.joh.sms.model.SubjectNotification;
 import com.joh.sms.model.Teacher;
+import com.joh.sms.service.AttachedFileService;
 import com.joh.sms.service.AuthenticationFacadeService;
 import com.joh.sms.service.ClassGroupService;
 import com.joh.sms.service.ClassGroupTableService;
@@ -201,38 +205,10 @@ public class TeacherController {
 		return "teacher/addSubjectNotification";
 	}
 
-	@GetMapping(path = "/studentLevels/{studentLevelDateId}")
-	public String getAllSubjectStudentLevel(@PathVariable int studentLevelDateId, @RequestParam int classSubjectId,
-			@RequestParam int classGroupId, Model model) throws AccessDeniedException {
-		logger.info("getAllSubjectStudentLevel->fired");
-		has(classGroupId, classSubjectId);
-		logger.info("studentLevelDateId=" + studentLevelDateId);
-
-		StudentLevelDate studentLevelDate = studentLevelDateService.findOne(studentLevelDateId);
-		logger.info("studentLevelDate=" + studentLevelDate);
-
-		logger.info("classSubjectId=" + classSubjectId);
-		has(classGroupId, classSubjectId);
-
-		List<StudentLevel> studentLevels = studentLevelService.findAllSubjectStudentLevel(studentLevelDateId,
-				classSubjectId, classGroupId);
-
-		logger.info("studentLevels=" + studentLevels);
-
-		model.addAttribute("studentLevels", studentLevels);
-
-		model.addAttribute("classGroupId", classGroupId);
-		model.addAttribute("classSubjectId", classSubjectId);
-		model.addAttribute("classGroup", classGroupService.findOne(classGroupId));
-		model.addAttribute("classSubject", classSubjectService.findOne(classSubjectId));
-		model.addAttribute("studentLevelDate", studentLevelDate);
-
-		return "teacherStudentLevels";
-	}
-
 	@PostMapping(path = "/notifications/add")
-	public String addSubjectNotificaion(@RequestBody @Valid SubjectNotificationD subjectNotificationD,
-			BindingResult result, Model model) throws AccessDeniedException {
+	public String addSubjectNotificaion(@RequestParam MultipartFile file,
+			 @Valid SubjectNotificationD subjectNotificationD, BindingResult result, Model model)
+			throws IOException {
 		logger.info("addSubjectNotificaion->fired");
 		has(subjectNotificationD.getClassGroupId(), subjectNotificationD.getClassSubjectId());
 
@@ -260,11 +236,40 @@ public class TeacherController {
 			subjectNotification.setTitle(subjectNotificationD.getTitle());
 			subjectNotification.setNote(subjectNotificationD.getNote());
 
-			subjectNotificationSerivce.save(subjectNotification);
+			subjectNotificationSerivce.save(subjectNotification, file);
 
 		}
 
 		return "success";
+	}
+
+	@GetMapping(path = "/studentLevels/{studentLevelDateId}")
+	public String getAllSubjectStudentLevel(@PathVariable int studentLevelDateId, @RequestParam int classSubjectId,
+			@RequestParam int classGroupId, Model model) throws AccessDeniedException {
+		logger.info("getAllSubjectStudentLevel->fired");
+		has(classGroupId, classSubjectId);
+		logger.info("studentLevelDateId=" + studentLevelDateId);
+
+		StudentLevelDate studentLevelDate = studentLevelDateService.findOne(studentLevelDateId);
+		logger.info("studentLevelDate=" + studentLevelDate);
+
+		logger.info("classSubjectId=" + classSubjectId);
+		has(classGroupId, classSubjectId);
+
+		List<StudentLevel> studentLevels = studentLevelService.findAllSubjectStudentLevel(studentLevelDateId,
+				classSubjectId, classGroupId);
+
+		logger.info("studentLevels=" + studentLevels);
+
+		model.addAttribute("studentLevels", studentLevels);
+
+		model.addAttribute("classGroupId", classGroupId);
+		model.addAttribute("classSubjectId", classSubjectId);
+		model.addAttribute("classGroup", classGroupService.findOne(classGroupId));
+		model.addAttribute("classSubject", classSubjectService.findOne(classSubjectId));
+		model.addAttribute("studentLevelDate", studentLevelDate);
+
+		return "teacherStudentLevels";
 	}
 
 	@PostMapping(path = "/notifications/delete/{id}")

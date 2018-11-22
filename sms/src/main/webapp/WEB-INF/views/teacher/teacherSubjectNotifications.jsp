@@ -30,10 +30,38 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<h5 class="card-title">${item.title}</h5>
+				<h5 class="card-title">${item.title}
+					<c:if test="${item.attachedFile!=null}">
+						<span class="h2 class-info"> <a class="text-primary"
+							target="_blank"
+							href="<c:url value="/attachedFiles/download/" />${item.attachedFile.id}">
+								<i class="fa fa-download"></i>
+						</a>
+						</span>
+					</c:if>
+
+				</h5>
 				<p class="card-text">${item.note}</p>
 			</div>
 		</div>
 	</c:forEach>
 
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="modal" tabindex="-1" role="dialog"
+	aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body" id="modal-body"></div>
+		</div>
+	</div>
 </div>

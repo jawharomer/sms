@@ -1,3 +1,12 @@
-#class-subject{
+#class-subject {
 	padding: 5px;
+}
+
+#cus-modal {
+	width: 600px !important;
+	background: red !important;
+}
+
+.modal-ku {
+  margin: auto;
 }

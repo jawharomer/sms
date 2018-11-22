@@ -10,12 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.validator.constraints.Length;
 
 @Entity
 @Table(name = "SUBJECT_NOTIFICATIONS")
@@ -33,10 +35,15 @@ public class SubjectNotification {
 	@JoinColumn(name = "I_CLASS_GROUP", updatable = false, nullable = false)
 	private ClassGroup classGroup;
 
+	@OneToOne()
+	@JoinColumn(name = "I_ATTACHED_FILE")
+	private AttachedFile attachedFile;
+
 	@Column(name = "TITLE")
 	private String title;
 
-	@Column(name = "NOTE")
+	@Length(max = 65535, message = "{subjectNotification.note.length}")
+	@Column(name = "NOTE", columnDefinition = "TEXT")
 	private String note;
 
 	@Column(name = "NOTIFICATION_TIME")
@@ -93,10 +100,18 @@ public class SubjectNotification {
 		this.time = time;
 	}
 
+	public AttachedFile getAttachedFile() {
+		return attachedFile;
+	}
+
+	public void setAttachedFile(AttachedFile attachedFile) {
+		this.attachedFile = attachedFile;
+	}
+
 	@Override
 	public String toString() {
 		return "SubjectNotification [id=" + id + ", classSubject=" + classSubject + ", classGroup=" + classGroup
-				+ ", title=" + title + ", note=" + note + ", time=" + time + "]";
+				+ ", attachedFile=" + attachedFile + ", title=" + title + ", note=" + note + ", time=" + time + "]";
 	}
 
 }

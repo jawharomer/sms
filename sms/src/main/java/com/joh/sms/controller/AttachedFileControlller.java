@@ -1,5 +1,10 @@
 package com.joh.sms.controller;
 
+import java.io.IOException;
+
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.CacheControl;
@@ -24,6 +29,23 @@ public class AttachedFileControlller {
 
 	@Autowired
 	private AttachedFileService attachedFileService;
+
+	@GetMapping(path = "/download/{id}")
+	public void downloadAttachedFile(@PathVariable int id, HttpServletResponse response)
+			throws IOException, AttachmentNotFoundException {
+
+		response.setContentType("application/octet-stream");
+
+		AttachedFile attachedFile = attachedFileService.findOne(id);
+
+		String fileName = attachedFile.getId() + "." + attachedFile.getExtension();
+		response.setHeader("Content-Disposition", "attachment;filename=" + fileName);
+		ServletOutputStream out = response.getOutputStream();
+
+		byte[] outputByte = attachedFileService.getAttachentFile(id);
+
+		out.write(outputByte, 0, outputByte.length);
+	}
 
 	@GetMapping(path = "/{size}/{id}")
 	public ResponseEntity<byte[]> getImage(@PathVariable int size, @PathVariable int id) {
