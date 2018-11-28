@@ -60,7 +60,7 @@ function cusPF(input){
 	return input;
 }
 
-$(window).ready()
+$(document).ready()
 {
 	 var div = document.getElementById('cus-progress-div');
 	 console.log("div="+div);

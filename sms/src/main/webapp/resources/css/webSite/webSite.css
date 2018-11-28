@@ -1,8 +1,12 @@
+#cus-progress-div {
+	display: none !important;
+}
+
 body {
-	direction:rtl;
+	direction: rtl;
 	font-size: 15px;
 }
 
-*{
+* {
 	text-align: right;
 }
