@@ -30,43 +30,81 @@ $(document).ready()
 		bInfo : false,
 	});
 
-	function getAddingStudentNotificaion() {
-		console.log("table=", table);
-		var data = table.rows({
-			selected : true
-		}).data();
-		var selectedStudentIds = [];
-		for (var i = 0; i < data.length; i++) {
-			console.log(data[i][0]);
-			selectedStudentIds.push(+data[i][0]);
-		}
-		console.log(selectedStudentIds);
-
-		if (selectedStudentIds.length != 0) {
-			$.ajax({
-				url : $$ContextURL + '/admin/students/notificaions/add',
-				data : {
-					studentIds : selectedStudentIds
-				},
-				type : 'GET',
-				dataType : 'json',
-				success : function(response) {
-					console.log(response);
-					$("#modal-body").html(response);
-					$("#modal").modal("show");
-				},
-				error : function(response) {
-					$("#modal-body").html(response.responseText);
-					$("#modal").modal("show");
-				}
-			});
-		} else {
-			$("#modal-body").html("هیچ قوتابیەک دەستینشان نەکراوە");
-			$("#modal").modal("show");
-		}
-
-	}
 	// E-DataTable
+
+}
+
+function getAddingStudentNotificaion() {
+	console.log("table=", table);
+	var data = table.rows({
+		selected : true
+	}).data();
+	var selectedStudentIds = [];
+	for (var i = 0; i < data.length; i++) {
+		console.log(data[i][0]);
+		selectedStudentIds.push(+data[i][0]);
+	}
+	console.log(selectedStudentIds);
+
+	if (selectedStudentIds.length != 0) {
+		$.ajax({
+			url : $$ContextURL + '/admin/students/notificaions/add',
+			data : {
+				studentIds : selectedStudentIds
+			},
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				console.log(response);
+				$("#modal-body").html(response);
+				$("#modal").modal("show");
+			},
+			error : function(response) {
+				$("#modal-body").html(response.responseText);
+				$("#modal").modal("show");
+			}
+		});
+	} else {
+		$("#modal-body").html("هیچ قوتابیەک دەستینشان نەکراوە");
+		$("#modal").modal("show");
+	}
+
+}
+
+function getAddingStudentSMS() {
+	console.log("table=", table);
+	var data = table.rows({
+		selected : true
+	}).data();
+	var selectedStudentIds = [];
+	for (var i = 0; i < data.length; i++) {
+		console.log(data[i][0]);
+		selectedStudentIds.push(+data[i][0]);
+	}
+	console.log(selectedStudentIds);
+
+	if (selectedStudentIds.length != 0) {
+		$.ajax({
+			url : $$ContextURL + '/admin/students/sms/add',
+			data : {
+				studentIds : selectedStudentIds
+			},
+			type : 'GET',
+			dataType : 'json',
+			success : function(response) {
+				console.log(response);
+				$("#modal-body").html(response);
+				$("#modal").modal("show");
+			},
+			error : function(response) {
+				$("#modal-body").html(response.responseText);
+				$("#modal").modal("show");
+			}
+		});
+	} else {
+		$("#modal-body").html("هیچ قوتابیەک دەستینشان نەکراوە");
+		$("#modal").modal("show");
+	}
 
 }
 

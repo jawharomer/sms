@@ -19,6 +19,7 @@
 					<td>ناو</td>
 					<td>باوک</td>
 					<td>باپیر</td>
+					<td>مۆبایل</td>
 					<td>بری پارە</td>
 					<td>تێبینی</td>
 					<td>بەکاربەر</td>
@@ -32,6 +33,7 @@
 						<td>${item.firstName}</td>
 						<td>${item.middleName}</td>
 						<td>${item.lastName}</td>
+						<td>${item.mobile}</td>
 						<td>${item.hireAmount}</td>
 						<td class="cus-note-td">${item.note}</td>
 						<td>

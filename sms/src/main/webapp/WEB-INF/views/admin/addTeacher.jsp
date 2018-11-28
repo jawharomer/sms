@@ -27,6 +27,12 @@
 							path="lastName" /></td>
 					<td><sf:errors path="lastName" /></td>
 				</tr>
+				<tr>
+					<td>مۆبایل</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="mobile" /></td>
+					<td><sf:errors path="mobile" /></td>
+				</tr>
 
 				<tr>
 					<td>بری دامەزراندن</td>

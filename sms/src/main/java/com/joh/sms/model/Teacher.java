@@ -36,6 +36,10 @@ public class Teacher {
 	@Column(name = "LAST_NAME")
 	private String lastName;
 
+	@NotBlank(message = "{teacher.mobile.blank}")
+	@Column(name = "MOBILE")
+	private String mobile;
+
 	@NotNull(message = "{teacher.hireAmount.null}")
 	@Column(name = "HIRE_AMOUNT")
 	private BigDecimal hireAmount;
@@ -91,10 +95,18 @@ public class Teacher {
 		this.note = note;
 	}
 
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
 	@Override
 	public String toString() {
 		return "Teacher [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
-				+ lastName + ", hireAmount=" + hireAmount + ", note=" + note + "]";
+				+ lastName + ", mobile=" + mobile + ", hireAmount=" + hireAmount + ", note=" + note + "]";
 	}
 
 }

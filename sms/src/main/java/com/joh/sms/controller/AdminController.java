@@ -32,6 +32,7 @@ import com.joh.sms.model.AppUser;
 import com.joh.sms.model.AttachedFile;
 import com.joh.sms.model.ClassMark;
 import com.joh.sms.model.Enrollment;
+import com.joh.sms.model.SMSMessage;
 import com.joh.sms.model.Student;
 import com.joh.sms.model.StudentLevel;
 import com.joh.sms.model.StudentLevelDate;
@@ -42,6 +43,7 @@ import com.joh.sms.service.AppUserService;
 import com.joh.sms.service.AttachedFileService;
 import com.joh.sms.service.ClassMarkService;
 import com.joh.sms.service.EnrollmentService;
+import com.joh.sms.service.MessageService;
 import com.joh.sms.service.StudentLevelDateService;
 import com.joh.sms.service.StudentLevelService;
 import com.joh.sms.service.StudentNotificationSerivce;
@@ -89,6 +91,9 @@ public class AdminController {
 
 	@Autowired
 	private StudentLevelDateService studentLevelDateService;
+
+	@Autowired
+	private MessageService messageService;
 
 	@GetMapping()
 	public String getAmdinPage() {
@@ -264,6 +269,89 @@ public class AdminController {
 			studentNotification.setNote(studentNotificaionD.getNote());
 			studentNotificationSerivce.save(studentNotification);
 			return "success";
+		}
+	}
+
+	@GetMapping(path = "/students/sms/add")
+	public String getAddingStudentSMS(@RequestParam("studentIds[]") Integer[] studentIds, Model model)
+			throws JsonProcessingException {
+		logger.info("getAddingStudentSMS->fired");
+		logger.info("studnetIds=" + studentIds);
+		StudentNotificaionD studentNotificaionD = new StudentNotificaionD();
+		ObjectMapper objectMapper = new ObjectMapper();
+		model.addAttribute("studentIds", objectMapper.writeValueAsString(studentIds));
+		model.addAttribute("studentNotificaionD", studentNotificaionD);
+		return "notification/addStudentSMS";
+	}
+
+	@PostMapping(path = "/students/sms/add")
+	public String addStudentSMS(@RequestBody @Valid StudentNotificaionD studentNotificaionD, BindingResult result,
+			Model model) throws JsonProcessingException {
+		logger.info("addStudentSMS->fired");
+		logger.info("studentNotificaionD=" + studentNotificaionD);
+		logger.info("errors=" + result.getAllErrors());
+		if (result.hasErrors()) {
+
+			ObjectMapper objectMapper = new ObjectMapper();
+			model.addAttribute("studentIds", objectMapper.writeValueAsString(studentNotificaionD.getStudentIds()));
+			model.addAttribute("studentNotificaionD", studentNotificaionD);
+			return "notification/addStudentSMS";
+		} else {
+
+			int selectedContact = Integer.parseInt(studentNotificaionD.getTitle());
+
+			logger.info("selectedContact=" + selectedContact);
+
+			List<Student> students = new ArrayList<>();
+			for (Integer studentId : studentNotificaionD.getStudentIds()) {
+				students.add(studentService.findOne(studentId));
+			}
+
+			logger.info("students=" + students);
+
+			List<SMSMessage> smsMessages = new ArrayList<>();
+
+			String signature = "قوتابخانەی کۆرەک";
+
+			for (Student student : students) {
+
+				if ((selectedContact == 0 || selectedContact == 2) && student.getMobile() != null
+						&& !student.getMobile().isEmpty()) {
+					String fullName = String.format("%s %s %s ", student.getFirstName(), student.getMiddleName(),
+							student.getLastName());
+					SMSMessage forStudent = new SMSMessage();
+					forStudent.setTo(student.getMobile());
+					String message = String.format("%s \n %s \n %s", signature, fullName,
+							studentNotificaionD.getNote());
+					forStudent.setMessage(message);
+					smsMessages.add(forStudent);
+				}
+
+				if ((selectedContact == 1 || selectedContact == 2) && student.getParentMobile() != null
+						&& !student.getParentMobile().isEmpty()) {
+					String fullName = String.format("بەخێوکەری قوتابی %s %s %s \n", student.getFirstName(),
+							student.getMiddleName(), student.getLastName());
+					SMSMessage forParent = new SMSMessage();
+					forParent.setTo(student.getParentMobile());
+					String message = String.format("%s \n %s \n %s", signature, fullName,
+							studentNotificaionD.getNote());
+					forParent.setMessage(message);
+					smsMessages.add(forParent);
+				}
+
+			}
+
+			logger.info("smsMessages=" + smsMessages);
+
+			try {
+				messageService.sendSMS(smsMessages);
+				return "success";
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return "failed";
+			}
+
 		}
 	}
 
@@ -447,16 +535,16 @@ public class AdminController {
 	}
 
 	@GetMapping(path = "/teacherPresents/edit/{id}")
-	public String getEditingTeacherPresent(@PathVariable int id,Model model) {
+	public String getEditingTeacherPresent(@PathVariable int id, Model model) {
 		logger.info("getEditingTeacherPresent->fired");
 
 		TeacherPresent teacherPresent = teacherPresentService.findOne(id);
 
-		model.addAttribute("teacherPresent",teacherPresent);
+		model.addAttribute("teacherPresent", teacherPresent);
 
 		return "admin/editTeacherPresent";
 	}
-	
+
 	@PostMapping(path = "/teacherPresents/update")
 	public String updateTeacherPresent(
 			@RequestBody @Validated(TeacherPresentValidator.insert.class) TeacherPresent teacherPresent,
@@ -466,7 +554,7 @@ public class AdminController {
 		logger.info("errors=" + result.getAllErrors());
 
 		if (result.hasErrors()) {
-			model.addAttribute("teacherPresent",teacherPresent);
+			model.addAttribute("teacherPresent", teacherPresent);
 
 			return "admin/editTeacherPresent";
 		} else {
@@ -516,7 +604,59 @@ public class AdminController {
 			model.addAttribute("appUser", appUser);
 			return "admin/addUser";
 		} else {
+			String plainPassword = appUser.getPassword();
 			appUserService.save(appUser);
+
+			// S-Send SMS to user
+			try {
+				String smsTo = "";
+
+				if (appUser.getRole().toLowerCase().contains("student")) {
+					Student student = studentService.findOne(appUser.getReference());
+					if (student.getMobile() != null)
+						smsTo = student.getMobile();
+				} else if (appUser.getRole().toLowerCase().contains("parent")) {
+					Student student = studentService.findOne(appUser.getReference());
+					if (student.getParentMobile() != null)
+						smsTo = student.getParentMobile();
+				}
+
+				else if (appUser.getRole().toLowerCase().contains("teacher")) {
+					Teacher teacher = teacherService.findOne(appUser.getReference());
+					if (teacher.getMobile() != null)
+						smsTo = teacher.getMobile();
+				}
+
+				logger.info("smsTo=" + smsTo);
+
+				final String mobileNumber = smsTo;
+				if (!smsTo.isEmpty()) {
+					new Thread(() -> {
+						logger.info("sending sms to user");
+
+						String signature = "قوتابخانەی کۆرەک";
+						SMSMessage forUser = new SMSMessage();
+						forUser.setTo(mobileNumber);
+						String message = String.format("%s \n %s \n %s", signature, "بەکاربەر:" + appUser.getUserName(),
+								"وشەی تێپەر:" + plainPassword);
+						forUser.setMessage(message);
+						List<SMSMessage> smsMessages = new ArrayList<>();
+						smsMessages.add(forUser);
+						try {
+							messageService.sendSMS(smsMessages);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+
+					}).start();
+				}
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.info("sending sms to user failed");
+			}
+			// E-Sending sms to user
+
 			return "success";
 		}
 	}

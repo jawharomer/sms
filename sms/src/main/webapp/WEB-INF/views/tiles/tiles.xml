@@ -43,6 +43,12 @@
 			<add-attribute value="admin" />
 			<add-attribute value="app" />
 		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="app" />
+		</put-list-attribute>
 	</definition>
 
 
@@ -1109,6 +1115,33 @@
 			<add-attribute value="jquery.dataTables.min" />
 			<add-attribute value="app" />
 			<add-attribute value="adminStudentNotifications" />
+		</put-list-attribute>
+
+	</definition>
+
+
+	<!-- Admin modemStatus page -->
+	<definition name="modemStatus" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/modemStatus.jsp" cascade="true" />
+		<put-attribute name="title" value="Admin ClassGroups" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="modemStatus" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="app" />
+			<add-attribute value="modemStatus" />
 		</put-list-attribute>
 
 	</definition>

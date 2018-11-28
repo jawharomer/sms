@@ -11,7 +11,7 @@
 		<table class="w-100">
 
 			<tr>
-				<td>وێنە</td>
+				<td>هاوپێچ</td>
 				<td><input type="file" class="form-control form-control-sm"
 					name="file" /></td>
 			</tr>

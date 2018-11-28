@@ -4,6 +4,8 @@
 <div id="class-group-student-container">
 	<h3>${classGroup.name}</h3>
 	<button class="btn btn-info" onclick="getAddingStudentNotificaion()">ئاگادارکرنەوە</button>
+	<button class="btn btn-info" onclick="getAddingStudentSMS()">کورەتەنامە</button>
+	
 	<div id="student-table-div">
 		<table id="student-table" class="display nowrap">
 			<thead>

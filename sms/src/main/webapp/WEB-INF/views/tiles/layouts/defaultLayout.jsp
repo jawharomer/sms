@@ -47,11 +47,18 @@ body {
 </head>
 <body>
 
+	<div id="cus-progress-div"
+		style="display: block; z-index: 40000000; position: fixed; top: 0px; right: 0px; bottom: 0px; left: 0px; text-align: center; line-height: 100vh">
+		<img width="100px" src="<c:url value="/resources/img/progress.gif" />">
+	</div>
+
 
 
 	<section id="view-port">
 
 		<header id="header">
+
+
 			<tiles:insertAttribute name="header" />
 		</header>
 
@@ -91,6 +98,9 @@ body {
 			</div>
 		</div>
 	</div>
-	
+
+
+
+
 </body>
 </html>

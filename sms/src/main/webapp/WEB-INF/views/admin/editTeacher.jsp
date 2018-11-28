@@ -31,13 +31,20 @@
 				</tr>
 
 				<tr>
+					<td>مۆبایل</td>
+					<td><sf:input cssClass="form-control form-control-sm"
+							path="mobile" /></td>
+					<td><sf:errors path="mobile" /></td>
+				</tr>
+
+				<tr>
 					<td>بری دامەزراندن</td>
 					<td><sf:input cssClass="form-control form-control-sm"
 							path="hireAmount" /></td>
 					<td><sf:errors path="hireAmount" /></td>
 				</tr>
 
-					<tr>
+				<tr>
 					<td>تێبینی</td>
 					<td><sf:textarea cssClass="form-control form-control-sm"
 							path="note" /></td>

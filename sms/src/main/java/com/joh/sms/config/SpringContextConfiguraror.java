@@ -1,5 +1,9 @@
 package com.joh.sms.config;
 
+import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.List;
+
 import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +12,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.MediaType;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.multipart.MultipartResolver;
@@ -23,7 +30,7 @@ import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "com.joh.sms.controller","com.joh.sms.commons", "com.joh.sms.service" })
+@ComponentScan(basePackages = { "com.joh.sms.controller", "com.joh.sms.commons", "com.joh.sms.service" })
 @Import(value = RepositoryConfig.class)
 public class SpringContextConfiguraror extends WebMvcConfigurerAdapter {
 
@@ -81,5 +88,12 @@ public class SpringContextConfiguraror extends WebMvcConfigurerAdapter {
 		validator.setValidationMessageSource(messageSource());
 		return validator;
 	}
+
+//	@Override
+//	public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+//		StringHttpMessageConverter stringConverter = new StringHttpMessageConverter();
+//		stringConverter.setSupportedMediaTypes(Arrays.asList(new MediaType("text", "plain", Charset.forName("UTF-8"))));
+//		converters.add(stringConverter);
+//	}
 
 }

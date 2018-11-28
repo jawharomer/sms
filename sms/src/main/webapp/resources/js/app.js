@@ -44,7 +44,30 @@ function cusConfirm() {
 }
 
 
+function showProgress(){
+	 var div = document.getElementById('cus-progress-div');
+	 div.style.display = 'block';
+}
+
+function hideProgress(){
+	 var div = document.getElementById('cus-progress-div');
+	 div.style.display = 'none';
+}
+
+
 function cusPF(input){
 // custom prevent Eclipse formating ${variable} inside Javascipt code
 	return input;
+}
+
+$(window).ready()
+{
+	 var div = document.getElementById('cus-progress-div');
+	 console.log("div="+div);
+	 div.style.display = 'none';
+	 
+	$("body").on('click', ".cus-show-progress", function() {
+		var div = document.getElementById('cus-progress-div');
+		 div.style.display = 'block';
+		});
 }
