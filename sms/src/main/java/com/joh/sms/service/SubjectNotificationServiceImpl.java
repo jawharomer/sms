@@ -42,7 +42,12 @@ public class SubjectNotificationServiceImpl implements SubjectNotificationSerivc
 	public void delete(int id) {
 
 		SubjectNotification subjectNotification = subjectNotificationDAO.findOne(id);
-		attachedFileService.delete(subjectNotification.getAttachedFile());
+
+		AttachedFile attachedFile = subjectNotification.getAttachedFile();
+		if (attachedFile != null) {
+			attachedFileService.delete(attachedFile);
+		}
+
 		subjectNotificationDAO.delete(id);
 	}
 
