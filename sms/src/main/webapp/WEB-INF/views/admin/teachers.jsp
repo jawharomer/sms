@@ -12,7 +12,7 @@
 
 	<div id="teacher-table-div">
 
-		<table id="teachersTable" class="display nowrap">
+		<table id="teachersTable" class="display w-100">
 			<thead>
 				<tr>
 					<td>#</td>

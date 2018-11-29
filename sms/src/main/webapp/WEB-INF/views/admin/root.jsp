@@ -11,33 +11,40 @@
 	<section id="section-right" class="card">
 
 		<ul class="list-group  cus-right-nav">
-			<li class="cus-show-progress list-group-item list-group-item-action text-warning"><a
-				href='<c:url value="/webSite/edit" />'> سایت</a></li>
-			<li class="cus-show-progress list-group-item list-group-item-action text-warning"><a
-				href='<c:url value="/messages" />'>سیمکارت</a></li>
-			<li class="cus-show-progress list-group-item list-group-item-action"><a
-				href='<c:url value="/admin/students" />'>قوتابیەکان</a></li>
-			<li class="cus-show-progress list-group-item list-group-item-action"><a
-				href='<c:url value="/admin/teachers" />'>مامۆستاکان</a></li>
-			<li class="cus-show-progress list-group-item list-group-item-action"><a
+			<li class="list-group-item list-group-item-action text-warning"><a
+				class="cus-progress-show" href='<c:url value="/webSite/edit" />'>
+					سایت</a></li>
+			<li class="list-group-item list-group-item-action text-warning"><a
+				class="cus-progress-show" href='<c:url value="/messages" />'>سیمکارت</a></li>
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show" href='<c:url value="/admin/students" />'>قوتابیەکان</a></li>
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show" href='<c:url value="/admin/teachers" />'>مامۆستاکان</a></li>
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show"
 				href='<c:url value="/admin/teacherLecturePresents" />?from=${currentDate}&to=${currentDate}'>وانەبێژی</a></li>
-			<li class="cus-show-progress list-group-item list-group-item-action"><a
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show"
 				href='<c:url value="/admin/teacherPresents" />?from=${currentDate}&to=${currentDate}'>ئ.مامۆستایان</a></li>
 
-			<li class="cus-show-progress list-group-item list-group-item-action"><a
-				href='<c:url value="/schoolWeekDays" />'>رۆژانی هەفتە</a></li>
-			<li class="cus-show-progress list-group-item list-group-item-action"><a
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show" href='<c:url value="/schoolWeekDays" />'>رۆژانی
+					هەفتە</a></li>
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show"
 				href='<c:url value="/studentLevelDates" />'>رۆژانی هەلسەنگاند</a></li>
-			<li class="cus-show-progress list-group-item list-group-item-action"><a
-				href='<c:url value="/classLevels" />'>هۆبەکان</a></li>
-			<li class="cus-show-progress list-group-item list-group-item-action"><a
-				href='<c:url value="/classGroups" />'>پۆلەکان</a></li>
-			<li class="cus-show-progress list-group-item list-group-item-action"><a
-				href='<c:url value="/enrollments" />'>ناونوسین</a></li>
-			<li class="cus-show-progress list-group-item list-group-item-action"><a
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show" href='<c:url value="/classLevels" />'>هۆبەکان</a></li>
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show" href='<c:url value="/classGroups" />'>پۆلەکان</a></li>
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show" href='<c:url value="/enrollments" />'>ناونوسین</a></li>
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show"
 				href='<c:url value="/admin/students/notificaions" />'>ئ.قوتابی</a></li>
 
-			<li class="cus-show-progress list-group-item list-group-item-action"><a
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show"
 				href='<c:url value="/expenses" />?from=${currentDate}&to=${currentDate}'>تێچووەکان</a></li>
 		</ul>
 	</section>

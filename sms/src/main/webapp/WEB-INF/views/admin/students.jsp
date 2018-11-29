@@ -12,7 +12,7 @@
 
 	<div class="student-table-div">
 
-		<table id="studentsTable" class="display">
+		<table id="studentsTable" class="display w-100">
 			<thead>
 				<tr>
 					<td width="5%">#</td>

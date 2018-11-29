@@ -25,7 +25,7 @@ public class Expense {
 	@Column(name = "I_EXPENSE")
 	private Integer id;
 
-	@Column(name = "EXPENSE_TIME")
+	@Column(name = "EXPENSE_TIME", updatable = false)
 	@Temporal(TemporalType.TIMESTAMP)
 	@CreationTimestamp
 	@ColumnDefault("CURRENT_TIMESTAMP")

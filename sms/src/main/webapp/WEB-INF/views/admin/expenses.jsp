@@ -19,7 +19,8 @@
 						<div class="d-flex">
 							<div class="d-flex align-items-center p-1">لە</div>
 							<div class="w-100">
-								<input class="form-control" id="from" name="from"
+								<input readonly="readonly" class="form-control" id="from"
+									name="from"
 									value="<fmt:formatDate pattern = "yyyy-MM-dd"  value = "${from}" />" />
 							</div>
 						</div>
@@ -28,7 +29,8 @@
 						<div class="d-flex">
 							<div class="d-flex align-items-center p-1">بۆ</div>
 							<div class="w-100">
-								<input class="form-control" id="to" name="to"
+								<input readonly="readonly" class="form-control" id="to"
+									name="to"
 									value="<fmt:formatDate pattern = "yyyy-MM-dd"  value = "${to}" />" />
 							</div>
 						</div>
@@ -49,7 +51,7 @@
 
 	<div id="teacher-table-div">
 
-		<table id="expense-table" class="display nowrap">
+		<table id="expense-table" class="display w-100">
 			<thead>
 				<tr>
 					<td>#</td>
@@ -64,7 +66,7 @@
 				<c:set var="sumTotalAmount" value="${0}" />
 				<c:forEach items="${expenses}" var="item">
 					<tr>
-						<td>${item.id}</td>
+						<td width="5%">${item.id}</td>
 						<td><fmt:formatDate pattern="yyyy-MM-dd HH:mm:ss"
 								value="${item.time}" /></td>
 						<td><fmt:formatNumber value="${item.amount}"
@@ -75,6 +77,10 @@
 						<td>
 							<button class="btn btn-danger btn-sm"
 								onclick="deleteExpense(${item.id})">
+								<i class="fa fa-times"></i>
+							</button>
+							<button class="btn btn-warning btn-sm"
+								onclick="getEditingExpense(${item.id})">
 								<i class="fa fa-times"></i>
 							</button>
 						</td>

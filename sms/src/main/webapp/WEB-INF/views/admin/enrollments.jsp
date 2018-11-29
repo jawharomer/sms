@@ -9,7 +9,7 @@
 	</button>
 	<button class="btn btn-info" onclick="getAddingStudentNotificaion()">ئاگادارکرنەوە</button>
 	<div id="enrollment-table-div">
-		<table id="enrollment-table" class="display nowrap">
+		<table id="enrollment-table" class="display w-100">
 			<thead>
 				<tr>
 					<th style="min-width: 80px;">#</th>

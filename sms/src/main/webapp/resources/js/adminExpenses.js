@@ -31,6 +31,25 @@ $(document).ready(function() {
 	});
 });
 
+function getEditingExpense(id) {
+	console.log("getEditingExpense->fired");
+	console.log("id=" + id);
+	$.ajax({
+		type : "GET",
+		url : $$ContextURL + "/expenses/edit/" + id,
+		contentType : "application/json",
+		success : function(response) {
+			$("#modal-body").html(response);
+			$("#modal").modal("show");
+		},
+		error : function(response) {
+			$("#modal-body").html(response.responseText);
+			$("#modal").modal("show");
+		}
+	});
+
+}
+
 function getAddingExpense() {
 	console.log("getAddingExpense->fired");
 

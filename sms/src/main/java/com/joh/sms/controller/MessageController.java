@@ -49,11 +49,12 @@ public class MessageController {
 	}
 
 	@PostMapping(path = "/balance/add")
-	@ResponseBody()
-	public String addBalance(@RequestParam String cardNumber) {
+	public String addBalance(@RequestParam String cardNumber, Model model) {
 		logger.info("getAddingBalance->fired");
 		logger.info("cardNumber=" + cardNumber);
 		String result = messageService.addBalance(cardNumber);
-		return result;
+		model.addAttribute("result=" + result);
+
+		return "message";
 	}
 }

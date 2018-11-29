@@ -71,6 +71,31 @@ public class ExpenseController {
 
 	}
 
+	@GetMapping(path = "/edit/{id}")
+	private String getEditingExpense(@PathVariable int id, Model model) {
+		logger.info("getEditingExpense->fired");
+		Expense expense = expenseService.findOne(id);
+		logger.info("expense=" + expense);
+		model.addAttribute("expense", expense);
+		return "admin/editExpense";
+	}
+
+	@PostMapping(path = "/update")
+	private String updateExpense(@RequestBody @Valid Expense expense, BindingResult result, Model model) {
+		logger.info("addExpense->fired");
+		logger.info("expense=" + expense);
+
+		logger.info("errors=" + result.getAllErrors());
+		if (result.hasErrors()) {
+			model.addAttribute("expense", expense);
+			return "admin/addExpense";
+		} else {
+			expenseService.update(expense);
+			return "success";
+		}
+
+	}
+
 	@PostMapping(path = "/delete/{id}")
 	private String deleteExpense(@PathVariable int id) {
 		logger.info("deleteExpense->fired");

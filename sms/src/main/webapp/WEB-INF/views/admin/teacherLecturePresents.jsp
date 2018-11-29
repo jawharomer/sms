@@ -46,7 +46,7 @@
 
 	<div id="teacher-table-div">
 
-		<table id="teacher-lecture-present-table" class="display nowrap">
+		<table id="teacher-lecture-present-table" class="display w-100">
 			<thead>
 				<tr>
 					<td>#</td>

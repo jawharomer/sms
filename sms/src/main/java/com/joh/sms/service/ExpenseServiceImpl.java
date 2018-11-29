@@ -3,6 +3,8 @@ package com.joh.sms.service;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +18,7 @@ public class ExpenseServiceImpl implements ExpenseService {
 	private ExpenseDAO expenseDAO;
 
 	@Override
-	public List<Expense> findAllByTimeBetween(Date from,Date to) {
+	public List<Expense> findAllByTimeBetween(Date from, Date to) {
 		return expenseDAO.findAllByTimeBetween(from, to);
 	}
 
@@ -27,6 +29,18 @@ public class ExpenseServiceImpl implements ExpenseService {
 
 	@Override
 	public Expense save(Expense expense) {
+		return expenseDAO.save(expense);
+	}
+
+	@Override
+	public Expense findOne(int id) {
+		return expenseDAO.findOne(id);
+	}
+
+	@Override
+	public Expense update(Expense expense) {
+		if (expenseDAO.findOne(expense.getId()) == null)
+			throw new EntityNotFoundException();
 		return expenseDAO.save(expense);
 	}
 

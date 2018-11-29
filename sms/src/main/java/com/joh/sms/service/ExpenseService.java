@@ -14,4 +14,8 @@ public interface ExpenseService {
 
 	List<Expense> findAllByTimeBetween(Date from, Date to);
 
+	Expense findOne(int id);
+
+	Expense update(Expense expense);
+
 }

@@ -31,7 +31,7 @@
 
 	<!-- Admin page -->
 	<definition name="adminRoot" extends="base-definition">
-		<put-attribute name="title" value="Admin Page" />
+		<put-attribute name="title" value="بەرێوەبەری سایت" />
 		<put-attribute name="pageCSS" value="admin"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/root.jsp" />
@@ -56,7 +56,7 @@
 	<definition name="adminStudents" extends="adminRoot">
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/students.jsp" cascade="true" />
-		<put-attribute name="title" value="Admin Students" />
+		<put-attribute name="title" value="قووتابیەکان" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -98,7 +98,7 @@
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/teachers.jsp" cascade="true" />
 
-		<put-attribute name="title" value="Admin Teachers" />
+		<put-attribute name="title" value="مامۆستایان" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -137,7 +137,7 @@
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/classLevels.jsp" cascade="true" />
 
-		<put-attribute name="title" value="Admin ClassLevels" />
+		<put-attribute name="title" value="پۆلەکان" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -167,8 +167,7 @@
 		extends="adminRoot">
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/studentLevelDates.jsp" cascade="true" />
-
-		<put-attribute name="title" value="Admin Teachers" />
+		<put-attribute name="title" value="رۆژانی هەلسەنگاند" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -198,7 +197,7 @@
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/schoolWeekDays.jsp" cascade="true" />
 
-		<put-attribute name="title" value="Admin ClassLevels" />
+		<put-attribute name="title" value="رۆژانی هەفتە" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -227,7 +226,7 @@
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/classGroups.jsp" cascade="true" />
 
-		<put-attribute name="title" value="Admin ClassGroups" />
+		<put-attribute name="title" value="پۆلەکان" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -258,7 +257,7 @@
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/classGroupPresents.jsp" cascade="true" />
 
-		<put-attribute name="title" value="Admin ClassGroups" />
+		<put-attribute name="title" value="ئامادەبوونی قوتابی" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -288,8 +287,8 @@
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/classGroupTables.jsp" cascade="true" />
 
-		<put-attribute name="title"
-			value="Admin ClassGroupTables" />
+		<put-attribute name="title" value="" />
+
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -321,8 +320,7 @@
 			value="/WEB-INF/views/admin/teacherLecturePresents.jsp"
 			cascade="true" />
 
-		<put-attribute name="title"
-			value="Admin teacherLecturePresents" />
+		<put-attribute name="title" value="وانەبێژی" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -364,7 +362,7 @@
 			value="/WEB-INF/views/admin/teacherPresents.jsp" cascade="true" />
 
 		<put-attribute name="title"
-			value="Admin teacherLecturePresents" />
+			value="ئامادەبونی مامۆستایان" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -407,8 +405,7 @@
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/enrollments.jsp" cascade="true" />
 
-		<put-attribute name="title"
-			value="Admin ClassGroupTables" />
+		<put-attribute name="title" value="ناونیسین" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -450,8 +447,7 @@
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/studentPresents.jsp" cascade="true" />
 
-		<put-attribute name="title"
-			value="Admin StudentPresents" />
+		<put-attribute name="title" value="ئامادەبوونی قوتابی" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -491,7 +487,7 @@
 	<!-- ClassLevelSubjects -->
 	<definition name="classLevelSubjects"
 		extends="base-definition">
-		<put-attribute name="title" value="ClassLevelSubjects" />
+		<put-attribute name="title" value="بابەتەکان" />
 		<put-attribute name="pageCSS" value="admin"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/classSubject/classLevelSubjects.jsp" />
@@ -518,7 +514,7 @@
 
 	<!-- ClassLevelMarks -->
 	<definition name="classLevelMarks" extends="base-definition">
-		<put-attribute name="title" value="ClassLevelMarks" />
+		<put-attribute name="title" value="نمرەکان" />
 		<put-attribute name="pageCSS" value="admin"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/classMark/classLevelMarks.jsp" />
@@ -546,7 +542,7 @@
 	<!-- ClassLevelGroups -->
 	<definition name="classLevelGroups"
 		extends="base-definition">
-		<put-attribute name="title" value="ClassLevelGroups" />
+		<put-attribute name="title" value="پۆلەکان" />
 		<put-attribute name="pageCSS" value="admin"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/classGroup/classLevelGroups.jsp" />
@@ -574,8 +570,7 @@
 	<!-- ClassLevelLessonTimes -->
 	<definition name="classLevelLessonTimes"
 		extends="base-definition">
-		<put-attribute name="title"
-			value="ClassLevelLessonTimes" />
+		<put-attribute name="title" value="کاتی وانەکان" />
 		<put-attribute name="pageCSS" value="admin"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/lessonTime/classLevelLessonTimes.jsp" />
@@ -607,7 +602,7 @@
 	<!-- EnrollmentPayments -->
 	<definition name="enrollmentPayments"
 		extends="base-definition">
-		<put-attribute name="title" value="Enrollment Payments" />
+		<put-attribute name="title" value="پارەدانی ناونوسین" />
 		<put-attribute name="pageCSS" value="admin"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/enrollmentPayment/enrollmentPayments.jsp" />
@@ -647,8 +642,7 @@
 	<!-- AddClassGroupStudentPresent -->
 	<definition name="addClassGroupStudentPresent"
 		extends="base-definition">
-		<put-attribute name="title"
-			value="addClassGroupStudentPresent" />
+		<put-attribute name="title" value="ئامادەبوونی قووتانی" />
 		<put-attribute name="pageCSS" value="admin"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/studentPresent/addClassGroupStudentPresent.jsp" />
@@ -679,7 +673,7 @@
 	<definition name="editClassGroupStudentPresent"
 		extends="base-definition">
 		<put-attribute name="title"
-			value="addClassGroupStudentPresent" />
+			value="گۆرانکاری لە ئامادەبوونی قووتابی" />
 		<put-attribute name="pageCSS" value="admin"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/studentPresent/editClassGroupStudentPresent.jsp" />
@@ -709,8 +703,7 @@
 	<!-- Admin StudentStudentSubjectMarks -->
 	<definition name="adminStudentStudentSubjectMarks"
 		extends="base-definition">
-		<put-attribute name="title"
-			value="studentStudentSubjectMarks" />
+		<put-attribute name="title" value="نمرەکانی قووتابی" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/adminStudentSubjectMarks.jsp" />
 
@@ -739,7 +732,7 @@
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/expenses.jsp" cascade="true" />
 
-		<put-attribute name="title" value="Admin Expenses" />
+		<put-attribute name="title" value="تێچوەکان" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -779,7 +772,7 @@
 	<!-- Student Page -->
 	<!-- Student Page -->
 	<definition name="studentRoot" extends="base-definition">
-		<put-attribute name="title" value="Student Page" />
+		<put-attribute name="title" value="قوتابی" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/student/root.jsp" />
 		<put-attribute name="studentBody"
@@ -811,8 +804,7 @@
 		<put-attribute name="studentBody"
 			value="/WEB-INF/views/student/studentLevel.jsp" cascade="true" />
 
-		<put-attribute name="title"
-			value="Student ClassGroup Table" />
+		<put-attribute name="title" value="ئاستی قوتابی" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -836,8 +828,8 @@
 		<put-attribute name="studentBody"
 			value="/WEB-INF/views/student/studentLevelDates.jsp" cascade="true" />
 
-		<put-attribute name="title"
-			value="Student ClassGroup Table" />
+		<put-attribute name="title" value="رۆژانی هەلسەنگاندن" />
+
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -850,6 +842,12 @@
 			<add-attribute value="bootstrap.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
+		</put-list-attribute>
+		
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="app" />
 		</put-list-attribute>
 
 	</definition>
@@ -893,8 +891,7 @@
 		<put-attribute name="studentBody"
 			value="/WEB-INF/views/student/classGroupTable.jsp" cascade="true" />
 
-		<put-attribute name="title"
-			value="Student ClassGroup Table" />
+		<put-attribute name="title" value="خشتەی هەفتانە" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -926,8 +923,7 @@
 			value="/WEB-INF/views/student/studentStudentSubjectMarks.jsp"
 			cascade="true" />
 
-		<put-attribute name="title"
-			value="Student StudentSubject Marks" />
+		<put-attribute name="title" value="نمرەکانی قووتابی" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -959,8 +955,7 @@
 			value="/WEB-INF/views/student/studentSubjectNotifications.jsp"
 			cascade="true" />
 
-		<put-attribute name="title"
-			value="studentSubjectNotifications" />
+		<put-attribute name="title" value="تاگادارکردنەوەکان" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -994,7 +989,7 @@
 			value="/WEB-INF/views/student/studentNotifications.jsp"
 			cascade="true" />
 
-		<put-attribute name="title" value="studentNotifications" />
+		<put-attribute name="title" value="ئاگادارکردنەوەکان" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -1022,7 +1017,7 @@
 	<!-- Admin ClassGroupStudents -->
 	<definition name="classGroupStudents"
 		extends="base-definition">
-		<put-attribute name="title" value="ClassLevelMarks" />
+		<put-attribute name="title" value="قووتابیەکان" />
 		<put-attribute name="pageCSS" value="admin"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/classGroup/students.jsp" />
@@ -1063,7 +1058,7 @@
 	<!-- AdminStudentStudentLevel -->
 	<definition name="adminStudentStudentLevel"
 		extends="base-definition">
-		<put-attribute name="title" value="ClassLevelMarks" />
+		<put-attribute name="title" value="ئاستی قووتابی" />
 		<put-attribute name="pageCSS" value="admin"></put-attribute>
 		<put-attribute name="body"
 			value="/WEB-INF/views/admin/studentStudentLevel.jsp" />
@@ -1095,7 +1090,8 @@
 		extends="adminRoot">
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/studentNotifications.jsp" cascade="true" />
-		<put-attribute name="title" value="Admin ClassGroups" />
+		<put-attribute name="title"
+			value="ئاگادارکردنەکانی قووتابی" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -1124,7 +1120,7 @@
 	<definition name="modemStatus" extends="adminRoot">
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/modemStatus.jsp" cascade="true" />
-		<put-attribute name="title" value="Admin ClassGroups" />
+		<put-attribute name="title" value="سیمکارت" />
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
 			<add-attribute value="bootstrap.min" />
@@ -1153,7 +1149,7 @@
 	<!-- Teacher Page -->
 	<!-- Teacher Page -->
 	<definition name="teacherRoot" extends="base-definition">
-		<put-attribute name="title" value="Teacher Root" />
+		<put-attribute name="title" value="مامۆستا" />
 		<put-attribute name="body"
 			value="/WEB-INF/views/teacher/root.jsp" />
 		<put-attribute name="teacherBody"
@@ -1182,7 +1178,7 @@
 
 	<definition name="teacherClassGroupTable"
 		extends="teacherRoot">
-		<put-attribute name="title" value="teacherClassSubject" />
+		<put-attribute name="title" value="خشتەی هەفتانە" />
 		<put-attribute name="teacherBody"
 			value="/WEB-INF/views/teacher/classGroupTable.jsp" cascade="true" />
 
@@ -1197,6 +1193,7 @@
 
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jquery.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="bootstrap.min" />
 			<add-attribute value="app" />
 			<add-attribute value="teacher" />
@@ -1208,7 +1205,7 @@
 
 
 	<definition name="teacherClassSubject" extends="teacherRoot">
-		<put-attribute name="title" value="teacherClassSubject" />
+		<put-attribute name="title" value="وانەکان" />
 		<put-attribute name="teacherBody"
 			value="/WEB-INF/views/teacher/classSubject.jsp" cascade="true" />
 	</definition>
@@ -1217,8 +1214,7 @@
 
 	<definition name="teacherClassSubjectMarks"
 		extends="teacherClassSubject">
-		<put-attribute name="title"
-			value="teacherClassSubjectMarks" />
+		<put-attribute name="title" value="نمرەی وانەکان" />
 		<put-attribute name="classSubjectBody"
 			value="/WEB-INF/views/teacher/classSubjectMarks.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
@@ -1246,8 +1242,7 @@
 
 	<definition name="teacherSubjectNotifications"
 		extends="teacherClassSubject">
-		<put-attribute name="title"
-			value="teacherClassSubjectMarks" />
+		<put-attribute name="title" value="ئاگادارکردنەوەکان" />
 		<put-attribute name="classSubjectBody"
 			value="/WEB-INF/views/teacher/teacherSubjectNotifications.jsp"
 			cascade="true" />
@@ -1277,8 +1272,7 @@
 
 	<definition name="teacherStudentLevelDates"
 		extends="teacherClassSubject">
-		<put-attribute name="title"
-			value="teacherClassSubjectMarks" />
+		<put-attribute name="title" value="بەرواری ئاستی زانستی" />
 		<put-attribute name="classSubjectBody"
 			value="/WEB-INF/views/teacher/studentLevelDates.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
@@ -1307,8 +1301,7 @@
 
 	<definition name="teacherStudentLevels"
 		extends="teacherClassSubject">
-		<put-attribute name="title"
-			value="teacherClassSubjectMarks" />
+		<put-attribute name="title" value="ئاستی قووتابیان" />
 		<put-attribute name="classSubjectBody"
 			value="/WEB-INF/views/teacher/studentLevels.jsp" cascade="true" />
 		<put-list-attribute name="requiredCSSFiles">
@@ -1352,7 +1345,8 @@
 	<!-- WebSite Root -->
 	<definition name="webSiteRoot" extends="base-definition">
 
-		<put-attribute name="title" value="WebSite" />
+		<put-attribute name="title"
+			value="قوتابخانەی کۆرەکی ناحکومی" />
 		<put-attribute name="viewport"
 			value="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
@@ -1388,8 +1382,7 @@
 
 
 	<definition name="editWebSite" extends="base-definition">
-		<put-attribute name="title"
-			value="teacherClassSubjectMarks" />
+		<put-attribute name="title" value="گۆرانکاری لە سایت" />
 
 		<put-attribute name="body"
 			value="/WEB-INF/views/webSite/editWebSite.jsp" />
