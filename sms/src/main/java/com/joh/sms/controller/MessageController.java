@@ -52,8 +52,8 @@ public class MessageController {
 	public String addBalance(@RequestParam String cardNumber, Model model) {
 		logger.info("getAddingBalance->fired");
 		logger.info("cardNumber=" + cardNumber);
-		String result = messageService.addBalance(cardNumber);
-		model.addAttribute("result=" + result);
+		String message = messageService.addBalance(cardNumber);
+		model.addAttribute("message", message);
 
 		return "message";
 	}

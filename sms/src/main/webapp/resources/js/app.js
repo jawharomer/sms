@@ -45,11 +45,13 @@ function cusConfirm() {
 
 
 function showProgress(){
+	console.log("showProgress->fired");
 	 var div = document.getElementById('cus-progress-div');
 	 div.style.display = 'block';
 }
 
 function hideProgress(){
+	console.log("hideProgress->fired");
 	 var div = document.getElementById('cus-progress-div');
 	 div.style.display = 'none';
 }
@@ -67,7 +69,9 @@ $(document).ready()
 	 div.style.display = 'none';
 	 
 	$("body").on('click', ".cus-show-progress", function() {
+		console.log(".cus-show-progress-clicked");
 		var div = document.getElementById('cus-progress-div');
+		console.log("div="+div);
 		 div.style.display = 'block';
 		});
 }
