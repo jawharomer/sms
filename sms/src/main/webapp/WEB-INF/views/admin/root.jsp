@@ -11,8 +11,6 @@
 	<section id="section-right" class="card">
 
 		<ul class="list-group  cus-right-nav">
-		<li class="cus-progress-show">ddd
-		</li>
 			<li class="list-group-item list-group-item-action text-warning"><a
 				class="cus-progress-show" href='<c:url value="/webSite/edit" />'>
 					سایت</a></li>

@@ -8,6 +8,8 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 
+import javax.transaction.Transactional;
+
 import org.apache.log4j.Logger;
 import org.smslib.AGateway;
 import org.smslib.IOutboundMessageNotification;
@@ -292,6 +294,7 @@ public class MessageService {
 		}
 	}
 
+	@Transactional
 	public void sendSMS() throws Exception {
 
 		Properties properties = System.getProperties();
@@ -321,6 +324,8 @@ public class MessageService {
 
 		// Send a message synchronously.
 
+		List<OutboundMessage> outboundMessages = new ArrayList<>();
+
 		while (smsMessageDAO.findAllNotSentMessages().size() > 1) {
 
 			List<SMSMessage> smsMessages = smsMessageDAO.findAllNotSentMessages();
@@ -328,16 +333,22 @@ public class MessageService {
 			logger.info("smsMessages=" + smsMessages);
 
 			for (SMSMessage smsMessage : smsMessages) {
+				logger.info("smsMessage="+smsMessage);
+				logger.info("putting  sms to outboundMessages");
 				OutboundMessage msg = new OutboundMessage();
 				msg.setEncoding(MessageEncodings.ENCUCS2);
 				msg.setRecipient(smsMessage.getTo());
 				msg.setText(smsMessage.getMessage());
 
-				Service.getInstance().sendMessage(msg);
+				outboundMessages.add(msg);
 
 				smsMessageDAO.messageSent(smsMessage.getId());
+
 			}
 		}
+		logger.info("outboundMessages=" + outboundMessages);
+
+		Service.getInstance().sendMessages(outboundMessages);
 
 		Service.getInstance().stopService();
 	}

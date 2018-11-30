@@ -15,6 +15,6 @@ public interface SMSMessageDAO extends CrudRepository<SMSMessage, Integer> {
 	List<SMSMessage> findAllNotSentMessages();
 
 	@Modifying
-	@Query("UPDATE SMSMessage S SET isSent=1")
+	@Query("UPDATE SMSMessage S SET isSent=1 WHERE id=? ")
 	void messageSent(int id);
 }
