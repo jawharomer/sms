@@ -23,6 +23,7 @@
 			<th>بۆ</th>
 			<th>نامە</th>
 			<th>بەروار</th>
+			<th>؟</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -32,6 +33,7 @@
 				<td>${item.message}</td>
 				<td><fmt:formatDate value="${item.time}"
 						pattern="yyyy-MM-dd hh:mm:ss" /></td>
+				<td>${item.isSent}</td>
 			</tr>
 		</c:forEach>
 	</tbody>
