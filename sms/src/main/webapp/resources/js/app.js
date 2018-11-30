@@ -67,8 +67,8 @@ $(document).ready(function(){
 	 var div = document.getElementById('cus-progress-div');
 	 console.log("div="+div);
      div.style.display = 'none';
-    $(".cus-progress-show").click(function() {
-     alert('Item selected');
+     $(".cus-progress-show").click(function() {
+     
      console.log(".showProgress->fired");
    	 var div = document.getElementById('cus-progress-div');
    	 div.style.display = 'block';

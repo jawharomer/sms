@@ -11,7 +11,7 @@ import com.joh.sms.model.SMSMessage;
 public interface SMSMessageDAO extends CrudRepository<SMSMessage, Integer> {
 	List<SMSMessage> findAllByOrderByIdDesc();
 
-	@Query("SELECT M.* FROM SMSMessage WHERE S.isSet!=1")
+	@Query("SELECT S FROM SMSMessage S WHERE isSent!=1")
 	List<SMSMessage> findAllNotSentMessages();
 
 	@Modifying
