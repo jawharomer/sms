@@ -292,7 +292,7 @@ public class MessageService {
 		}
 	}
 
-	public void sendSMS(List<SMSMessage> smsMessages) throws Exception {
+	public void sendSMS() throws Exception {
 
 		Properties properties = System.getProperties();
 
@@ -321,19 +321,23 @@ public class MessageService {
 
 		// Send a message synchronously.
 
-		List<OutboundMessage> messages = new ArrayList<>();
+		while (smsMessageDAO.findAllNotSentMessages().size() > 1) {
 
-		for (SMSMessage smsMessage : smsMessages) {
-			OutboundMessage msg = new OutboundMessage();
-			msg.setEncoding(MessageEncodings.ENCUCS2);
-			msg.setRecipient(smsMessage.getTo());
-			msg.setText(smsMessage.getMessage());
-			messages.add(msg);
+			List<SMSMessage> smsMessages = smsMessageDAO.findAllNotSentMessages();
+
+			logger.info("smsMessages=" + smsMessages);
+
+			for (SMSMessage smsMessage : smsMessages) {
+				OutboundMessage msg = new OutboundMessage();
+				msg.setEncoding(MessageEncodings.ENCUCS2);
+				msg.setRecipient(smsMessage.getTo());
+				msg.setText(smsMessage.getMessage());
+
+				Service.getInstance().sendMessage(msg);
+
+				smsMessageDAO.messageSent(smsMessage.getId());
+			}
 		}
-
-		Service.getInstance().sendMessages(messages);
-
-		smsMessageDAO.save(smsMessages);
 
 		Service.getInstance().stopService();
 	}
@@ -343,6 +347,14 @@ public class MessageService {
 			System.out.println("Outbound handler called from Gateway: " + gateway.getGatewayId());
 			System.out.println(msg);
 		}
+	}
+
+	public SMSMessage saveSMS(SMSMessage smsMessage) {
+		return smsMessageDAO.save(smsMessage);
+	}
+
+	public Iterable<SMSMessage> saveSMS(List<SMSMessage> smsMessages) {
+		return smsMessageDAO.save(smsMessages);
 	}
 
 	/// Helper

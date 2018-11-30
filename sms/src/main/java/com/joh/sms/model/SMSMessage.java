@@ -33,6 +33,9 @@ public class SMSMessage {
 	@ColumnDefault("CURRENT_TIMESTAMP")
 	private Date time;
 
+	@Column(name = "SENT")
+	private int isSent;
+
 	public int getId() {
 		return id;
 	}
@@ -65,9 +68,18 @@ public class SMSMessage {
 		this.message = message;
 	}
 
+	public int getIsSent() {
+		return isSent;
+	}
+
+	public void setIsSent(int isSent) {
+		this.isSent = isSent;
+	}
+
 	@Override
 	public String toString() {
-		return "SMSMessage [id=" + id + ", to=" + to + ", message=" + message + ", time=" + time + "]";
+		return "SMSMessage [id=" + id + ", to=" + to + ", message=" + message + ", time=" + time + ", isSent=" + isSent
+				+ "]";
 	}
 
 }

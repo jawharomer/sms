@@ -843,7 +843,7 @@
 			<add-attribute value="app" />
 			<add-attribute value="student" />
 		</put-list-attribute>
-		
+
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jquery.min" />
 			<add-attribute value="jquery-ui.min" />

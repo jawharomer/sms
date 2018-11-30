@@ -344,7 +344,8 @@ public class AdminController {
 			logger.info("smsMessages=" + smsMessages);
 
 			try {
-				messageService.sendSMS(smsMessages);
+				messageService.saveSMS(smsMessages);// Put Message in queue
+				messageService.sendSMS();
 				return "success";
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
@@ -643,7 +644,8 @@ public class AdminController {
 						List<SMSMessage> smsMessages = new ArrayList<>();
 						smsMessages.add(forUser);
 						try {
-							messageService.sendSMS(smsMessages);
+							messageService.saveSMS(smsMessages);// Put Message in queue
+							messageService.sendSMS();
 						} catch (Exception e) {
 							e.printStackTrace();
 						}

@@ -62,16 +62,15 @@ function cusPF(input){
 	return input;
 }
 
-$(document).ready()
-{
+
+$(document).ready(function(){
 	 var div = document.getElementById('cus-progress-div');
 	 console.log("div="+div);
-	 div.style.display = 'none';
-	 
-	$("body").on('click', ".cus-show-progress", function() {
-		console.log(".cus-show-progress-clicked");
-		var div = document.getElementById('cus-progress-div');
-		console.log("div="+div);
-		 div.style.display = 'block';
-		});
-}
+     div.style.display = 'none';
+    $(".cus-progress-show").click(function() {
+     alert('Item selected');
+     console.log(".showProgress->fired");
+   	 var div = document.getElementById('cus-progress-div');
+   	 div.style.display = 'block';
+    });
+});
