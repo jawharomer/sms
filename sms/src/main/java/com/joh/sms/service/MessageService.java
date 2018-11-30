@@ -294,7 +294,6 @@ public class MessageService {
 		}
 	}
 
-	@Transactional
 	public void sendSMS() throws Exception {
 
 		Properties properties = System.getProperties();
@@ -305,8 +304,10 @@ public class MessageService {
 
 		System.out.println(Library.getLibraryDescription());
 		System.out.println("Version: " + Library.getLibraryVersion());
+
 		SerialModemGateway gateway = new SerialModemGateway("modem.com1", getPort(), 19200, "SIMCOM_Ltd",
 				"SIMCOM_SIM900");
+
 		gateway.setInbound(true);
 		gateway.setOutbound(true);
 		Service.getInstance().setOutboundMessageNotification(outboundNotification);
@@ -333,8 +334,8 @@ public class MessageService {
 			logger.info("smsMessages=" + smsMessages);
 
 			for (SMSMessage smsMessage : smsMessages) {
-				logger.info("smsMessage="+smsMessage);
-				logger.info("putting  sms to outboundMessages");
+				logger.info("smsMessage=" + smsMessage);
+				logger.info("put  sms to outboundMessages");
 				OutboundMessage msg = new OutboundMessage();
 				msg.setEncoding(MessageEncodings.ENCUCS2);
 				msg.setRecipient(smsMessage.getTo());
@@ -349,7 +350,6 @@ public class MessageService {
 		logger.info("outboundMessages=" + outboundMessages);
 
 		Service.getInstance().sendMessages(outboundMessages);
-
 		Service.getInstance().stopService();
 	}
 
