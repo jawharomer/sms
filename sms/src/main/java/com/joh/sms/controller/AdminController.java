@@ -345,10 +345,9 @@ public class AdminController {
 
 			try {
 				messageService.saveSMS(smsMessages);// Put Message in queue
-				messageService.sendSMS();
+				messageService.starSending();
 				return "success";
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 				return "failed";
 			}
@@ -643,12 +642,8 @@ public class AdminController {
 						forUser.setMessage(message);
 						List<SMSMessage> smsMessages = new ArrayList<>();
 						smsMessages.add(forUser);
-						try {
-							messageService.saveSMS(smsMessages);// Put Message in queue
-							messageService.sendSMS();
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
+						messageService.saveSMS(smsMessages);// Put Message in queue
+						messageService.starSending();
 
 					}).start();
 				}

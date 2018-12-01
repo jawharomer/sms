@@ -8,7 +8,8 @@ import java.util.Enumeration;
 import java.util.List;
 import java.util.Properties;
 
-import javax.transaction.Transactional;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 import org.apache.log4j.Logger;
 import org.smslib.AGateway;
@@ -34,10 +35,13 @@ public class MessageService {
 	@Autowired
 	private SMSMessageDAO smsMessageDAO;
 
+	@PersistenceContext
+	EntityManager entityManager;
+
 	private static final Logger logger = Logger.getLogger(MessageService.class);
 
 	public ModemStatus getModemStatus() {
-		logger.debug("getModemStatus->fired");
+		logger.info("getModemStatus->fired");
 
 		ModemStatus modemStatus = new ModemStatus();
 
@@ -59,7 +63,7 @@ public class MessageService {
 	private static String outputHexa;
 
 	private String getBalance() {
-		logger.debug("getBalance->fired");
+		logger.info("getBalance->fired");
 		outputHexa = "";// reset it
 		SerialPort serialPort = null;
 		try {
@@ -67,7 +71,7 @@ public class MessageService {
 			CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier(getPort());
 
 			if (portIdentifier.isCurrentlyOwned()) {
-				logger.debug("Error: Port is currently in use");
+				logger.info("Error: Port is currently in use");
 			}
 			CommPort commPort = portIdentifier.open(this.getClass().getName(), 2000);
 
@@ -105,10 +109,10 @@ public class MessageService {
 
 			Thread outThread = new Thread(() -> {
 				try {
-					logger.debug("Thread Sending commands starts");
+					logger.info("Thread Sending commands starts");
 					out.write("ATD*211#;\r\n".getBytes());
 					Thread.sleep(6000);
-					logger.debug("Thread  sending commands done");
+					logger.info("Thread  sending commands done");
 				} catch (InterruptedException | IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -118,9 +122,9 @@ public class MessageService {
 			outThread.start();
 			outThread.join(20000);
 			System.out.println("outThread->Done");
-			logger.debug("outputHexa=" + outputHexa);
+			logger.info("outputHexa=" + outputHexa);
 			String toParse = outputHexa.substring(outputHexa.indexOf("\"") + 1, outputHexa.lastIndexOf("\""));
-			logger.debug("toParse=" + toParse);
+			logger.info("toParse=" + toParse);
 			String result = decodeUcs2Text(hexToByte(toParse));
 			logger.info("result=" + result);
 
@@ -137,7 +141,7 @@ public class MessageService {
 	private static String outputHexaAddBalance;
 
 	public String addBalance(String cardNumber) {
-		logger.debug("addBalance->fired");
+		logger.info("addBalance->fired");
 		outputHexaAddBalance = "";// reset it
 		SerialPort serialPort = null;
 		try {
@@ -145,7 +149,7 @@ public class MessageService {
 			CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier(getPort());
 
 			if (portIdentifier.isCurrentlyOwned()) {
-				logger.debug("Error: Port is currently in use");
+				logger.info("Error: Port is currently in use");
 			}
 			CommPort commPort = portIdentifier.open(this.getClass().getName(), 2000);
 
@@ -183,12 +187,12 @@ public class MessageService {
 
 			Thread outThread = new Thread(() -> {
 				try {
-					logger.debug("Thread Sending commands starts");
+					logger.info("Thread Sending commands starts");
 					String comamnd = "ATD*221*" + cardNumber + "#;\r\n";
 					logger.info("comamnd=" + comamnd);
 					out.write(comamnd.getBytes());
 					Thread.sleep(6000);
-					logger.debug("Thread  sending commands done");
+					logger.info("Thread  sending commands done");
 				} catch (InterruptedException | IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -198,10 +202,10 @@ public class MessageService {
 			outThread.start();
 			outThread.join(20000);
 			System.out.println("outThread->Done");
-			logger.debug("outputHexaAddBalance=" + outputHexaAddBalance);
+			logger.info("outputHexaAddBalance=" + outputHexaAddBalance);
 			String toParse = outputHexaAddBalance.substring(outputHexaAddBalance.indexOf("\"") + 1,
 					outputHexaAddBalance.lastIndexOf("\""));
-			logger.debug("toParse=" + toParse);
+			logger.info("toParse=" + toParse);
 			String result = decodeUcs2Text(hexToByte(toParse));
 			logger.info("result=" + result);
 
@@ -218,7 +222,7 @@ public class MessageService {
 	private static String outputHexaSignal;
 
 	public int getSignal() {
-		logger.debug("getSignal->fired");
+		logger.info("getSignal->fired");
 		outputHexaSignal = "";// reset it
 		SerialPort serialPort = null;
 		try {
@@ -226,7 +230,7 @@ public class MessageService {
 			CommPortIdentifier portIdentifier = CommPortIdentifier.getPortIdentifier(getPort());
 
 			if (portIdentifier.isCurrentlyOwned()) {
-				logger.debug("Error: Port is currently in use");
+				logger.info("Error: Port is currently in use");
 			}
 			CommPort commPort = portIdentifier.open(this.getClass().getName(), 2000);
 
@@ -264,12 +268,12 @@ public class MessageService {
 
 			Thread outThread = new Thread(() -> {
 				try {
-					logger.debug("Thread Sending commands starts");
+					logger.info("Thread Sending commands starts");
 					String comamnd = "AT+CSQ;\r\n";
 					logger.info("comamnd=" + comamnd);
 					out.write(comamnd.getBytes());
 					Thread.sleep(3000);
-					logger.debug("Thread  sending commands done");
+					logger.info("Thread  sending commands done");
 				} catch (InterruptedException | IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -278,12 +282,12 @@ public class MessageService {
 			});
 			outThread.start();
 			outThread.join(20000);
-			System.out.println("outThread->Done");
-			logger.debug("outputHexaSignal=" + outputHexaSignal);
+			logger.info("outThread->Done");
+			logger.info("outputHexaSignal=" + outputHexaSignal);
 			String search = "+CSQ:";
 			String result = outputHexaSignal.substring(outputHexaSignal.indexOf(search) + search.length() + 1,
 					outputHexaSignal.lastIndexOf(",")).trim();
-			logger.debug("result=" + result);
+			logger.info("result=" + result);
 			return Integer.parseInt(result);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -294,26 +298,72 @@ public class MessageService {
 		}
 	}
 
-	public void sendSMS() throws Exception {
+	public void starSending() {
+		logger.info("starSending->fired");
+		smsMessageDAO.flush();
 
+		try {
+
+			List<SMSMessage> smsMessages = smsMessageDAO.findAllNotSentMessages();
+
+			logger.info("smsMessages=" + smsMessages);
+
+			for (SMSMessage smsMessage : smsMessages) {
+				logger.info("smsMessage=" + smsMessage);
+				logger.info("Start sending sms");
+				OutboundMessage msg = new OutboundMessage();
+				msg.setEncoding(MessageEncodings.ENCUCS2);
+				msg.setRecipient(smsMessage.getTo());
+				msg.setText(smsMessage.getMessage());
+
+				sendSMS(msg);
+				logger.info("sms sent done");
+
+				smsMessageDAO.messageSent(smsMessage.getId());
+
+			}
+
+		} catch (Exception e) {
+			throw new RuntimeException("Sending sms failed");
+		}
+		logger.info("starSending->done");
+	}
+
+	//
+
+	static SerialModemGateway gateway;
+
+	static {
+		try {
+			initialize();
+		} catch (Exception e) {
+			logger.info("Initializeing Modem failed");
+			e.printStackTrace();
+		}
+	}
+
+	public static void initialize() throws Exception {
+		logger.info("initialize->fired");
 		Properties properties = System.getProperties();
 
 		properties.setProperty("smslib.serial.polling", "true");
 
 		OutboundNotification outboundNotification = new OutboundNotification();
-
+		System.out.println("Example: Send message from a serial gsm modem.");
 		System.out.println(Library.getLibraryDescription());
 		System.out.println("Version: " + Library.getLibraryVersion());
-
-		SerialModemGateway gateway = new SerialModemGateway("modem.com1", getPort(), 19200, "SIMCOM_Ltd",
-				"SIMCOM_SIM900");
-
+		gateway = new SerialModemGateway("modem.com1", "/dev/ttyACM0", 19200, "SIMCOM_Ltd", "SIMCOM_SIM900");
 		gateway.setInbound(true);
 		gateway.setOutbound(true);
+		// gateway.setSimPin("0000");
+		// Explicit SMSC address set is required for some modems.
+		// Below is for VODAFONE GREECE - be sure to set your own!
+		// gateway.setSmscNumber("+306942190000");
 		Service.getInstance().setOutboundMessageNotification(outboundNotification);
 		Service.getInstance().addGateway(gateway);
 		Service.getInstance().startService();
 
+		System.out.println();
 		System.out.println("Modem Information:");
 		System.out.println("  Manufacturer: " + gateway.getManufacturer());
 		System.out.println("  Model: " + gateway.getModel());
@@ -323,41 +373,32 @@ public class MessageService {
 		System.out.println("  Battery Level: " + gateway.getBatteryLevel() + "%");
 		System.out.println();
 
-		// Send a message synchronously.
-
-		List<OutboundMessage> outboundMessages = new ArrayList<>();
-
-		while (smsMessageDAO.findAllNotSentMessages().size() > 1) {
-
-			List<SMSMessage> smsMessages = smsMessageDAO.findAllNotSentMessages();
-
-			logger.info("smsMessages=" + smsMessages);
-
-			for (SMSMessage smsMessage : smsMessages) {
-				logger.info("smsMessage=" + smsMessage);
-				logger.info("put  sms to outboundMessages");
-				OutboundMessage msg = new OutboundMessage();
-				msg.setEncoding(MessageEncodings.ENCUCS2);
-				msg.setRecipient(smsMessage.getTo());
-				msg.setText(smsMessage.getMessage());
-
-				outboundMessages.add(msg);
-
-				smsMessageDAO.messageSent(smsMessage.getId());
-
-			}
-		}
-		logger.info("outboundMessages=" + outboundMessages);
-
-		Service.getInstance().sendMessages(outboundMessages);
 		Service.getInstance().stopService();
+		logger.info("initialize->done");
 	}
 
-	public class OutboundNotification implements IOutboundMessageNotification {
+	public static class OutboundNotification implements IOutboundMessageNotification {
 		public void process(AGateway gateway, OutboundMessage msg) {
 			System.out.println("Outbound handler called from Gateway: " + gateway.getGatewayId());
 			System.out.println(msg);
 		}
+	}
+
+	public static void sendSMS(OutboundMessage msg) throws Exception {
+		logger.info("sendSMS->fired");
+		Service.getInstance().startService();
+		// Send a message synchronously.
+
+		System.err.println("First Stats=" + gateway.getStatus());
+
+		Service.getInstance().sendMessage(msg);
+
+		System.out.println(msg);
+		System.out.println("Now Sleeping - Hit <enter> to terminate.");
+		// System.in.read();
+
+		Service.getInstance().stopService();
+		logger.info("sendSMS->done");
 	}
 
 	public SMSMessage saveSMS(SMSMessage smsMessage) {
