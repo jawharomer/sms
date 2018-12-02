@@ -854,6 +854,7 @@
 
 		<put-list-attribute name="requiredJSFiles">
 			<add-attribute value="jquery.min" />
+			<add-attribute value="jquery-ui.min" />
 			<add-attribute value="bootstrap.min" />
 			<add-attribute value="app" />
 			<add-attribute value="student" />
