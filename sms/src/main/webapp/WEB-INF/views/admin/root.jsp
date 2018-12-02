@@ -38,10 +38,16 @@
 			<li class="list-group-item list-group-item-action"><a
 				class="cus-progress-show" href='<c:url value="/classGroups" />'>پۆلەکان</a></li>
 			<li class="list-group-item list-group-item-action"><a
-				class="cus-progress-show" href='<c:url value="/enrollments" />'>ناونوسین</a></li>
-			<li class="list-group-item list-group-item-action"><a
 				class="cus-progress-show"
 				href='<c:url value="/admin/students/notificaions" />'>ئ.قوتابی</a></li>
+
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show" href='<c:url value="/enrollments" />'>ناونوسین</a></li>
+
+			<li class="list-group-item list-group-item-action"><a
+				class="cus-progress-show"
+				href='<c:url value="/enrollmentPayments" />?from=${currentDate}&to=${currentDate}'>پارەدانی
+					قووتابیان</a></li>
 
 			<li class="list-group-item list-group-item-action"><a
 				class="cus-progress-show"

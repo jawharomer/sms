@@ -605,7 +605,7 @@
 		<put-attribute name="title" value="پارەدانی ناونوسین" />
 		<put-attribute name="pageCSS" value="admin"></put-attribute>
 		<put-attribute name="body"
-			value="/WEB-INF/views/enrollmentPayment/enrollmentPayments.jsp" />
+			value="/WEB-INF/views/enrollmentPayment/studentEnrollmentPayments.jsp" />
 
 		<put-list-attribute name="requiredCSSFiles">
 			<add-attribute value="animate" />
@@ -762,6 +762,46 @@
 			<add-attribute value="app" />
 			<add-attribute value="admin" />
 			<add-attribute value="adminExpenses" />
+		</put-list-attribute>
+
+	</definition>
+	
+	
+	<!-- AdminEnrollmentPayments -->
+	<definition name="adminEnrollmentPayments" extends="adminRoot">
+		<put-attribute name="adminBody"
+			value="/WEB-INF/views/admin/enrollmentPayments.jsp" cascade="true" />
+
+		<put-attribute name="title" value="پارەدانی قووتابیان" />
+		<put-list-attribute name="requiredCSSFiles">
+			<add-attribute value="animate" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="font-awesome" />
+			<add-attribute value="jquery.dataTables.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminEnrollmentPayments" />
+		</put-list-attribute>
+
+		<put-list-attribute name="requiredJSFiles">
+			<add-attribute value="jquery.min" />
+			<add-attribute value="bootstrap.min" />
+			<add-attribute value="jquery-ui.min" />
+			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="jquery.dataTables.min" />
+			<!-- S-DataTableLib -->
+			<add-attribute value="dt/dataTables.buttons.min" />
+			<add-attribute value="dt/buttons.flash.min" />
+			<add-attribute value="dt/jszip.min" />
+			<add-attribute value="dt/pdfmake.min" />
+			<add-attribute value="dt/vfs_fonts" />
+			<add-attribute value="dt/buttons.html5.min" />
+			<add-attribute value="dt/buttons.print.min" />
+			<!-- E-DataTableLib -->
+			<add-attribute value="app" />
+			<add-attribute value="admin" />
+			<add-attribute value="adminEnrollmentPayments" />
 		</put-list-attribute>
 
 	</definition>

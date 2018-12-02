@@ -1,5 +1,7 @@
 package com.joh.sms.service;
 
+import java.util.Date;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +47,9 @@ public class EnrollmentPaymentServiceImpl implements EnrollmentPaymentService {
 	@Override
 	public EnrollmentPayment findOne(int id) {
 		return enrollmentPaymentDAO.findOne(id);
+	}
+	@Override
+	public Iterable<EnrollmentPayment> findAllByTimeBetween(Date from,Date to) {
+		return enrollmentPaymentDAO.findAllByTimeBetween(from, to);
 	}
 }

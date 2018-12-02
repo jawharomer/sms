@@ -1,9 +1,13 @@
 package com.joh.sms.controller;
 
+import java.util.Date;
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,10 +17,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.joh.sms.model.Enrollment;
 import com.joh.sms.model.EnrollmentPayment;
+import com.joh.sms.model.Expense;
 import com.joh.sms.service.EnrollmentPaymentService;
 import com.joh.sms.service.EnrollmentService;
 
@@ -31,6 +37,24 @@ public class EnrollmentPaymentController {
 
 	@Autowired
 	private EnrollmentService enrollmentService;
+
+	@GetMapping
+	private String getAllExpenses(@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date from,
+			@RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") Date to, Model model) {
+		logger.info("getAllExpenses->fired");
+
+		logger.info("from=" + from);
+		logger.info("to=" + to);
+
+		Iterable<EnrollmentPayment> enrollmentPayments = enrollmentPaymentService.findAllByTimeBetween(from, to);
+		logger.info("enrollmentPayments=" + enrollmentPayments);
+
+		model.addAttribute("enrollmentPayments", enrollmentPayments);
+		model.addAttribute("from", from);
+		model.addAttribute("to", to);
+
+		return "adminEnrollmentPayments";
+	}
 
 	@GetMapping(path = "/enrollment/{id}")
 	public String getAllEnrollmentPayment(@PathVariable int id, Model model) {

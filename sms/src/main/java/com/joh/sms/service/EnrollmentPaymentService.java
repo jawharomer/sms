@@ -1,5 +1,7 @@
 package com.joh.sms.service;
 
+import java.util.Date;
+
 import com.joh.sms.model.EnrollmentPayment;
 
 public interface EnrollmentPaymentService {
@@ -12,5 +14,7 @@ public interface EnrollmentPaymentService {
 	EnrollmentPayment findOne(int id);
 
 	EnrollmentPayment update(EnrollmentPayment enrollmentPayment);
+
+	Iterable<EnrollmentPayment> findAllByTimeBetween(Date from, Date to);
 
 }
