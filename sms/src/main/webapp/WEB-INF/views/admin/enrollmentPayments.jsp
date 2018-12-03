@@ -5,9 +5,6 @@
 
 <div id="admin-teachers-container">
 	<h3>پارەدانی قووتابیان</h3>
-	<button class="btn btn-success" onclick="getAddingExpense()">
-		<i class="fa fa-plus"></i>
-	</button>
 
 	<hr>
 
