@@ -35,6 +35,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests().antMatchers("/login/**", "/logout", "/", "/attachedFiles/**").permitAll()
+				.antMatchers("/classGroups/*/students", "/admin/students/notificaions/add/**")
+				.hasAnyRole("ADMIN", "TEACHER")
 				.antMatchers("/admin/**", "/classGroups/**", "/classGroupTables/**", "/classLevels/**",
 						"/classMarks/**", "/classSubjects/**", "/enrollments/**", "/enrollmentPayments/**",
 						"/expenses/**", "/lessonTimes/**", "/schoolWeekDays/**")

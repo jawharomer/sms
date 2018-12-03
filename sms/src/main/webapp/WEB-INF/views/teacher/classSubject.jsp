@@ -4,7 +4,9 @@
 <section id="class-subject">
 	<div style="direction: ltr;" class="btn-group" role="group"
 		aria-label="Basic example">
-		<a class="btn btn-secondary"
+		<a class="btn btn-secondary" target="_blank"
+			href="<c:url value="/classGroups/${classGroupId}/students" />">
+			ئاگادارکدنەوەی قووتابی </a> <a class="btn btn-secondary"
 			href="<c:url value="/teachers/notifications?classSubjectId=${classSubjectId}&classGroupId=${classGroupId}" />">
 			ئاگادارکردنەوەکان </a> <a class="btn btn-secondary"
 			href="<c:url value="/teachers/studentLevelDates?classSubjectId=${classSubjectId}&classGroupId=${classGroupId}" />">
