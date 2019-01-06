@@ -765,10 +765,11 @@
 		</put-list-attribute>
 
 	</definition>
-	
-	
+
+
 	<!-- AdminEnrollmentPayments -->
-	<definition name="adminEnrollmentPayments" extends="adminRoot">
+	<definition name="adminEnrollmentPayments"
+		extends="adminRoot">
 		<put-attribute name="adminBody"
 			value="/WEB-INF/views/admin/enrollmentPayments.jsp" cascade="true" />
 
@@ -1090,6 +1091,7 @@
 			<add-attribute value="dt/buttons.print.min" />
 			<!-- E-DataTableLib -->
 			<add-attribute value="jquery.serializeObject" />
+			<add-attribute value="tinymce/tinymce.min" />
 			<add-attribute value="app" />
 			<add-attribute value="classGroupStudents" />
 		</put-list-attribute>

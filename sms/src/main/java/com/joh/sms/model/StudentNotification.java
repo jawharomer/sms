@@ -35,8 +35,8 @@ public class StudentNotification {
 	@Column(name = "TITLE")
 	private String title;
 
-	@Length(min=1,max=512,message="{studentNotification.note.length}")
-	@Column(name = "NOTE",length=512)
+	@Length(min=1,max=65535,message="{studentNotification.note.length}")
+	@Column(name = "NOTE", columnDefinition = "TEXT")
 	private String note;
 
 	@Column(name = "NOTIFICATION_TIME")

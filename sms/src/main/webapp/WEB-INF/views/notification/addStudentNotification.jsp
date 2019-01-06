@@ -42,8 +42,48 @@
 
 
 <script>
+
+$(document)
+.ready(
+		function() {
+			tinymce.remove();
+
+			tinymce
+					.init({
+						selector : 'textarea',
+						height : 200,
+						plugins : [
+								'table',
+								'advlist autolink lists link image charmap print preview anchor textcolor',
+								'searchreplace visualblocks code fullscreen',
+								'insertdatetime media table contextmenu paste code help wordcount' ],
+						toolbar : 'table|insert | undo redo |  formatselect | bold italic backcolor  | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help',
+						content_css : $$ContextURL
+								+ "/resources/css/cusTinymce.css",
+						directionality : 'rtl',
+						setup : function(ed) {
+							ed
+									.on(
+											'init',
+											function() {
+												this.getDoc().body.style.fontSize = '20px';
+												this.getDoc().body.style.fontFamily = 'Noto Kufi Arabic';
+											});
+						}
+					});
+		});
+
+$(document).on('focusin', function(e) {
+if ($(event.target).closest(".mce-window").length) {
+e.stopImmediatePropagation();
+}
+});
+
+
+
 	function addStudentNotificaion(event) {
 		event.preventDefault();
+		tinymce.triggerSave();
 		console.log("addStudentNotificaion->fired");
 		var data = $("#add-student-notificaion-form").serializeObject();
 		data.studentIds =cusPF(${studentIds});

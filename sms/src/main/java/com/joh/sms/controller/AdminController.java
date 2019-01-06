@@ -311,7 +311,7 @@ public class AdminController {
 
 			List<SMSMessage> smsMessages = new ArrayList<>();
 
-			String signature = "قوتابخانەی کۆرەک";
+			String signature = "قوتابخانەی کۆرەک"+"\r\n"+"www.korek-school.com";
 
 			for (Student student : students) {
 
@@ -634,7 +634,7 @@ public class AdminController {
 					new Thread(() -> {
 						logger.info("sending sms to user");
 
-						String signature = "قوتابخانەی کۆرەک";
+						String signature = "قوتابخانەی کۆرەک"+"\r\n"+"www.korek-school.com";
 						SMSMessage forUser = new SMSMessage();
 						forUser.setTo(mobileNumber);
 						String message = String.format("%s \n %s \n %s", signature, "بەکاربەر:" + appUser.getUserName(),

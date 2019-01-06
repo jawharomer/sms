@@ -16,7 +16,7 @@ public class StudentNotificaionD {
 	@NotBlank(message = "{studentNotificaionD.title.blank}")
 	private String title;
 	@NotBlank(message = "{studentNotificaionD.note.blank}")
-	@Length(min=1,max=512,message="{studentNotificaionD.note.length}")
+	@Length(min=1,max=65535,message="{studentNotificaionD.note.length}")
 	private String note;
 
 	public Integer[] getStudentIds() {

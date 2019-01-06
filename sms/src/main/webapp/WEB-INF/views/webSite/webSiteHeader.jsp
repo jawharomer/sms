@@ -18,7 +18,7 @@
 			<li class="nav-item active"><a class="nav-link"
 				href="<c:url value="#address" />">ناونیشان</a></li>
 			<li class="nav-item active"><a class="nav-link"
-				href="<c:url value="#contact" />">پایوەندی</a></li>
+				href="<c:url value="#contact" />">پەیوەندی</a></li>
 
 			<li class="nav-item border border-success"><a class="nav-link"
 				href="<c:url value="/app" />">چوونە ژورەوە</a></li>
